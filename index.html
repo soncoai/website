@@ -7,21 +7,17 @@
     <meta name="description" content="CRM, listings, and follow-ups in one workspace — with AI built in, not bolted on. One price per office, everything included.">
     <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
     <link rel="preload" href="fonts/geist-latin-var.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="fonts/gambetta-var.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="css/site.css?v=25">
+    <link rel="stylesheet" href="css/site.css?v=26">
     <script src="js/i18n.js"></script>
     <script defer src="js/alpine.min.js"></script>
 </head>
 <body x-data="i18n">
-    <div class="relative min-h-screen bg-white">
-        <div class="pointer-events-none absolute inset-x-0 top-0 h-105 overflow-hidden mask-b-from-55%">
-            <div class="glow-top pointer-events-none absolute -top-70 left-1/2 h-175 w-350 -translate-x-1/2 blur-2xl"></div>
-        </div>
+    <div class="hero-wash relative min-h-screen bg-white">
 
         <nav id="nav" data-scrolled="false"
-            class="fade-down sticky top-0 z-100 grid grid-cols-[1fr_auto_1fr] items-center px-10 py-4.5 transition-[background-color,box-shadow,backdrop-filter,padding] duration-200 data-[scrolled=true]:bg-white/85 data-[scrolled=true]:py-2.5 data-[scrolled=true]:shadow-sm data-[scrolled=true]:backdrop-blur-md max-md:px-5 max-md:py-3.5 max-md:data-[scrolled=true]:py-2">
-            <a href="/" class="flex items-center gap-2.5 justify-self-start text-ink hover:text-ink">
-                <svg class="size-7 text-ink" viewBox="0 0 400 400" fill="currentColor" aria-hidden="true">
+            class="fade-down sticky top-0 z-100 grid grid-cols-[1fr_auto_1fr] items-center px-10 py-5 transition-[background-color,border-color,backdrop-filter,padding] duration-200 border-b border-transparent data-[scrolled=true]:border-hairline data-[scrolled=true]:bg-white/90 data-[scrolled=true]:py-3 data-[scrolled=true]:backdrop-blur-md max-md:px-5 max-md:py-4 max-md:data-[scrolled=true]:py-2.5">
+            <a href="/" class="col-start-1 flex items-center gap-2.5 justify-self-start">
+                <svg class="size-6.5 text-ink" viewBox="0 0 400 400" fill="currentColor" aria-hidden="true">
                     <ellipse cx="200" cy="112" rx="26" ry="76" transform="rotate(0 200 200)"/>
                     <ellipse cx="200" cy="112" rx="26" ry="76" transform="rotate(45 200 200)"/>
                     <ellipse cx="200" cy="112" rx="26" ry="76" transform="rotate(90 200 200)"/>
@@ -32,13 +28,13 @@
                     <ellipse cx="200" cy="112" rx="26" ry="76" transform="rotate(315 200 200)"/>
                     <circle cx="200" cy="200" r="36"/>
                 </svg>
-                <span class="text-xl font-medium tracking-[-0.01em] max-sm:hidden">Sonnco</span>
+                <span class="text-[19px] font-medium tracking-[-0.02em] text-ink">Sonnco</span>
             </a>
-            <div class="flex justify-self-center gap-7 text-base max-sm:gap-5">
-                <a href="#features" class="-my-2.5 py-2.5 text-nav-link transition-colors hover:text-ink" x-text="t('nav.features')">Features</a>
-                <a href="#pricing" class="-my-2.5 py-2.5 text-nav-link transition-colors hover:text-ink" x-text="t('nav.pricing')">Pricing</a>
+            <div class="col-start-2 flex justify-self-center gap-8 text-[15px] max-sm:hidden">
+                <a href="#features" class="-my-2.5 py-2.5 text-muted transition-colors hover:text-ink" x-text="t('nav.features')">Features</a>
+                <a href="#pricing" class="-my-2.5 py-2.5 text-muted transition-colors hover:text-ink" x-text="t('nav.pricing')">Pricing</a>
             </div>
-            <div class="flex items-center gap-3 justify-self-end">
+            <div class="col-start-3 flex items-center gap-2 justify-self-end">
                 <div
                     x-data="{
                         open: false,
@@ -71,7 +67,7 @@
                         :aria-controls="$id('language-menu')"
                         type="button"
                         aria-label="Language" :aria-label="t('nav.langLabel')"
-                        class="flex cursor-pointer items-center gap-1.5 rounded-full px-2.5 py-2 text-sm font-medium text-nav-link transition-colors hover:text-ink">
+                        class="flex cursor-pointer items-center gap-1.5 rounded-full px-2.5 py-2 text-sm font-medium text-muted transition-colors hover:text-ink">
                         <span x-text="lang.toUpperCase()">EN</span>
                         <svg class="size-3 text-muted-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
                     </button>
@@ -90,66 +86,112 @@
                         class="card-shadow absolute right-0 top-full z-20 mt-2 w-40 origin-top-right rounded-xl bg-white p-1.5 outline-none">
                         <template x-for="(name, code) in languages" :key="code">
                             <button type="button" @click="lang = code; close($refs.button)"
-                                class="flex w-full cursor-pointer items-center justify-between rounded-lg px-2.5 py-2 text-left text-sm text-muted transition-colors hover:bg-slot hover:text-ink focus-visible:bg-slot focus-visible:text-ink"
+                                class="flex w-full cursor-pointer items-center justify-between rounded-lg px-2.5 py-2 text-left text-sm text-muted transition-colors hover:bg-surface hover:text-ink focus-visible:bg-surface focus-visible:text-ink"
                                 :class="lang === code && 'font-medium text-ink'">
                                 <span x-text="name"></span>
-                                <svg x-show="lang === code" class="size-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                                <svg x-show="lang === code" class="size-3.5 text-accent-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
                             </button>
                         </template>
                     </div>
                 </div>
-                <a href="#contact" class="btn relative px-5 py-2.25 text-sm after:absolute after:inset-x-0 after:-inset-y-0.5" x-text="t('nav.contact')">Contact</a>
+                <a href="#contact" class="btn relative px-5 py-2.25 text-sm after:absolute after:inset-x-0 after:-inset-y-1.5" x-text="t('nav.contact')">Contact</a>
             </div>
         </nav>
 
-        <header class="relative px-10 pt-27.5 text-center max-md:px-5 max-md:pt-18">
-            <h1 class="rise-in relative mx-auto mb-5.5 max-w-190 text-balance font-display text-[60px] font-[550] leading-[1.12] tracking-[-0.01em] max-md:text-[40px]" x-text="t('hero.title')">The real estate platform that works while you sell</h1>
-            <p class="rise-in relative mx-auto mb-8.5 max-w-140 text-pretty text-xl leading-[1.6] [--rise-delay:80ms]" x-html="t('hero.subtitle')">Your contacts, listings, and website in one place.<br class="max-md:hidden"> Built by an estate agent.</p>
-            <a href="#contact" class="btn rise-in relative mb-22 max-md:mb-14 [--rise-delay:160ms]" x-text="t('hero.cta')">Request a demo</a>
-            <div class="rise-in hero-shot-shadow relative mx-auto max-w-290 rounded-t-2xl border border-b-0 border-line bg-white p-2 pb-0 [--rise-delay:240ms]">
-                <div class="h-150 w-full overflow-hidden rounded-t-lg bg-slot max-md:h-auto">
+        <header class="relative px-10 pt-24 text-center max-md:px-5 max-md:pt-16">
+            <p class="eyebrow eyebrow-center rise-in mb-6" x-text="t('hero.eyebrow')">Real estate software</p>
+            <h1 class="h1 rise-in mx-auto mb-6 max-w-4xl [--rise-delay:60ms]" x-text="t('hero.title')">The real estate platform that works while you sell</h1>
+            <p class="rise-in mx-auto mb-9 max-w-xl text-pretty text-[19px] leading-[1.6] text-muted [--rise-delay:120ms]" x-html="t('hero.subtitle')">Your contacts, listings, and website in one place.<br class="max-md:hidden"> Built by an estate agent.</p>
+            <div class="rise-in mb-24 flex items-center justify-center gap-7 max-md:mb-16 [--rise-delay:180ms]">
+                <a href="#contact" class="btn" x-text="t('hero.cta')">Request a demo</a>
+                <a href="#features" class="btn-text">
+                    <span x-text="t('hero.secondaryCta')">See how it works</span>
+                    <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+            </div>
+            <div class="rise-in hero-shot-shadow relative mx-auto max-w-290 rounded-t-2xl bg-white p-2 pb-0 [--rise-delay:240ms]">
+                <div class="h-150 w-full overflow-hidden rounded-t-lg bg-surface max-md:h-auto">
                     <img src="images/sonnco-properties-app-v3.png" width="2880" height="1678"
-                        class="h-full w-full bg-[#fbfbfc] object-cover object-[center_top] rounded-t-lg outline -outline-offset-1 outline-black/10"
+                        class="h-full w-full rounded-t-lg bg-white object-cover object-[center_top] outline -outline-offset-1 outline-black/10"
                         alt="The Sonnco workspace showing the client pipeline and listing details." :alt="t('hero.alt')">
                 </div>
             </div>
         </header>
 
-        <section id="features" class="border-t border-hairline">
-            <div class="mx-auto max-w-290 px-16 pb-22.5 pt-27.5 max-md:px-5 max-md:pb-16 max-md:pt-18">
-                <h2 class="mb-24 text-center font-display text-[40px] font-[550] tracking-[-0.01em] max-md:mb-14 max-md:text-[30px]" x-text="t('features.title')">Built for the way agents work</h2>
-                <div class="flex flex-col gap-27.5 max-md:gap-16">
+        <section id="portals" class="overflow-hidden border-t border-hairline py-16 max-md:py-12">
+            <p class="mb-9 text-center text-[14.5px] text-muted-2" x-text="t('portals.title')">Every portal, connected.</p>
+            <div class="logo-fade">
+                <div class="marquee flex w-max hover:[animation-play-state:paused]">
+                    <ul class="flex items-center gap-14 pr-14">
+                        <li><img src="images/portals/idealista.svg" width="555" height="160" loading="lazy" alt="Idealista" class="h-5.5 w-auto opacity-45 grayscale transition-opacity duration-200 hover:opacity-70"></li>
+                        <li><img src="images/portals/fotocasa.svg" width="147" height="27" loading="lazy" alt="Fotocasa" class="h-5 w-auto opacity-45 grayscale transition-opacity duration-200 hover:opacity-70"></li>
+                        <li><img src="images/portals/kyero.svg" width="126" height="34" loading="lazy" alt="Kyero" class="h-5.5 w-auto opacity-45 grayscale transition-opacity duration-200 hover:opacity-70"></li>
+                        <li><img src="images/portals/rightmove.svg" width="118" height="25" loading="lazy" alt="Rightmove" class="h-5 w-auto opacity-45 grayscale transition-opacity duration-200 hover:opacity-70"></li>
+                        <li><img src="images/portals/habitaclia.svg" width="108" height="28" loading="lazy" alt="Habitaclia" class="h-5.5 w-auto opacity-45 grayscale transition-opacity duration-200 hover:opacity-70"></li>
+                        <li><img src="images/portals/pisos.svg" width="328" height="56" loading="lazy" alt="pisos.com" class="h-4.5 w-auto opacity-45 grayscale transition-opacity duration-200 hover:opacity-70"></li>
+                        <li><img src="images/portals/yaencontre.svg" width="310" height="51" loading="lazy" alt="yaencontre" class="h-4.5 w-auto opacity-45 grayscale transition-opacity duration-200 hover:opacity-70"></li>
+                        <li><img src="images/portals/thinkspain.svg" width="125" height="24" loading="lazy" alt="thinkSPAIN" class="h-5 w-auto opacity-45 grayscale transition-opacity duration-200 hover:opacity-70"></li>
+                        <li><img src="images/portals/aplaceinthesun.svg" width="124" height="23" loading="lazy" alt="A Place in the Sun" class="h-5 w-auto opacity-45 grayscale transition-opacity duration-200 hover:opacity-70"></li>
+                        <li><img src="images/portals/greenacres.svg" width="210" height="33" loading="lazy" alt="Green-Acres" class="h-4.5 w-auto opacity-45 grayscale transition-opacity duration-200 hover:opacity-70"></li>
+                        <li><img src="images/portals/properstar.svg" width="130" height="22" loading="lazy" alt="Properstar" class="h-5 w-auto opacity-45 grayscale transition-opacity duration-200 hover:opacity-70"></li>
+                        <li><img src="images/portals/jamesedition.svg" width="140" height="18" loading="lazy" alt="JamesEdition" class="h-4 w-auto opacity-45 grayscale transition-opacity duration-200 hover:opacity-70"></li>
+                    </ul>
+                    <ul class="flex items-center gap-14 pr-14" aria-hidden="true">
+                        <li><img src="images/portals/idealista.svg" width="555" height="160" loading="lazy" alt="" class="h-5.5 w-auto opacity-45 grayscale"></li>
+                        <li><img src="images/portals/fotocasa.svg" width="147" height="27" loading="lazy" alt="" class="h-5 w-auto opacity-45 grayscale"></li>
+                        <li><img src="images/portals/kyero.svg" width="126" height="34" loading="lazy" alt="" class="h-5.5 w-auto opacity-45 grayscale"></li>
+                        <li><img src="images/portals/rightmove.svg" width="118" height="25" loading="lazy" alt="" class="h-5 w-auto opacity-45 grayscale"></li>
+                        <li><img src="images/portals/habitaclia.svg" width="108" height="28" loading="lazy" alt="" class="h-5.5 w-auto opacity-45 grayscale"></li>
+                        <li><img src="images/portals/pisos.svg" width="328" height="56" loading="lazy" alt="" class="h-4.5 w-auto opacity-45 grayscale"></li>
+                        <li><img src="images/portals/yaencontre.svg" width="310" height="51" loading="lazy" alt="" class="h-4.5 w-auto opacity-45 grayscale"></li>
+                        <li><img src="images/portals/thinkspain.svg" width="125" height="24" loading="lazy" alt="" class="h-5 w-auto opacity-45 grayscale"></li>
+                        <li><img src="images/portals/aplaceinthesun.svg" width="124" height="23" loading="lazy" alt="" class="h-5 w-auto opacity-45 grayscale"></li>
+                        <li><img src="images/portals/greenacres.svg" width="210" height="33" loading="lazy" alt="" class="h-4.5 w-auto opacity-45 grayscale"></li>
+                        <li><img src="images/portals/properstar.svg" width="130" height="22" loading="lazy" alt="" class="h-5 w-auto opacity-45 grayscale"></li>
+                        <li><img src="images/portals/jamesedition.svg" width="140" height="18" loading="lazy" alt="" class="h-4 w-auto opacity-45 grayscale"></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-                    <div class="grid grid-cols-[380px_1fr] items-center gap-18 max-md:grid-cols-1 max-md:gap-7">
-                        <div class="self-end max-md:order-1 max-md:self-start">
-                            <h3 class="mb-3.5 text-[26px] font-medium leading-[1.3] tracking-[-0.015em] max-md:text-[21px]" x-text="t('features.crm.title')">Every client, clearly organised</h3>
-                            <p class="text-[17.5px] leading-[1.7]" x-text="t('features.crm.body')">All your buyers, sellers, and leads together — see their full history, requirements, and next steps. Nothing falls through the cracks between viewings.</p>
+        <section id="features" class="border-t border-hairline">
+            <div class="mx-auto max-w-290 px-16 py-28 max-md:px-5 max-md:py-18">
+                <div class="mb-20 max-w-2xl max-md:mb-12">
+                    <p class="eyebrow mb-5" x-text="t('features.eyebrow')">The platform</p>
+                    <h2 class="h2" x-text="t('features.title')">Built for the way agents work</h2>
+                </div>
+                <div class="flex flex-col gap-28 max-md:gap-16">
+
+                    <div class="grid grid-cols-[minmax(0,380px)_1fr] items-center gap-20 max-md:grid-cols-1 max-md:gap-7">
+                        <div class="max-md:order-1">
+                            <h3 class="h3 mb-4" x-text="t('features.crm.title')">Every client, clearly organised</h3>
+                            <p class="text-[16.5px] leading-[1.7] text-muted" x-text="t('features.crm.body')">All your buyers, sellers, and leads together — see their full history, requirements, and next steps. Nothing falls through the cracks between viewings.</p>
                         </div>
-                        <div class="panel-crm flex h-100 items-center justify-center overflow-hidden rounded-2xl p-9 max-md:order-2 max-md:h-75 max-md:p-6">
+                        <div class="flex h-96 items-center justify-center overflow-hidden rounded-2xl border border-hairline bg-surface px-8 py-8 max-md:order-2 max-md:h-72 max-md:px-5 max-md:py-5">
                             <img src="images/sonnco-contact-matches-v2.png" width="2880" height="1600" loading="lazy"
                                 class="shot-shadow w-full rounded-lg outline -outline-offset-1 outline-black/10"
                                 alt="A contact record in Sonnco showing their details, matched properties, and an AI-suggested next step." :alt="t('features.crm.alt')">
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-[1fr_380px] items-center gap-18 max-md:grid-cols-1 max-md:gap-7">
-                        <div class="panel-listings flex h-100 items-center justify-center overflow-hidden rounded-2xl p-9 max-md:order-2 max-md:h-75 max-md:p-6">
+                    <div class="grid grid-cols-[1fr_minmax(0,380px)] items-center gap-20 max-md:grid-cols-1 max-md:gap-7">
+                        <div class="flex h-96 items-center justify-center overflow-hidden rounded-2xl border border-hairline bg-surface px-8 py-8 max-md:order-2 max-md:h-72 max-md:px-5 max-md:py-5">
                             <img src="images/sonnco-properties-sync-v2.png" width="2880" height="1600" loading="lazy"
                                 class="shot-shadow w-full rounded-lg outline -outline-offset-1 outline-black/10"
                                 alt="The Sonnco listings view with a property detail panel showing live sync status." :alt="t('features.listings.alt')">
                         </div>
-                        <div class="self-end max-md:order-1 max-md:self-start">
-                            <h3 class="mb-3.5 text-[26px] font-medium leading-[1.3] tracking-[-0.015em] max-md:text-[21px]" x-text="t('features.listings.title')">Every listing, published everywhere</h3>
-                            <p class="text-[17.5px] leading-[1.7]" x-text="t('features.listings.body')">Create a listing once and publish it to portals, your website, and brochures from the same screen. Change anything and it updates everywhere, so what buyers see is always what's true.</p>
+                        <div class="max-md:order-1">
+                            <h3 class="h3 mb-4" x-text="t('features.listings.title')">Every listing, published everywhere</h3>
+                            <p class="text-[16.5px] leading-[1.7] text-muted" x-text="t('features.listings.body')">Create a listing once and publish it to portals, your website, and brochures from the same screen. Change anything and it updates everywhere, so what buyers see is always what's true.</p>
                         </div>
                     </div>
 
-                    <div id="websites" class="grid grid-cols-[380px_1fr] items-center gap-18 max-md:grid-cols-1 max-md:gap-7">
-                        <div class="self-end max-md:order-1 max-md:self-start">
-                            <h3 class="mb-3.5 text-[26px] font-medium leading-[1.3] tracking-[-0.015em] max-md:text-[21px]" x-text="t('features.web.title')">A website that runs itself</h3>
-                            <p class="text-[17.5px] leading-[1.7]" x-text="t('features.web.body')">Every agency gets a fast, polished site connected straight to Sonnco — listings publish themselves, enquiries land in your CRM, nothing to maintain.</p>
+                    <div id="websites" class="grid grid-cols-[minmax(0,380px)_1fr] items-center gap-20 max-md:grid-cols-1 max-md:gap-7">
+                        <div class="max-md:order-1">
+                            <h3 class="h3 mb-4" x-text="t('features.web.title')">A website that runs itself</h3>
+                            <p class="text-[16.5px] leading-[1.7] text-muted" x-text="t('features.web.body')">Every agency gets a fast, polished site connected straight to Sonnco — listings publish themselves, enquiries land in your CRM, nothing to maintain.</p>
                         </div>
-                        <div class="panel-web flex h-100 items-center justify-center overflow-hidden rounded-2xl p-9 max-md:order-2 max-md:h-75 max-md:p-6">
+                        <div class="flex h-96 items-center justify-center overflow-hidden rounded-2xl border border-hairline bg-surface px-8 py-8 max-md:order-2 max-md:h-72 max-md:px-5 max-md:py-5">
                             <img src="images/sonnco-agency-website-v2.png" width="2880" height="1600" loading="lazy"
                                 class="shot-shadow w-full rounded-lg outline -outline-offset-1 outline-black/10"
                                 alt="An agency website built by Sonnco, with a hero search over a coastal town and live listings below." :alt="t('features.web.alt')">
@@ -160,262 +202,174 @@
             </div>
         </section>
 
-        <section class="mx-auto max-w-290 px-16 pb-27.5 pt-22.5 max-md:px-5 max-md:pb-18 max-md:pt-16">
-            <h2 class="mb-13 text-center text-[28px] font-medium tracking-[-0.015em]" x-text="t('more.title')">And even more</h2>
-            <div class="grid grid-cols-3 gap-x-14 gap-y-11 max-md:grid-cols-2 max-md:gap-8 max-sm:grid-cols-1">
-                <div>
-                    <div class="mb-1.5 text-base font-medium" x-text="t('more.matching.title')">Automatic property matching</div>
-                    <div class="text-[15px] leading-[1.65] text-muted" x-text="t('more.matching.body')">Every new listing checked against every buyer's requirements the moment it goes live — matched buyers hear about it automatically.</div>
+        <section class="border-t border-hairline">
+            <div class="mx-auto max-w-290 px-16 py-28 max-md:px-5 max-md:py-18">
+                <div class="mb-16 max-w-2xl max-md:mb-11">
+                    <p class="eyebrow mb-5" x-text="t('more.eyebrow')">Capabilities</p>
+                    <h2 class="h2" x-text="t('more.title')">And even more</h2>
                 </div>
-                <div>
-                    <div class="mb-1.5 text-base font-medium" x-text="t('more.search.title')">Natural-language search</div>
-                    <div class="text-[15px] leading-[1.65] text-muted" x-text="t('more.search.body')">Ask for "three-bed flats near the marina under 400k" and get exactly that — no filter forms.</div>
-                </div>
-                <div>
-                    <div class="mb-1.5 text-base font-medium" x-text="t('more.notifications.title')">Real-time notifications</div>
-                    <div class="text-[15px] leading-[1.65] text-muted" x-text="t('more.notifications.body')">Know the moment a lead replies, a match lands, or a price changes.</div>
-                </div>
-                <div>
-                    <div class="mb-1.5 text-base font-medium" x-text="t('more.followups.title')">Follow-ups &amp; reminders</div>
-                    <div class="text-[15px] leading-[1.65] text-muted" x-text="t('more.followups.body')">Automated touchpoints keep every conversation moving — set once, never forgotten.</div>
-                </div>
-                <div>
-                    <div class="mb-1.5 text-base font-medium" x-text="t('more.ai.title')">AI built in, not bolted on</div>
-                    <div class="text-[15px] leading-[1.65] text-muted" x-text="t('more.ai.body')">Listing copy drafted, calls summarised, next steps suggested — woven into every screen.</div>
-                </div>
-                <div>
-                    <div class="mb-1.5 text-base font-medium" x-text="t('more.metrics.title')">Metrics &amp; analytics</div>
-                    <div class="text-[15px] leading-[1.65] text-muted" x-text="t('more.metrics.body')">Listing performance, pipeline health, response times — the numbers that run your office, live.</div>
-                </div>
-                <div>
-                    <div class="mb-1.5 text-base font-medium" x-text="t('more.lang.title')">Multi-language</div>
-                    <div class="text-[15px] leading-[1.65] text-muted" x-text="t('more.lang.body')">Work in your language, publish in your buyers' — the whole workspace speaks both.</div>
-                </div>
-                <div>
-                    <div class="mb-1.5 text-base font-medium" x-text="t('more.import.title')">Seamless importing</div>
-                    <div class="text-[15px] leading-[1.65] text-muted" x-text="t('more.import.body')">Coming from another platform? Bring your contacts, listings, and photos across in one guided import.</div>
-                </div>
-                <div>
-                    <div class="mb-1.5 text-base font-medium" x-text="t('more.updates.title')">Automatic updates</div>
-                    <div class="text-[15px] leading-[1.65] text-muted" x-text="t('more.updates.body')">New features arrive as you work — nothing to install, nothing to migrate, ever.</div>
-                </div>
-            </div>
-        </section>
-
-        <section id="portals" class="overflow-hidden pb-27.5 max-md:pb-18">
-            <div class="mx-auto max-w-290 px-16 text-center max-md:px-5">
-                <span class="mb-5 inline-block rounded-full bg-slot px-3.5 py-1.5 text-sm font-medium text-muted" x-text="t('portals.badge')">Portals</span>
-                <h2 class="mb-4 text-balance font-display text-[40px] font-[550] tracking-[-0.01em] max-md:text-[30px]" x-text="t('portals.title')">Every portal, connected.</h2>
-                <p class="mx-auto max-w-135 text-pretty text-lg leading-[1.6]" x-text="t('portals.subtitle')">Idealista, Fotocasa, Kyero, Rightmove — and everywhere else your buyers are looking.</p>
-            </div>
-            <div class="logo-fade -mb-4 mt-9 py-4 max-md:mt-5">
-                <div class="marquee flex w-max hover:[animation-play-state:paused]">
-                    <ul class="flex items-center gap-4 pr-4">
-                        <li class="group flex h-18 items-center justify-center rounded-2xl bg-white px-8 card-shadow">
-                            <img src="images/portals/idealista.svg" width="555" height="160" loading="lazy" alt="Idealista" class="h-6 w-auto opacity-60 grayscale transition duration-200 group-hover:opacity-100 group-hover:grayscale-0">
-                        </li>
-                        <li class="group flex h-18 items-center justify-center rounded-2xl bg-white px-8 card-shadow">
-                            <img src="images/portals/fotocasa.svg" width="147" height="27" loading="lazy" alt="Fotocasa" class="h-5.5 w-auto opacity-60 grayscale transition duration-200 group-hover:opacity-100 group-hover:grayscale-0">
-                        </li>
-                        <li class="group flex h-18 items-center justify-center rounded-2xl bg-white px-8 card-shadow">
-                            <img src="images/portals/kyero.svg" width="126" height="34" loading="lazy" alt="Kyero" class="h-6 w-auto opacity-60 grayscale transition duration-200 group-hover:opacity-100 group-hover:grayscale-0">
-                        </li>
-                        <li class="group flex h-18 items-center justify-center rounded-2xl bg-white px-8 card-shadow">
-                            <img src="images/portals/rightmove.svg" width="118" height="25" loading="lazy" alt="Rightmove" class="h-5.5 w-auto opacity-60 grayscale transition duration-200 group-hover:opacity-100 group-hover:grayscale-0">
-                        </li>
-                        <li class="group flex h-18 items-center justify-center rounded-2xl bg-white px-8 card-shadow">
-                            <img src="images/portals/habitaclia.svg" width="108" height="28" loading="lazy" alt="Habitaclia" class="h-6 w-auto opacity-60 grayscale transition duration-200 group-hover:opacity-100 group-hover:grayscale-0">
-                        </li>
-                        <li class="group flex h-18 items-center justify-center rounded-2xl bg-white px-8 card-shadow">
-                            <img src="images/portals/pisos.svg" width="328" height="56" loading="lazy" alt="pisos.com" class="h-5 w-auto opacity-60 grayscale transition duration-200 group-hover:opacity-100 group-hover:grayscale-0">
-                        </li>
-                        <li class="group flex h-18 items-center justify-center rounded-2xl bg-white px-8 card-shadow">
-                            <img src="images/portals/yaencontre.svg" width="310" height="51" loading="lazy" alt="yaencontre" class="h-5 w-auto opacity-60 grayscale transition duration-200 group-hover:opacity-100 group-hover:grayscale-0">
-                        </li>
-                        <li class="group flex h-18 items-center justify-center rounded-2xl bg-white px-8 card-shadow">
-                            <img src="images/portals/thinkspain.svg" width="125" height="24" loading="lazy" alt="thinkSPAIN" class="h-5.5 w-auto opacity-60 grayscale transition duration-200 group-hover:opacity-100 group-hover:grayscale-0">
-                        </li>
-                        <li class="group flex h-18 items-center justify-center rounded-2xl bg-white px-8 card-shadow">
-                            <img src="images/portals/aplaceinthesun.svg" width="124" height="23" loading="lazy" alt="A Place in the Sun" class="h-5.5 w-auto opacity-60 grayscale transition duration-200 group-hover:opacity-100 group-hover:grayscale-0">
-                        </li>
-                        <li class="group flex h-18 items-center justify-center rounded-2xl bg-white px-8 card-shadow">
-                            <img src="images/portals/greenacres.svg" width="210" height="33" loading="lazy" alt="Green-Acres" class="h-5 w-auto opacity-60 grayscale transition duration-200 group-hover:opacity-100 group-hover:grayscale-0">
-                        </li>
-                        <li class="group flex h-18 items-center justify-center rounded-2xl bg-white px-8 card-shadow">
-                            <img src="images/portals/properstar.svg" width="130" height="22" loading="lazy" alt="Properstar" class="h-5.5 w-auto opacity-60 grayscale transition duration-200 group-hover:opacity-100 group-hover:grayscale-0">
-                        </li>
-                        <li class="group flex h-18 items-center justify-center rounded-2xl bg-white px-8 card-shadow">
-                            <img src="images/portals/jamesedition.svg" width="140" height="18" loading="lazy" alt="JamesEdition" class="h-4.5 w-auto opacity-60 grayscale transition duration-200 group-hover:opacity-100 group-hover:grayscale-0">
-                        </li>
-                    </ul>
-                    <ul class="flex items-center gap-4 pr-4" aria-hidden="true">
-                        <li class="group flex h-18 items-center justify-center rounded-2xl bg-white px-8 card-shadow">
-                            <img src="images/portals/idealista.svg" width="555" height="160" loading="lazy" alt="" class="h-6 w-auto opacity-60 grayscale transition duration-200 group-hover:opacity-100 group-hover:grayscale-0">
-                        </li>
-                        <li class="group flex h-18 items-center justify-center rounded-2xl bg-white px-8 card-shadow">
-                            <img src="images/portals/fotocasa.svg" width="147" height="27" loading="lazy" alt="" class="h-5.5 w-auto opacity-60 grayscale transition duration-200 group-hover:opacity-100 group-hover:grayscale-0">
-                        </li>
-                        <li class="group flex h-18 items-center justify-center rounded-2xl bg-white px-8 card-shadow">
-                            <img src="images/portals/kyero.svg" width="126" height="34" loading="lazy" alt="" class="h-6 w-auto opacity-60 grayscale transition duration-200 group-hover:opacity-100 group-hover:grayscale-0">
-                        </li>
-                        <li class="group flex h-18 items-center justify-center rounded-2xl bg-white px-8 card-shadow">
-                            <img src="images/portals/rightmove.svg" width="118" height="25" loading="lazy" alt="" class="h-5.5 w-auto opacity-60 grayscale transition duration-200 group-hover:opacity-100 group-hover:grayscale-0">
-                        </li>
-                        <li class="group flex h-18 items-center justify-center rounded-2xl bg-white px-8 card-shadow">
-                            <img src="images/portals/habitaclia.svg" width="108" height="28" loading="lazy" alt="" class="h-6 w-auto opacity-60 grayscale transition duration-200 group-hover:opacity-100 group-hover:grayscale-0">
-                        </li>
-                        <li class="group flex h-18 items-center justify-center rounded-2xl bg-white px-8 card-shadow">
-                            <img src="images/portals/pisos.svg" width="328" height="56" loading="lazy" alt="" class="h-5 w-auto opacity-60 grayscale transition duration-200 group-hover:opacity-100 group-hover:grayscale-0">
-                        </li>
-                        <li class="group flex h-18 items-center justify-center rounded-2xl bg-white px-8 card-shadow">
-                            <img src="images/portals/yaencontre.svg" width="310" height="51" loading="lazy" alt="" class="h-5 w-auto opacity-60 grayscale transition duration-200 group-hover:opacity-100 group-hover:grayscale-0">
-                        </li>
-                        <li class="group flex h-18 items-center justify-center rounded-2xl bg-white px-8 card-shadow">
-                            <img src="images/portals/thinkspain.svg" width="125" height="24" loading="lazy" alt="" class="h-5.5 w-auto opacity-60 grayscale transition duration-200 group-hover:opacity-100 group-hover:grayscale-0">
-                        </li>
-                        <li class="group flex h-18 items-center justify-center rounded-2xl bg-white px-8 card-shadow">
-                            <img src="images/portals/aplaceinthesun.svg" width="124" height="23" loading="lazy" alt="" class="h-5.5 w-auto opacity-60 grayscale transition duration-200 group-hover:opacity-100 group-hover:grayscale-0">
-                        </li>
-                        <li class="group flex h-18 items-center justify-center rounded-2xl bg-white px-8 card-shadow">
-                            <img src="images/portals/greenacres.svg" width="210" height="33" loading="lazy" alt="" class="h-5 w-auto opacity-60 grayscale transition duration-200 group-hover:opacity-100 group-hover:grayscale-0">
-                        </li>
-                        <li class="group flex h-18 items-center justify-center rounded-2xl bg-white px-8 card-shadow">
-                            <img src="images/portals/properstar.svg" width="130" height="22" loading="lazy" alt="" class="h-5.5 w-auto opacity-60 grayscale transition duration-200 group-hover:opacity-100 group-hover:grayscale-0">
-                        </li>
-                        <li class="group flex h-18 items-center justify-center rounded-2xl bg-white px-8 card-shadow">
-                            <img src="images/portals/jamesedition.svg" width="140" height="18" loading="lazy" alt="" class="h-4.5 w-auto opacity-60 grayscale transition duration-200 group-hover:opacity-100 group-hover:grayscale-0">
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section class="bg-zinc-50">
-            <div class="mx-auto max-w-290 px-16 py-22.5 max-md:px-5 max-md:py-16">
-                <h2 class="mb-10 text-[20px] font-medium tracking-[-0.01em] text-muted" x-text="t('why.title')">Why Sonnco</h2>
-                <div class="grid grid-cols-4 gap-x-14 gap-y-9 max-md:grid-cols-2 max-md:gap-8 max-sm:grid-cols-1">
-                    <div>
-                        <div class="mb-1.5 text-base font-medium" x-text="t('why.industry.title')">Built in the industry</div>
-                        <div class="text-[15px] leading-[1.65] text-muted" x-text="t('why.industry.body')">Made by someone who works in real estate every day — not a tech company guessing.</div>
+                <div class="grid grid-cols-3 gap-x-14 gap-y-12 max-md:grid-cols-2 max-md:gap-x-8 max-md:gap-y-9 max-sm:grid-cols-1">
+                    <div class="border-t border-hairline pt-5">
+                        <div class="mb-2 text-[15.5px] font-medium text-ink" x-text="t('more.matching.title')">Automatic property matching</div>
+                        <div class="text-[14.5px] leading-[1.65] text-muted" x-text="t('more.matching.body')">Every new listing checked against every buyer's requirements the moment it goes live — matched buyers hear about it automatically.</div>
                     </div>
-                    <div>
-                        <div class="mb-1.5 text-base font-medium" x-text="t('why.size.title')">Any size of agency</div>
-                        <div class="text-[15px] leading-[1.65] text-muted" x-text="t('why.size.body')">The same workspace fits a single agent, a busy office, or a multi-national franchise.</div>
+                    <div class="border-t border-hairline pt-5">
+                        <div class="mb-2 text-[15.5px] font-medium text-ink" x-text="t('more.search.title')">Natural-language search</div>
+                        <div class="text-[14.5px] leading-[1.65] text-muted" x-text="t('more.search.body')">Ask for "three-bed flats near the marina under 400k" and get exactly that — no filter forms.</div>
                     </div>
-                    <div>
-                        <div class="mb-1.5 text-base font-medium" x-text="t('why.fast.title')">Fast everywhere</div>
-                        <div class="text-[15px] leading-[1.65] text-muted" x-text="t('why.fast.body')">Pages load in under 50ms — on office wifi or a phone at a viewing.</div>
+                    <div class="border-t border-hairline pt-5">
+                        <div class="mb-2 text-[15.5px] font-medium text-ink" x-text="t('more.notifications.title')">Real-time notifications</div>
+                        <div class="text-[14.5px] leading-[1.65] text-muted" x-text="t('more.notifications.body')">Know the moment a lead replies, a match lands, or a price changes.</div>
                     </div>
-                    <div>
-                        <div class="mb-1.5 text-base font-medium" x-text="t('why.secure.title')">Secure by design</div>
-                        <div class="text-[15px] leading-[1.65] text-muted" x-text="t('why.secure.body')">Passwordless sign-in — nothing to forget, nothing to steal.</div>
+                    <div class="border-t border-hairline pt-5">
+                        <div class="mb-2 text-[15.5px] font-medium text-ink" x-text="t('more.followups.title')">Follow-ups &amp; reminders</div>
+                        <div class="text-[14.5px] leading-[1.65] text-muted" x-text="t('more.followups.body')">Automated touchpoints keep every conversation moving — set once, never forgotten.</div>
+                    </div>
+                    <div class="border-t border-hairline pt-5">
+                        <div class="mb-2 text-[15.5px] font-medium text-ink" x-text="t('more.ai.title')">AI built in, not bolted on</div>
+                        <div class="text-[14.5px] leading-[1.65] text-muted" x-text="t('more.ai.body')">Listing copy drafted, calls summarised, next steps suggested — woven into every screen.</div>
+                    </div>
+                    <div class="border-t border-hairline pt-5">
+                        <div class="mb-2 text-[15.5px] font-medium text-ink" x-text="t('more.metrics.title')">Metrics &amp; analytics</div>
+                        <div class="text-[14.5px] leading-[1.65] text-muted" x-text="t('more.metrics.body')">Listing performance, pipeline health, response times — the numbers that run your office, live.</div>
+                    </div>
+                    <div class="border-t border-hairline pt-5">
+                        <div class="mb-2 text-[15.5px] font-medium text-ink" x-text="t('more.lang.title')">Multi-language</div>
+                        <div class="text-[14.5px] leading-[1.65] text-muted" x-text="t('more.lang.body')">Work in your language, publish in your buyers' — the whole workspace speaks both.</div>
+                    </div>
+                    <div class="border-t border-hairline pt-5">
+                        <div class="mb-2 text-[15.5px] font-medium text-ink" x-text="t('more.import.title')">Seamless importing</div>
+                        <div class="text-[14.5px] leading-[1.65] text-muted" x-text="t('more.import.body')">Coming from another platform? Bring your contacts, listings, and photos across in one guided import.</div>
+                    </div>
+                    <div class="border-t border-hairline pt-5">
+                        <div class="mb-2 text-[15.5px] font-medium text-ink" x-text="t('more.updates.title')">Automatic updates</div>
+                        <div class="text-[14.5px] leading-[1.65] text-muted" x-text="t('more.updates.body')">New features arrive as you work — nothing to install, nothing to migrate, ever.</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="pricing" class="px-10 py-27.5 max-md:px-5 max-md:py-18" x-data="{ period: 'monthly' }">
+        <section class="border-t border-hairline bg-surface">
+            <div class="mx-auto max-w-290 px-16 py-24 max-md:px-5 max-md:py-16">
+                <p class="eyebrow mb-12 max-md:mb-8" x-text="t('why.title')">Why Sonnco</p>
+                <div class="grid grid-cols-4 gap-x-14 gap-y-10 max-md:grid-cols-2 max-md:gap-8 max-sm:grid-cols-1">
+                    <div>
+                        <div class="mb-2 text-[15.5px] font-medium text-ink" x-text="t('why.industry.title')">Built in the industry</div>
+                        <div class="text-[14.5px] leading-[1.65] text-muted" x-text="t('why.industry.body')">Made by someone who works in real estate every day — not a tech company guessing.</div>
+                    </div>
+                    <div>
+                        <div class="mb-2 text-[15.5px] font-medium text-ink" x-text="t('why.size.title')">Any size of agency</div>
+                        <div class="text-[14.5px] leading-[1.65] text-muted" x-text="t('why.size.body')">The same workspace fits a single agent, a busy office, or a multi-national franchise.</div>
+                    </div>
+                    <div>
+                        <div class="mb-2 text-[15.5px] font-medium text-ink" x-text="t('why.fast.title')">Fast everywhere</div>
+                        <div class="text-[14.5px] leading-[1.65] text-muted" x-text="t('why.fast.body')">Pages load in under 50ms — on office wifi or a phone at a viewing.</div>
+                    </div>
+                    <div>
+                        <div class="mb-2 text-[15.5px] font-medium text-ink" x-text="t('why.secure.title')">Secure by design</div>
+                        <div class="text-[14.5px] leading-[1.65] text-muted" x-text="t('why.secure.body')">Passwordless sign-in — nothing to forget, nothing to steal.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pricing" class="border-t border-hairline px-10 py-28 max-md:px-5 max-md:py-18" x-data="{ period: 'monthly' }">
             <div class="mx-auto max-w-290">
-                <h2 class="mb-4 text-center font-display text-[40px] font-[550] tracking-[-0.01em] max-md:text-[30px]" x-text="t('pricing.title')">Simple pricing. Everything included.</h2>
-                <p class="mb-10 text-center text-lg" x-text="t('pricing.subtitle')">No per-user fees, no listing caps.</p>
-                <div class="mb-4 flex justify-center">
-                    <div class="inline-flex rounded-full bg-slot p-1" role="group" aria-label="Billing period" :aria-label="t('pricing.periodLabel')">
-                        <button type="button" @click="period = 'monthly'" :aria-pressed="period === 'monthly' ? 'true' : 'false'" aria-pressed="true" class="cursor-pointer rounded-full px-5 py-2 text-[15px] font-medium text-muted transition-colors hover:text-ink aria-pressed:bg-white aria-pressed:text-ink aria-pressed:shadow-sm" x-text="t('pricing.monthly')">Pay monthly</button>
-                        <button type="button" @click="period = 'yearly'" :aria-pressed="period === 'yearly' ? 'true' : 'false'" aria-pressed="false" class="cursor-pointer rounded-full px-5 py-2 text-[15px] font-medium text-muted transition-colors hover:text-ink aria-pressed:bg-white aria-pressed:text-ink aria-pressed:shadow-sm" x-text="t('pricing.yearly')">Pay yearly</button>
+                <div class="mb-12 text-center max-md:mb-9">
+                    <p class="eyebrow eyebrow-center mb-5" x-text="t('nav.pricing')">Pricing</p>
+                    <h2 class="h2 mb-4" x-text="t('pricing.title')">Simple pricing. Everything included.</h2>
+                    <p class="text-[17px] text-muted" x-text="t('pricing.subtitle')">No per-user fees, no listing caps.</p>
+                </div>
+                <div class="mb-3.5 flex justify-center">
+                    <div class="inline-flex rounded-full bg-surface p-1" role="group" aria-label="Billing period" :aria-label="t('pricing.periodLabel')">
+                        <button type="button" @click="period = 'monthly'" :aria-pressed="period === 'monthly' ? 'true' : 'false'" aria-pressed="true" class="cursor-pointer rounded-full px-5 py-2 text-[14.5px] font-medium text-muted transition-colors hover:text-ink aria-pressed:bg-white aria-pressed:text-ink aria-pressed:shadow-sm" x-text="t('pricing.monthly')">Pay monthly</button>
+                        <button type="button" @click="period = 'yearly'" :aria-pressed="period === 'yearly' ? 'true' : 'false'" aria-pressed="false" class="cursor-pointer rounded-full px-5 py-2 text-[14.5px] font-medium text-muted transition-colors hover:text-ink aria-pressed:bg-white aria-pressed:text-ink aria-pressed:shadow-sm" x-text="t('pricing.yearly')">Pay yearly</button>
                     </div>
                 </div>
-                <p class="mb-14 text-center text-[15px] text-muted max-md:mb-9" x-text="t('pricing.yearlyNote')">Pay yearly and get 12 months for the price of 10.</p>
-                <div class="card-shadow rounded-[20px]">
-                    <div class="grid grid-cols-3 max-md:grid-cols-1">
-                        <div class="flex flex-col px-10 py-10 max-md:px-6 max-md:py-7">
-                            <div class="mb-7 text-lg font-medium" x-text="t('pricing.solo.name')">Solo agent</div>
+                <p class="mb-14 text-center text-[14.5px] text-muted-2 max-md:mb-9" x-text="t('pricing.yearlyNote')">Pay yearly and get 12 months for the price of 10.</p>
+                <div class="overflow-hidden rounded-[20px] border border-line">
+                    <div class="grid grid-cols-3 divide-x divide-hairline max-md:grid-cols-1 max-md:divide-x-0 max-md:divide-y">
+                        <div class="flex flex-col px-9 py-10 max-md:px-6 max-md:py-8">
+                            <div class="mb-8 flex h-6 items-center text-[16.5px] font-medium text-ink" x-text="t('pricing.solo.name')">Solo agent</div>
                             <div class="flex items-baseline gap-2.5">
-                                <span class="text-[52px] font-medium leading-none tracking-tight max-sm:text-[40px]" x-text="period === 'monthly' ? '50€' : '42€'">50€</span>
-                                <span class="text-base text-muted" x-text="period === 'monthly' ? t('pricing.perMonthVat') : t('pricing.perMonth')">/month + IVA</span>
+                                <span class="text-[46px] font-[560] leading-none tracking-[-0.03em] text-ink max-sm:text-[38px]" x-text="period === 'monthly' ? '50€' : '42€'">50€</span>
+                                <span class="text-[15px] text-muted" x-text="period === 'monthly' ? t('pricing.perMonthVat') : t('pricing.perMonth')">/month + IVA</span>
                             </div>
-                            <div class="mt-2 min-h-5 text-[13.5px] text-muted-2" x-text="period === 'yearly' ? t('pricing.solo.billed') : ''"></div>
-                            <p class="mt-3 text-base leading-[1.6] text-muted" x-text="t('pricing.solo.desc')">The full platform. One user, one office.</p>
-                            <div class="mt-auto pt-8">
-                                <a href="#contact" class="btn-outline" x-text="t('pricing.cta')">Request a demo</a>
+                            <div class="mt-2 min-h-5 text-[13px] text-muted-2" x-text="period === 'yearly' ? t('pricing.solo.billed') : ''"></div>
+                            <p class="mt-3 text-[15px] leading-[1.6] text-muted" x-text="t('pricing.solo.desc')">The full platform. One user, one office.</p>
+                            <div class="mt-auto pt-9">
+                                <a href="#contact" class="btn-outline w-full" x-text="t('pricing.cta')">Request a demo</a>
                             </div>
                         </div>
-                        <div class="panel-featured relative flex flex-col px-10 py-10 md:-my-px max-md:px-6 max-md:py-7">
-                            <div class="mb-7 text-lg font-medium" x-text="t('pricing.agency.name')">Agency</div>
-                            <div class="flex items-baseline gap-2.5">
-                                <span class="text-[52px] font-medium leading-none tracking-tight max-sm:text-[40px]" x-text="period === 'monthly' ? '100€' : '84€'">100€</span>
-                                <span class="text-base text-muted" x-text="period === 'monthly' ? t('pricing.perMonthVat') : t('pricing.perMonth')">/month + IVA</span>
+                        <div class="relative flex flex-col bg-surface-2 px-9 py-10 max-md:px-6 max-md:py-8">
+                            <span class="absolute inset-x-0 top-0 h-0.5 bg-accent" aria-hidden="true"></span>
+                            <div class="mb-8 flex h-6 items-center gap-3">
+                                <span class="text-[16.5px] font-medium text-ink" x-text="t('pricing.agency.name')">Agency</span>
+                                <span class="rounded-full bg-accent-tint px-2.5 py-1 text-[11.5px] font-medium uppercase tracking-[0.06em] text-accent-ink" x-text="t('pricing.popular')">Most popular</span>
                             </div>
-                            <div class="mt-2 min-h-5 text-[13.5px] text-muted-2" x-text="period === 'yearly' ? t('pricing.agency.billed') : ''"></div>
-                            <p class="mt-3 text-base leading-[1.6] text-muted" x-text="t('pricing.agency.desc')">Every agent, every listing — no limits. Up to 2 offices.</p>
-                            <div class="mt-auto pt-8">
-                                <a href="#contact" class="btn" x-text="t('pricing.cta')">Request a demo</a>
+                            <div class="flex items-baseline gap-2.5">
+                                <span class="text-[46px] font-[560] leading-none tracking-[-0.03em] text-ink max-sm:text-[38px]" x-text="period === 'monthly' ? '100€' : '84€'">100€</span>
+                                <span class="text-[15px] text-muted" x-text="period === 'monthly' ? t('pricing.perMonthVat') : t('pricing.perMonth')">/month + IVA</span>
+                            </div>
+                            <div class="mt-2 min-h-5 text-[13px] text-muted-2" x-text="period === 'yearly' ? t('pricing.agency.billed') : ''"></div>
+                            <p class="mt-3 text-[15px] leading-[1.6] text-muted" x-text="t('pricing.agency.desc')">Every agent, every listing — no limits. Up to 2 offices.</p>
+                            <div class="mt-auto pt-9">
+                                <a href="#contact" class="btn w-full" x-text="t('pricing.cta')">Request a demo</a>
                             </div>
                         </div>
-                        <div class="flex flex-col px-10 py-10 max-md:px-6 max-md:py-7">
-                            <div class="mb-7 text-lg font-medium" x-text="t('pricing.multi.name')">Multi-office</div>
+                        <div class="flex flex-col px-9 py-10 max-md:px-6 max-md:py-8">
+                            <div class="mb-8 flex h-6 items-center text-[16.5px] font-medium text-ink" x-text="t('pricing.multi.name')">Multi-office</div>
                             <div class="flex items-baseline">
-                                <span class="text-[52px] font-medium leading-none tracking-tight max-sm:text-[40px]" x-text="t('pricing.multi.custom')">Custom</span>
+                                <span class="text-[46px] font-[560] leading-none tracking-[-0.03em] text-ink max-sm:text-[38px]" x-text="t('pricing.multi.custom')">Custom</span>
                             </div>
                             <div class="mt-2 min-h-5" aria-hidden="true"></div>
-                            <p class="mt-3 text-base leading-[1.6] text-muted" x-text="t('pricing.multi.desc')">More than 2 offices? Get in touch and we'll give you a price.</p>
-                            <div class="mt-auto pt-8">
-                                <a href="#contact" class="btn-outline" x-text="t('pricing.contactCta')">Get in touch</a>
+                            <p class="mt-3 text-[15px] leading-[1.6] text-muted" x-text="t('pricing.multi.desc')">More than 2 offices? Get in touch and we'll give you a price.</p>
+                            <div class="mt-auto pt-9">
+                                <a href="#contact" class="btn-outline w-full" x-text="t('pricing.contactCta')">Get in touch</a>
                             </div>
                         </div>
                     </div>
-                    <div class="grid grid-cols-3 gap-x-12 gap-y-9 rounded-b-[20px] border-t border-hairline bg-panel-tint px-10 py-11 max-md:grid-cols-2 max-md:px-6 max-md:py-7 max-sm:grid-cols-1">
-                        <div class="flex gap-3.5">
-                            <span class="mt-px flex size-5.5 shrink-0 items-center justify-center rounded-full bg-line">
-                                <svg class="size-3.5 text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-                            </span>
+                    <div class="grid grid-cols-3 gap-x-12 gap-y-8 border-t border-hairline bg-surface px-9 py-10 max-md:grid-cols-2 max-md:px-6 max-md:py-8 max-sm:grid-cols-1">
+                        <div class="flex gap-3">
+                            <svg class="mt-0.5 size-4.5 shrink-0 text-accent-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
                             <div>
-                                <div class="mb-1.5 text-[15px] font-medium" x-text="t('pricing.inc1.title')">Every agent on your team</div>
-                                <div class="text-sm leading-[1.65] text-muted" x-text="t('pricing.inc1.body')">No per-user fees, ever.</div>
+                                <div class="mb-1 text-[14.5px] font-medium text-ink" x-text="t('pricing.inc1.title')">Every agent on your team</div>
+                                <div class="text-[13.5px] leading-[1.6] text-muted" x-text="t('pricing.inc1.body')">No per-user fees, ever.</div>
                             </div>
                         </div>
-                        <div class="flex gap-3.5">
-                            <span class="mt-px flex size-5.5 shrink-0 items-center justify-center rounded-full bg-line">
-                                <svg class="size-3.5 text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-                            </span>
+                        <div class="flex gap-3">
+                            <svg class="mt-0.5 size-4.5 shrink-0 text-accent-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
                             <div>
-                                <div class="mb-1.5 text-[15px] font-medium" x-text="t('pricing.inc2.title')">Every property in your portfolio</div>
-                                <div class="text-sm leading-[1.65] text-muted" x-text="t('pricing.inc2.body')">No listing caps, no tiers.</div>
+                                <div class="mb-1 text-[14.5px] font-medium text-ink" x-text="t('pricing.inc2.title')">Every property in your portfolio</div>
+                                <div class="text-[13.5px] leading-[1.6] text-muted" x-text="t('pricing.inc2.body')">No listing caps, no tiers.</div>
                             </div>
                         </div>
-                        <div class="flex gap-3.5">
-                            <span class="mt-px flex size-5.5 shrink-0 items-center justify-center rounded-full bg-line">
-                                <svg class="size-3.5 text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-                            </span>
+                        <div class="flex gap-3">
+                            <svg class="mt-0.5 size-4.5 shrink-0 text-accent-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
                             <div>
-                                <div class="mb-1.5 text-[15px] font-medium" x-text="t('pricing.inc3.title')">Every photo, full resolution</div>
-                                <div class="text-sm leading-[1.65] text-muted" x-text="t('pricing.inc3.body')">Unlimited storage.</div>
+                                <div class="mb-1 text-[14.5px] font-medium text-ink" x-text="t('pricing.inc3.title')">Every photo, full resolution</div>
+                                <div class="text-[13.5px] leading-[1.6] text-muted" x-text="t('pricing.inc3.body')">Unlimited storage.</div>
                             </div>
                         </div>
-                        <div class="flex gap-3.5">
-                            <span class="mt-px flex size-5.5 shrink-0 items-center justify-center rounded-full bg-line">
-                                <svg class="size-3.5 text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-                            </span>
+                        <div class="flex gap-3">
+                            <svg class="mt-0.5 size-4.5 shrink-0 text-accent-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
                             <div>
-                                <div class="mb-1.5 text-[15px] font-medium" x-text="t('pricing.inc4.title')">Your agency website</div>
-                                <div class="text-sm leading-[1.65] text-muted" x-text="t('pricing.inc4.body')">Included, not an add-on.</div>
+                                <div class="mb-1 text-[14.5px] font-medium text-ink" x-text="t('pricing.inc4.title')">Your agency website</div>
+                                <div class="text-[13.5px] leading-[1.6] text-muted" x-text="t('pricing.inc4.body')">Included, not an add-on.</div>
                             </div>
                         </div>
-                        <div class="flex gap-3.5">
-                            <span class="mt-px flex size-5.5 shrink-0 items-center justify-center rounded-full bg-line">
-                                <svg class="size-3.5 text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-                            </span>
+                        <div class="flex gap-3">
+                            <svg class="mt-0.5 size-4.5 shrink-0 text-accent-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
                             <div>
-                                <div class="mb-1.5 text-[15px] font-medium" x-text="t('pricing.inc5.title')">Video &amp; virtual tours</div>
-                                <div class="text-sm leading-[1.65] text-muted" x-text="t('pricing.inc5.body')">Embed from YouTube, Vimeo or Matterport.</div>
+                                <div class="mb-1 text-[14.5px] font-medium text-ink" x-text="t('pricing.inc5.title')">Video &amp; virtual tours</div>
+                                <div class="text-[13.5px] leading-[1.6] text-muted" x-text="t('pricing.inc5.body')">Embed from YouTube, Vimeo or Matterport.</div>
                             </div>
                         </div>
-                        <div class="flex gap-3.5">
-                            <span class="mt-px flex size-5.5 shrink-0 items-center justify-center rounded-full bg-line">
-                                <svg class="size-3.5 text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-                            </span>
+                        <div class="flex gap-3">
+                            <svg class="mt-0.5 size-4.5 shrink-0 text-accent-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
                             <div>
-                                <div class="mb-1.5 text-[15px] font-medium" x-text="t('pricing.inc6.title')">Publishing, all in</div>
-                                <div class="text-sm leading-[1.65] text-muted" x-text="t('pricing.inc6.body')">Portal publishing, WhatsApp, PDF brochures.</div>
+                                <div class="mb-1 text-[14.5px] font-medium text-ink" x-text="t('pricing.inc6.title')">Publishing, all in</div>
+                                <div class="text-[13.5px] leading-[1.6] text-muted" x-text="t('pricing.inc6.body')">Portal publishing, WhatsApp, PDF brochures.</div>
                             </div>
                         </div>
                     </div>
@@ -423,37 +377,33 @@
             </div>
         </section>
 
-        <div class="relative overflow-hidden">
-            <div class="glow-bottom pointer-events-none absolute -bottom-90 left-1/2 h-175 w-350 -translate-x-1/2 blur-2xl"></div>
+        <section id="contact" class="border-t border-hairline px-10 py-32 text-center max-md:px-5 max-md:py-20">
+            <h2 class="h2 mx-auto mb-5 max-w-2xl" x-text="t('contact.title')">Spend your time closing, not typing.</h2>
+            <p class="mx-auto mb-9 max-w-lg text-[17px] leading-[1.6] text-muted" x-text="t('contact.body')">See Sonnco on your own listings — a demo takes 20 minutes.</p>
+            <a href="#contact" class="btn" x-text="t('contact.cta')">Request a demo</a>
+        </section>
 
-            <section id="contact" class="relative border-t border-hairline px-10 py-32.5 text-center max-md:px-5 max-md:py-21">
-                <h2 class="mb-4.5 text-balance font-display text-[44px] font-[550] tracking-[-0.01em] max-md:text-[32px]" x-text="t('contact.title')">Spend your time closing, not typing.</h2>
-                <p class="mb-8.5 text-lg" x-text="t('contact.body')">See Sonnco on your own listings — a demo takes 20 minutes.</p>
-                <a href="#contact" class="btn" x-text="t('contact.cta')">Request a demo</a>
-            </section>
-
-            <footer class="relative flex flex-wrap items-center justify-between gap-6 px-10 py-6.5 max-md:px-5">
-                <div class="flex items-c<en>ter gap-2 text-[13.5px] text-muted-2">
-                    <svg class="size-4 text-ink" viewBox="0 0 400 400" fill="currentColor" aria-hidden="true">
-                        <ellipse cx="200" cy="112" rx="26" ry="76" transform="rotate(0 200 200)"/>
-                        <ellipse cx="200" cy="112" rx="26" ry="76" transform="rotate(45 200 200)"/>
-                        <ellipse cx="200" cy="112" rx="26" ry="76" transform="rotate(90 200 200)"/>
-                        <ellipse cx="200" cy="112" rx="26" ry="76" transform="rotate(135 200 200)"/>
-                        <ellipse cx="200" cy="112" rx="26" ry="76" transform="rotate(180 200 200)"/>
-                        <ellipse cx="200" cy="112" rx="26" ry="76" transform="rotate(225 200 200)"/>
-                        <ellipse cx="200" cy="112" rx="26" ry="76" transform="rotate(270 200 200)"/>
-                        <ellipse cx="200" cy="112" rx="26" ry="76" transform="rotate(315 200 200)"/>
-                        <circle cx="200" cy="200" r="36"/>
-                    </svg>
-                    © 2026 Sonnco
-                </div>
-                <div class="flex gap-7 text-[13.5px]">
-                    <a href="#" class="-my-3 py-3 text-muted-2 transition-colors hover:text-muted" x-text="t('footer.privacy')">Privacy</a>
-                    <a href="#" class="-my-3 py-3 text-muted-2 transition-colors hover:text-muted" x-text="t('footer.terms')">Terms</a>
-                    <a href="#" class="-my-3 py-3 text-muted-2 transition-colors hover:text-muted" x-text="t('footer.contact')">Contact</a>
-                </div>
-            </footer>
-        </div>
+        <footer class="flex flex-wrap items-center justify-between gap-6 border-t border-hairline px-10 py-7 max-md:px-5">
+            <div class="flex items-center gap-2 text-[13px] text-muted-2">
+                <svg class="size-4 text-muted-2" viewBox="0 0 400 400" fill="currentColor" aria-hidden="true">
+                    <ellipse cx="200" cy="112" rx="26" ry="76" transform="rotate(0 200 200)"/>
+                    <ellipse cx="200" cy="112" rx="26" ry="76" transform="rotate(45 200 200)"/>
+                    <ellipse cx="200" cy="112" rx="26" ry="76" transform="rotate(90 200 200)"/>
+                    <ellipse cx="200" cy="112" rx="26" ry="76" transform="rotate(135 200 200)"/>
+                    <ellipse cx="200" cy="112" rx="26" ry="76" transform="rotate(180 200 200)"/>
+                    <ellipse cx="200" cy="112" rx="26" ry="76" transform="rotate(225 200 200)"/>
+                    <ellipse cx="200" cy="112" rx="26" ry="76" transform="rotate(270 200 200)"/>
+                    <ellipse cx="200" cy="112" rx="26" ry="76" transform="rotate(315 200 200)"/>
+                    <circle cx="200" cy="200" r="36"/>
+                </svg>
+                © 2026 Sonnco
+            </div>
+            <div class="flex gap-7 text-[13px]">
+                <a href="#" class="-my-3 py-3 text-muted-2 transition-colors hover:text-ink" x-text="t('footer.privacy')">Privacy</a>
+                <a href="#" class="-my-3 py-3 text-muted-2 transition-colors hover:text-ink" x-text="t('footer.terms')">Terms</a>
+                <a href="#" class="-my-3 py-3 text-muted-2 transition-colors hover:text-ink" x-text="t('footer.contact')">Contact</a>
+            </div>
+        </footer>
     </div>
 
     <script>
