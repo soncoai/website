@@ -274,7 +274,7 @@
                 <div class="mb-12 text-center max-md:mb-9">
                     <p class="eyebrow eyebrow-center mb-5" x-text="t('nav.pricing')">Pricing</p>
                     <h2 class="h2 mb-4" x-text="t('pricing.title')">Simple pricing. Everything included.</h2>
-                    <p class="text-[17px] text-muted" x-text="t('pricing.subtitle')">No per-user fees, no listing caps.</p>
+                    <p class="mx-auto max-w-lg text-[17px] leading-[1.6] text-muted" x-text="t('pricing.subtitle')">The same product in every plan. No feature gating.</p>
                 </div>
                 <div class="mb-3.5 flex justify-center">
                     <div class="inline-flex rounded-full bg-surface p-1" role="group" aria-label="Billing period" :aria-label="t('pricing.periodLabel')">
@@ -282,90 +282,107 @@
                         <button type="button" @click="period = 'yearly'" :aria-pressed="period === 'yearly' ? 'true' : 'false'" aria-pressed="false" class="cursor-pointer rounded-full px-5 py-2 text-[14.5px] font-medium text-muted transition-colors hover:text-ink aria-pressed:bg-white aria-pressed:text-ink aria-pressed:shadow-sm" x-text="t('pricing.yearly')">Pay yearly</button>
                     </div>
                 </div>
-                <p class="mb-14 text-center text-[14.5px] text-muted-2 max-md:mb-9" x-text="t('pricing.yearlyNote')">Pay yearly and get 12 months for the price of 10.</p>
-                <div class="overflow-hidden rounded-[20px] border border-line">
-                    <div class="grid grid-cols-3 divide-x divide-hairline max-md:grid-cols-1 max-md:divide-x-0 max-md:divide-y">
-                        <div class="flex flex-col px-9 py-10 max-md:px-6 max-md:py-8">
-                            <div class="mb-8 flex h-6 items-center text-[16.5px] font-medium text-ink" x-text="t('pricing.solo.name')">Solo agent</div>
-                            <div class="flex items-baseline gap-2.5">
-                                <span class="text-[46px] font-[560] leading-none tracking-[-0.03em] text-ink max-sm:text-[38px]" x-text="period === 'monthly' ? '50€' : '42€'">50€</span>
-                                <span class="text-[15px] text-muted" x-text="period === 'monthly' ? t('pricing.perMonthVat') : t('pricing.perMonth')">/month + IVA</span>
-                            </div>
-                            <div class="mt-2 min-h-5 text-[13px] text-muted-2" x-text="period === 'yearly' ? t('pricing.solo.billed') : ''"></div>
-                            <p class="mt-3 text-[15px] leading-[1.6] text-muted" x-text="t('pricing.solo.desc')">The full platform. One user, one office.</p>
-                            <div class="mt-auto pt-9">
-                                <a href="#contact" class="btn-outline w-full" x-text="t('pricing.cta')">Request a demo</a>
-                            </div>
-                        </div>
-                        <div class="relative flex flex-col bg-surface-2 px-9 py-10 max-md:px-6 max-md:py-8">
-                            <span class="absolute inset-x-0 top-0 h-0.5 bg-accent" aria-hidden="true"></span>
-                            <div class="mb-8 flex h-6 items-center gap-3">
-                                <span class="text-[16.5px] font-medium text-ink" x-text="t('pricing.agency.name')">Agency</span>
-                                <span class="rounded-full bg-accent-tint px-2.5 py-1 text-[11.5px] font-medium uppercase tracking-[0.06em] text-accent-ink" x-text="t('pricing.popular')">Most popular</span>
-                            </div>
-                            <div class="flex items-baseline gap-2.5">
-                                <span class="text-[46px] font-[560] leading-none tracking-[-0.03em] text-ink max-sm:text-[38px]" x-text="period === 'monthly' ? '100€' : '84€'">100€</span>
-                                <span class="text-[15px] text-muted" x-text="period === 'monthly' ? t('pricing.perMonthVat') : t('pricing.perMonth')">/month + IVA</span>
-                            </div>
-                            <div class="mt-2 min-h-5 text-[13px] text-muted-2" x-text="period === 'yearly' ? t('pricing.agency.billed') : ''"></div>
-                            <p class="mt-3 text-[15px] leading-[1.6] text-muted" x-text="t('pricing.agency.desc')">Every agent, every listing — no limits. Up to 2 offices.</p>
-                            <div class="mt-auto pt-9">
-                                <a href="#contact" class="btn w-full" x-text="t('pricing.cta')">Request a demo</a>
-                            </div>
-                        </div>
-                        <div class="flex flex-col px-9 py-10 max-md:px-6 max-md:py-8">
-                            <div class="mb-8 flex h-6 items-center text-[16.5px] font-medium text-ink" x-text="t('pricing.multi.name')">Multi-office</div>
-                            <div class="flex items-baseline">
-                                <span class="text-[46px] font-[560] leading-none tracking-[-0.03em] text-ink max-sm:text-[38px]" x-text="t('pricing.multi.custom')">Custom</span>
-                            </div>
-                            <div class="mt-2 min-h-5" aria-hidden="true"></div>
-                            <p class="mt-3 text-[15px] leading-[1.6] text-muted" x-text="t('pricing.multi.desc')">More than 2 offices? Get in touch and we'll give you a price.</p>
-                            <div class="mt-auto pt-9">
-                                <a href="#contact" class="btn-outline w-full" x-text="t('pricing.contactCta')">Get in touch</a>
-                            </div>
-                        </div>
+                <p class="mb-12 text-center text-[14.5px] text-muted-2 max-md:mb-9" x-text="t('pricing.yearlyNote')">Pay yearly and get 12 months for the price of 10.</p>
+
+                <div class="grid grid-cols-3 items-stretch gap-5 max-md:grid-cols-1">
+                <div class="relative flex flex-col overflow-hidden rounded-2xl border border-line bg-white p-8 max-md:p-6">
+                    <div class="mb-1.5 flex min-h-6 flex-wrap items-center gap-x-3 gap-y-1.5">
+                        <span class="text-[17px] font-medium text-ink" x-text="t('pricing.solo.name')">Solo</span>
                     </div>
-                    <div class="grid grid-cols-3 gap-x-12 gap-y-8 border-t border-hairline bg-surface px-9 py-10 max-md:grid-cols-2 max-md:px-6 max-md:py-8 max-sm:grid-cols-1">
+                    <p class="mb-8 text-[14.5px] leading-[1.5] text-muted" x-text="t('pricing.solo.who')">1 user, 1 office</p>
+                    <div class="flex min-h-12 items-baseline gap-2">
+                        <span class="text-[42px] font-[560] leading-none tracking-[-0.03em] text-ink max-sm:text-[36px]" x-text="period === 'monthly' ? '€42' : '€420'">€42</span>
+                        <span class="text-[15px] text-muted" x-text="period === 'monthly' ? t('pricing.perMonthVat') : t('pricing.perYearVat')">/month + IVA</span>
+                    </div>
+                    <div class="mt-2 min-h-5 text-[13px] text-accent-ink" x-text="period === 'yearly' ? t('pricing.twoMonthsFree') : ''"></div>
+                    <ul class="mt-7 space-y-2.5 border-t border-hairline pt-6 text-[14.5px] leading-[1.55] text-muted">
+                        <li x-text="t('pricing.solo.setup')">No setup fee — self-serve</li>
+                    </ul>
+                    <div class="mt-auto pt-8">
+                        <a href="#contact" class="btn-outline w-full" x-text="t('pricing.cta')">Request a demo</a>
+                    </div>
+                </div>
+                <div class="relative flex flex-col overflow-hidden rounded-2xl border border-line bg-surface-2 p-8 max-md:p-6">
+                    <span class="absolute inset-x-0 top-0 h-0.5 bg-accent" aria-hidden="true"></span>
+                    <div class="mb-1.5 flex min-h-6 flex-wrap items-center gap-x-3 gap-y-1.5">
+                        <span class="text-[17px] font-medium text-ink" x-text="t('pricing.office.name')">Office</span>
+                        <span class="rounded-full bg-accent-tint px-2.5 py-1 text-[11.5px] font-medium uppercase tracking-[0.06em] text-accent-ink" x-text="t('pricing.popular')">Most popular</span>
+                    </div>
+                    <p class="mb-8 text-[14.5px] leading-[1.5] text-muted" x-text="t('pricing.office.who')">Up to 9 users, 1 office</p>
+                    <div class="flex min-h-12 items-baseline gap-2">
+                        <span class="text-[42px] font-[560] leading-none tracking-[-0.03em] text-ink max-sm:text-[36px]" x-text="period === 'monthly' ? '€99' : '€990'">€99</span>
+                        <span class="text-[15px] text-muted" x-text="period === 'monthly' ? t('pricing.perMonthVat') : t('pricing.perYearVat')">/month + IVA</span>
+                    </div>
+                    <div class="mt-2 min-h-5 text-[13px] text-accent-ink" x-text="period === 'yearly' ? t('pricing.twoMonthsFree') : ''"></div>
+                    <ul class="mt-7 space-y-2.5 border-t border-hairline pt-6 text-[14.5px] leading-[1.55] text-muted">
+                        <li x-text="t('pricing.office.setup')">€300 setup, waived for founding agencies</li>
+                        <li x-text="t('pricing.office.extra')">€8/month per extra user</li>
+                    </ul>
+                    <div class="mt-auto pt-8">
+                        <a href="#contact" class="btn w-full" x-text="t('pricing.cta')">Request a demo</a>
+                    </div>
+                </div>
+                <div class="relative flex flex-col overflow-hidden rounded-2xl border border-line bg-white p-8 max-md:p-6">
+                    <div class="mb-1.5 flex min-h-6 flex-wrap items-center gap-x-3 gap-y-1.5">
+                        <span class="text-[17px] font-medium text-ink" x-text="t('pricing.group.name')">Group</span>
+                    </div>
+                    <p class="mb-8 text-[14.5px] leading-[1.5] text-muted" x-text="t('pricing.group.who')">10+ users or multiple offices</p>
+                    <div class="flex min-h-12 items-baseline gap-2">
+                        <span class="text-[30px] font-[560] leading-[1.1] tracking-[-0.028em] text-ink" x-text="t('pricing.group.price')">Let’s talk</span>
+                    </div>
+                    <div class="mt-2 min-h-5" aria-hidden="true"></div>
+                    <ul class="mt-7 space-y-2.5 border-t border-hairline pt-6 text-[14.5px] leading-[1.55] text-muted">
+                        <li x-text="t('pricing.group.setup')">Setup included in your quote</li>
+                    </ul>
+                    <div class="mt-auto pt-8">
+                        <a href="#contact" class="btn-outline w-full" x-text="t('pricing.contactCta')">Get in touch</a>
+                    </div>
+                </div>
+                </div>
+
+                <div class="mt-14 rounded-2xl border border-hairline bg-surface px-9 py-10 max-md:mt-10 max-md:px-6 max-md:py-8">
+                    <p class="eyebrow mb-8" x-text="t('pricing.includedTitle')">Every plan includes</p>
+                    <div class="grid grid-cols-3 gap-x-12 gap-y-8 max-md:grid-cols-2 max-md:gap-x-8 max-sm:grid-cols-1">
                         <div class="flex gap-3">
                             <svg class="mt-0.5 size-4.5 shrink-0 text-accent-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
                             <div>
-                                <div class="mb-1 text-[14.5px] font-medium text-ink" x-text="t('pricing.inc1.title')">Every agent on your team</div>
-                                <div class="text-[13.5px] leading-[1.6] text-muted" x-text="t('pricing.inc1.body')">No per-user fees, ever.</div>
+                                <div class="mb-1 text-[14.5px] font-medium text-ink" x-text="t('pricing.inc1.title')">Every deal, end to end</div>
+                                <div class="text-[13.5px] leading-[1.6] text-muted" x-text="t('pricing.inc1.body')">From first enquiry to signed sale, on one timeline.</div>
                             </div>
                         </div>
                         <div class="flex gap-3">
                             <svg class="mt-0.5 size-4.5 shrink-0 text-accent-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
                             <div>
-                                <div class="mb-1 text-[14.5px] font-medium text-ink" x-text="t('pricing.inc2.title')">Every property in your portfolio</div>
-                                <div class="text-[13.5px] leading-[1.6] text-muted" x-text="t('pricing.inc2.body')">No listing caps, no tiers.</div>
+                                <div class="mb-1 text-[14.5px] font-medium text-ink" x-text="t('pricing.inc2.title')">A full audit trail</div>
+                                <div class="text-[13.5px] leading-[1.6] text-muted" x-text="t('pricing.inc2.body')">Every change recorded — who changed what, and when.</div>
                             </div>
                         </div>
                         <div class="flex gap-3">
                             <svg class="mt-0.5 size-4.5 shrink-0 text-accent-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
                             <div>
-                                <div class="mb-1 text-[14.5px] font-medium text-ink" x-text="t('pricing.inc3.title')">Every photo, full resolution</div>
-                                <div class="text-[13.5px] leading-[1.6] text-muted" x-text="t('pricing.inc3.body')">Unlimited storage.</div>
+                                <div class="mb-1 text-[14.5px] font-medium text-ink" x-text="t('pricing.inc3.title')">Portals in and out</div>
+                                <div class="text-[13.5px] leading-[1.6] text-muted" x-text="t('pricing.inc3.body')">Import your listings, publish to every portal.</div>
                             </div>
                         </div>
                         <div class="flex gap-3">
                             <svg class="mt-0.5 size-4.5 shrink-0 text-accent-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
                             <div>
-                                <div class="mb-1 text-[14.5px] font-medium text-ink" x-text="t('pricing.inc4.title')">Your agency website</div>
-                                <div class="text-[13.5px] leading-[1.6] text-muted" x-text="t('pricing.inc4.body')">Included, not an add-on.</div>
+                                <div class="mb-1 text-[14.5px] font-medium text-ink" x-text="t('pricing.inc4.title')">AI chat, built in</div>
+                                <div class="text-[13.5px] leading-[1.6] text-muted" x-text="t('pricing.inc4.body')">Ask anything about your listings, contacts and deals.</div>
                             </div>
                         </div>
                         <div class="flex gap-3">
                             <svg class="mt-0.5 size-4.5 shrink-0 text-accent-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
                             <div>
-                                <div class="mb-1 text-[14.5px] font-medium text-ink" x-text="t('pricing.inc5.title')">Video &amp; virtual tours</div>
-                                <div class="text-[13.5px] leading-[1.6] text-muted" x-text="t('pricing.inc5.body')">Embed from YouTube, Vimeo or Matterport.</div>
+                                <div class="mb-1 text-[14.5px] font-medium text-ink" x-text="t('pricing.inc5.title')">Your agency website</div>
+                                <div class="text-[13.5px] leading-[1.6] text-muted" x-text="t('pricing.inc5.body')">Included, not an add-on.</div>
                             </div>
                         </div>
                         <div class="flex gap-3">
                             <svg class="mt-0.5 size-4.5 shrink-0 text-accent-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
                             <div>
-                                <div class="mb-1 text-[14.5px] font-medium text-ink" x-text="t('pricing.inc6.title')">Publishing, all in</div>
-                                <div class="text-[13.5px] leading-[1.6] text-muted" x-text="t('pricing.inc6.body')">Portal publishing, WhatsApp, PDF brochures.</div>
+                                <div class="mb-1 text-[14.5px] font-medium text-ink" x-text="t('pricing.inc6.title')">No feature gating</div>
+                                <div class="text-[13.5px] leading-[1.6] text-muted" x-text="t('pricing.inc6.body')">Solo runs exactly the same product as Group.</div>
                             </div>
                         </div>
                     </div>
