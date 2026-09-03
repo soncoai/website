@@ -270,7 +270,7 @@
         </section>
 
         <section id="pricing" class="border-t border-hairline px-10 py-28 max-md:px-5 max-md:py-18" x-data="{ period: 'monthly' }">
-            <div class="mx-auto max-w-290">
+            <div class="mx-auto max-w-240">
                 <div class="mb-12 text-center max-md:mb-9">
                     <p class="eyebrow eyebrow-center mb-5" x-text="t('nav.pricing')">Pricing</p>
                     <h2 class="h2 mb-4" x-text="t('pricing.title')">Simple pricing. Everything included.</h2>
@@ -284,63 +284,58 @@
                 </div>
                 <p class="mb-12 text-center text-[14.5px] text-muted-2 max-md:mb-9" x-text="t('pricing.yearlyNote')">Pay yearly and get 12 months for the price of 10.</p>
 
-                <div class="grid grid-cols-3 items-stretch gap-5 max-md:grid-cols-1">
-                <div class="relative flex flex-col overflow-hidden rounded-2xl border border-line bg-white p-8 max-md:p-6">
+                <div class="grid grid-cols-2 items-stretch gap-5 max-md:grid-cols-1">
+                <div class="relative flex flex-col overflow-hidden rounded-2xl border border-line bg-white p-10 max-md:p-7">
                     <div class="mb-1.5 flex min-h-6 flex-wrap items-center gap-x-3 gap-y-1.5">
-                        <span class="text-[17px] font-medium text-ink" x-text="t('pricing.solo.name')">Solo</span>
+                        <span class="text-[18px] font-medium text-ink" x-text="t('pricing.solo.name')">Solo</span>
                     </div>
-                    <p class="mb-8 text-[14.5px] leading-[1.5] text-muted" x-text="t('pricing.solo.who')">1 user, 1 office</p>
-                    <div class="flex min-h-12 items-baseline gap-2">
-                        <span class="text-[42px] font-[560] leading-none tracking-[-0.03em] text-ink max-sm:text-[36px]" x-text="period === 'monthly' ? '€42' : '€420'">€42</span>
+                    <p class="mb-9 text-[15px] leading-[1.5] text-muted" x-text="t('pricing.solo.who')">1 user, 1 office</p>
+                    <div class="flex items-baseline gap-2.5">
+                        <span class="text-[48px] font-[560] leading-none tracking-[-0.032em] text-ink max-sm:text-[40px]" x-text="period === 'monthly' ? '€42' : '€420'">€42</span>
                         <span class="text-[15px] text-muted" x-text="period === 'monthly' ? t('pricing.perMonthVat') : t('pricing.perYearVat')">/month + IVA</span>
                     </div>
-                    <div class="mt-2 min-h-5 text-[13px] text-accent-ink" x-text="period === 'yearly' ? t('pricing.twoMonthsFree') : ''"></div>
-                    <ul class="mt-7 space-y-2.5 border-t border-hairline pt-6 text-[14.5px] leading-[1.55] text-muted">
+                    <div class="mt-2.5 min-h-5 text-[13px] text-accent-ink" x-text="period === 'yearly' ? t('pricing.twoMonthsFree') : ''"></div>
+                    <ul class="mt-8 space-y-2.5 border-t border-hairline pt-7 text-[14.5px] leading-[1.55] text-muted">
                         <li x-text="t('pricing.solo.setup')">No setup fee — self-serve</li>
                     </ul>
-                    <div class="mt-auto pt-8">
+                    <div class="mt-auto pt-9">
                         <a href="#contact" class="btn-outline w-full" x-text="t('pricing.cta')">Request a demo</a>
                     </div>
                 </div>
-                <div class="relative flex flex-col overflow-hidden rounded-2xl border border-line bg-surface-2 p-8 max-md:p-6">
+                <div class="relative flex flex-col overflow-hidden rounded-2xl border border-line bg-surface-2 p-10 max-md:p-7">
                     <span class="absolute inset-x-0 top-0 h-0.5 bg-accent" aria-hidden="true"></span>
                     <div class="mb-1.5 flex min-h-6 flex-wrap items-center gap-x-3 gap-y-1.5">
-                        <span class="text-[17px] font-medium text-ink" x-text="t('pricing.office.name')">Office</span>
+                        <span class="text-[18px] font-medium text-ink" x-text="t('pricing.office.name')">Office</span>
                         <span class="rounded-full bg-accent-tint px-2.5 py-1 text-[11.5px] font-medium uppercase tracking-[0.06em] text-accent-ink" x-text="t('pricing.popular')">Most popular</span>
                     </div>
-                    <p class="mb-8 text-[14.5px] leading-[1.5] text-muted" x-text="t('pricing.office.who')">Up to 9 users, 1 office</p>
-                    <div class="flex min-h-12 items-baseline gap-2">
-                        <span class="text-[42px] font-[560] leading-none tracking-[-0.03em] text-ink max-sm:text-[36px]" x-text="period === 'monthly' ? '€99' : '€990'">€99</span>
+                    <p class="mb-9 text-[15px] leading-[1.5] text-muted" x-text="t('pricing.office.who')">Up to 9 users, 1 office</p>
+                    <div class="flex items-baseline gap-2.5">
+                        <span class="text-[48px] font-[560] leading-none tracking-[-0.032em] text-ink max-sm:text-[40px]" x-text="period === 'monthly' ? '€99' : '€990'">€99</span>
                         <span class="text-[15px] text-muted" x-text="period === 'monthly' ? t('pricing.perMonthVat') : t('pricing.perYearVat')">/month + IVA</span>
                     </div>
-                    <div class="mt-2 min-h-5 text-[13px] text-accent-ink" x-text="period === 'yearly' ? t('pricing.twoMonthsFree') : ''"></div>
-                    <ul class="mt-7 space-y-2.5 border-t border-hairline pt-6 text-[14.5px] leading-[1.55] text-muted">
+                    <div class="mt-2.5 min-h-5 text-[13px] text-accent-ink" x-text="period === 'yearly' ? t('pricing.twoMonthsFree') : ''"></div>
+                    <ul class="mt-8 space-y-2.5 border-t border-hairline pt-7 text-[14.5px] leading-[1.55] text-muted">
                         <li x-text="t('pricing.office.setup')">€300 setup, waived for founding agencies</li>
                         <li x-text="t('pricing.office.extra')">€8/month per extra user</li>
                     </ul>
-                    <div class="mt-auto pt-8">
+                    <div class="mt-auto pt-9">
                         <a href="#contact" class="btn w-full" x-text="t('pricing.cta')">Request a demo</a>
-                    </div>
-                </div>
-                <div class="relative flex flex-col overflow-hidden rounded-2xl border border-line bg-white p-8 max-md:p-6">
-                    <div class="mb-1.5 flex min-h-6 flex-wrap items-center gap-x-3 gap-y-1.5">
-                        <span class="text-[17px] font-medium text-ink" x-text="t('pricing.group.name')">Group</span>
-                    </div>
-                    <p class="mb-8 text-[14.5px] leading-[1.5] text-muted" x-text="t('pricing.group.who')">10+ users or multiple offices</p>
-                    <div class="flex min-h-12 items-baseline gap-2">
-                        <span class="text-[30px] font-[560] leading-[1.1] tracking-[-0.028em] text-ink" x-text="t('pricing.group.price')">Let’s talk</span>
-                    </div>
-                    <div class="mt-2 min-h-5" aria-hidden="true"></div>
-                    <ul class="mt-7 space-y-2.5 border-t border-hairline pt-6 text-[14.5px] leading-[1.55] text-muted">
-                        <li x-text="t('pricing.group.setup')">Setup included in your quote</li>
-                    </ul>
-                    <div class="mt-auto pt-8">
-                        <a href="#contact" class="btn-outline w-full" x-text="t('pricing.contactCta')">Get in touch</a>
                     </div>
                 </div>
                 </div>
 
-                <div class="mt-14 rounded-2xl border border-hairline bg-surface px-9 py-10 max-md:mt-10 max-md:px-6 max-md:py-8">
+                <div class="mt-5 flex items-center justify-between gap-8 rounded-2xl border border-line bg-white px-9 py-7 max-sm:flex-col max-sm:items-start max-sm:gap-5 max-md:px-7">
+                    <div>
+                        <div class="mb-1 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                            <span class="text-[18px] font-medium text-ink" x-text="t('pricing.group.name')">Group</span>
+                            <span class="text-[15px] text-muted" x-text="t('pricing.group.who')">10+ users or multiple offices</span>
+                        </div>
+                        <p class="text-[13.5px] text-muted-2" x-text="t('pricing.group.setup')">Setup included in your quote</p>
+                    </div>
+                    <a href="#contact" class="btn-outline shrink-0 max-sm:w-full" x-text="t('pricing.contactCta')">Get in touch</a>
+                </div>
+
+                <div class="mt-14 rounded-2xl border border-hairline bg-surface px-9 py-10 max-md:mt-10 max-md:px-7 max-md:py-8">
                     <p class="eyebrow mb-8" x-text="t('pricing.includedTitle')">Every plan includes</p>
                     <div class="grid grid-cols-3 gap-x-12 gap-y-8 max-md:grid-cols-2 max-md:gap-x-8 max-sm:grid-cols-1">
                         <div class="flex gap-3">
