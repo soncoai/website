@@ -4,7 +4,7 @@
 (function () {
     var I18N = {
         en: {
-            "meta.title": "Sonnco — The real estate platform that works while you sell",
+            "meta.title": "sonco — The real estate platform that works while you sell",
             "meta.description": "CRM, listings, and follow-ups in one workspace — with AI built in, not bolted on. One price per office, everything included.",
             "nav.features": "Features",
             "nav.pricing": "Pricing",
@@ -15,18 +15,18 @@
             "hero.subtitle": 'Your contacts, listings, and website in one place.<br class="max-md:hidden"> Built by an estate agent.',
             "hero.cta": "Request a demo",
             "hero.secondaryCta": "See how it works",
-            "hero.alt": "The Sonnco workspace showing the client pipeline and listing details.",
+            "hero.alt": "The sonco workspace showing the client pipeline and listing details.",
             "features.eyebrow": "The platform",
             "features.title": "Built for the way agents work",
             "features.crm.title": "Every client, clearly organised",
             "features.crm.body": "All your buyers, sellers, and leads together — see their full history, requirements, and next steps. Nothing falls through the cracks between viewings.",
-            "features.crm.alt": "A contact record in Sonnco showing their details, matched properties, and an AI-suggested next step.",
+            "features.crm.alt": "A contact record in sonco showing their details, matched properties, and an AI-suggested next step.",
             "features.listings.title": "Every listing, published everywhere",
             "features.listings.body": "Create a listing once and publish it to portals, your website, and brochures from the same screen. Change anything and it updates everywhere, so what buyers see is always what's true.",
-            "features.listings.alt": "The Sonnco listings view with a property detail panel showing live sync status.",
+            "features.listings.alt": "The sonco listings view with a property detail panel showing live sync status.",
             "features.web.title": "A website that runs itself",
-            "features.web.body": "Every agency gets a fast, polished site connected straight to Sonnco — listings publish themselves, enquiries land in your CRM, nothing to maintain.",
-            "features.web.alt": "An agency website built by Sonnco, with a hero search over a coastal town and live listings below.",
+            "features.web.body": "Every agency gets a fast, polished site connected straight to sonco — listings publish themselves, enquiries land in your CRM, nothing to maintain.",
+            "features.web.alt": "An agency website built by sonco, with a hero search over a coastal town and live listings below.",
             "more.eyebrow": "Capabilities",
             "more.title": "And even more",
             "more.matching.title": "Automatic property matching",
@@ -48,7 +48,7 @@
             "more.updates.title": "Automatic updates",
             "more.updates.body": "New features arrive as you work — nothing to install, nothing to migrate, ever.",
             "portals.title": "Every portal, connected.",
-            "why.title": "Why Sonnco",
+            "why.title": "Why sonco",
             "why.industry.title": "Built in the industry",
             "why.industry.body": "Made by someone who works in real estate every day — not a tech company guessing.",
             "why.size.title": "Any size of agency",
@@ -90,14 +90,14 @@
             "pricing.inc6.title": "Publishing, all in",
             "pricing.inc6.body": "Portal publishing, WhatsApp, PDF brochures.",
             "contact.title": "Spend your time closing, not typing.",
-            "contact.body": "See Sonnco on your own listings — a demo takes 20 minutes.",
+            "contact.body": "See sonco on your own listings — a demo takes 20 minutes.",
             "contact.cta": "Request a demo",
             "footer.privacy": "Privacy",
             "footer.terms": "Terms",
             "footer.contact": "Contact"
         },
         es: {
-            "meta.title": "Sonnco — La plataforma inmobiliaria que trabaja mientras tú vendes",
+            "meta.title": "sonco — La plataforma inmobiliaria que trabaja mientras tú vendes",
             "meta.description": "CRM, inmuebles y seguimientos en un solo espacio de trabajo, con IA integrada de verdad. Un precio por oficina, todo incluido.",
             "nav.features": "Funciones",
             "nav.pricing": "Precios",
@@ -108,18 +108,18 @@
             "hero.subtitle": 'Tus contactos, inmuebles y web en un solo lugar.<br class="max-md:hidden"> Creada por un agente inmobiliario.',
             "hero.cta": "Solicita una demo",
             "hero.secondaryCta": "Ver cómo funciona",
-            "hero.alt": "El espacio de trabajo de Sonnco con el pipeline de clientes y los detalles de un inmueble.",
+            "hero.alt": "El espacio de trabajo de sonco con el pipeline de clientes y los detalles de un inmueble.",
             "features.eyebrow": "La plataforma",
             "features.title": "Diseñada para cómo trabajan los agentes",
             "features.crm.title": "Cada cliente, perfectamente organizado",
             "features.crm.body": "Compradores, vendedores y leads, todos juntos: consulta su historial completo, sus requisitos y los próximos pasos. Nada se pierde entre visita y visita.",
-            "features.crm.alt": "Una ficha de contacto en Sonnco con sus datos, inmuebles compatibles y un próximo paso sugerido por la IA.",
+            "features.crm.alt": "Una ficha de contacto en sonco con sus datos, inmuebles compatibles y un próximo paso sugerido por la IA.",
             "features.listings.title": "Cada inmueble, publicado en todas partes",
             "features.listings.body": "Crea el anuncio una vez y publícalo en portales, tu web y folletos desde la misma pantalla. Cambia lo que sea y se actualiza en todas partes: lo que ven los compradores siempre es lo real.",
-            "features.listings.alt": "La vista de inmuebles de Sonnco con un panel de detalle que muestra el estado de sincronización en directo.",
+            "features.listings.alt": "La vista de inmuebles de sonco con un panel de detalle que muestra el estado de sincronización en directo.",
             "features.web.title": "Una web que se gestiona sola",
-            "features.web.body": "Cada agencia recibe una web rápida y cuidada conectada directamente a Sonnco: los inmuebles se publican solos, las solicitudes llegan a tu CRM y no hay nada que mantener.",
-            "features.web.alt": "Una web de agencia creada por Sonnco, con un buscador sobre una localidad costera y anuncios en directo debajo.",
+            "features.web.body": "Cada agencia recibe una web rápida y cuidada conectada directamente a sonco: los inmuebles se publican solos, las solicitudes llegan a tu CRM y no hay nada que mantener.",
+            "features.web.alt": "Una web de agencia creada por sonco, con un buscador sobre una localidad costera y anuncios en directo debajo.",
             "more.eyebrow": "Funcionalidades",
             "more.title": "Y mucho más",
             "more.matching.title": "Cruce automático de inmuebles",
@@ -141,7 +141,7 @@
             "more.updates.title": "Actualizaciones automáticas",
             "more.updates.body": "Las novedades llegan mientras trabajas: nada que instalar, nada que migrar, nunca.",
             "portals.title": "Todos los portales, conectados.",
-            "why.title": "Por qué Sonnco",
+            "why.title": "Por qué sonco",
             "why.industry.title": "Nacida en el sector",
             "why.industry.body": "Creada por alguien que trabaja en el sector inmobiliario cada día, no por una tecnológica haciendo suposiciones.",
             "why.size.title": "Para agencias de cualquier tamaño",
@@ -183,14 +183,14 @@
             "pricing.inc6.title": "Publicación, todo incluido",
             "pricing.inc6.body": "Publicación en portales, WhatsApp y folletos en PDF.",
             "contact.title": "Dedica tu tiempo a cerrar ventas, no a teclear.",
-            "contact.body": "Mira Sonnco con tus propios inmuebles: una demo dura 20 minutos.",
+            "contact.body": "Mira sonco con tus propios inmuebles: una demo dura 20 minutos.",
             "contact.cta": "Solicita una demo",
             "footer.privacy": "Privacidad",
             "footer.terms": "Términos",
             "footer.contact": "Contacto"
         },
         nl: {
-            "meta.title": "Sonnco — Het vastgoedplatform dat doorwerkt terwijl jij verkoopt",
+            "meta.title": "sonco — Het vastgoedplatform dat doorwerkt terwijl jij verkoopt",
             "meta.description": "CRM, woningaanbod en opvolging in één werkruimte — met AI die erin is gebouwd, niet erop geplakt. Eén prijs per kantoor, alles inbegrepen.",
             "nav.features": "Functies",
             "nav.pricing": "Prijzen",
@@ -201,18 +201,18 @@
             "hero.subtitle": 'Je contacten, woningen en website op één plek.<br class="max-md:hidden"> Gebouwd door een makelaar.',
             "hero.cta": "Vraag een demo aan",
             "hero.secondaryCta": "Bekijk hoe het werkt",
-            "hero.alt": "De Sonnco-werkruimte met de klantenpipeline en de details van een woning.",
+            "hero.alt": "De sonco-werkruimte met de klantenpipeline en de details van een woning.",
             "features.eyebrow": "Het platform",
             "features.title": "Gebouwd voor hoe makelaars werken",
             "features.crm.title": "Elke klant, overzichtelijk geordend",
             "features.crm.body": "Al je kopers, verkopers en leads bij elkaar — met hun volledige historie, zoekwensen en volgende stappen. Er glipt niets meer tussendoor tussen bezichtigingen.",
-            "features.crm.alt": "Een contactkaart in Sonnco met gegevens, passende woningen en een door AI voorgestelde volgende stap.",
+            "features.crm.alt": "Een contactkaart in sonco met gegevens, passende woningen en een door AI voorgestelde volgende stap.",
             "features.listings.title": "Elke woning, overal gepubliceerd",
             "features.listings.body": "Voer een woning één keer in en publiceer haar vanaf hetzelfde scherm op portalen, je website en in brochures. Pas iets aan en het wordt overal bijgewerkt — wat kopers zien klopt altijd.",
-            "features.listings.alt": "Het woningoverzicht van Sonnco met een detailpaneel dat de live synchronisatiestatus toont.",
+            "features.listings.alt": "Het woningoverzicht van sonco met een detailpaneel dat de live synchronisatiestatus toont.",
             "features.web.title": "Een website die zichzelf onderhoudt",
-            "features.web.body": "Elk kantoor krijgt een snelle, verzorgde site die rechtstreeks aan Sonnco is gekoppeld — woningen publiceren zichzelf, aanvragen komen in je CRM terecht en er is niets te onderhouden.",
-            "features.web.alt": "Een kantoorwebsite gebouwd door Sonnco, met een zoekbalk boven een kustplaats en live aanbod eronder.",
+            "features.web.body": "Elk kantoor krijgt een snelle, verzorgde site die rechtstreeks aan sonco is gekoppeld — woningen publiceren zichzelf, aanvragen komen in je CRM terecht en er is niets te onderhouden.",
+            "features.web.alt": "Een kantoorwebsite gebouwd door sonco, met een zoekbalk boven een kustplaats en live aanbod eronder.",
             "more.eyebrow": "Mogelijkheden",
             "more.title": "En nog veel meer",
             "more.matching.title": "Automatische woningmatching",
@@ -234,7 +234,7 @@
             "more.updates.title": "Automatische updates",
             "more.updates.body": "Nieuwe functies verschijnen terwijl je werkt — niets te installeren, niets te migreren, nooit.",
             "portals.title": "Elk portaal, verbonden.",
-            "why.title": "Waarom Sonnco",
+            "why.title": "Waarom sonco",
             "why.industry.title": "Ontstaan in het vak",
             "why.industry.body": "Gemaakt door iemand die elke dag in het vastgoed werkt — niet door een techbedrijf dat maar wat gokt.",
             "why.size.title": "Voor elk formaat kantoor",
@@ -276,14 +276,14 @@
             "pricing.inc6.title": "Publiceren, alles erbij",
             "pricing.inc6.body": "Portalen, WhatsApp, pdf-brochures.",
             "contact.title": "Besteed je tijd aan verkopen, niet aan typen.",
-            "contact.body": "Bekijk Sonnco met je eigen woningen — een demo duurt 20 minuten.",
+            "contact.body": "Bekijk sonco met je eigen woningen — een demo duurt 20 minuten.",
             "contact.cta": "Vraag een demo aan",
             "footer.privacy": "Privacy",
             "footer.terms": "Voorwaarden",
             "footer.contact": "Contact"
         },
         fr: {
-            "meta.title": "Sonnco — La plateforme immobilière qui travaille pendant que vous vendez",
+            "meta.title": "sonco — La plateforme immobilière qui travaille pendant que vous vendez",
             "meta.description": "CRM, annonces et relances dans un seul espace de travail — avec l'IA intégrée, pas ajoutée après coup. Un prix par agence, tout compris.",
             "nav.features": "Fonctionnalités",
             "nav.pricing": "Tarifs",
@@ -294,18 +294,18 @@
             "hero.subtitle": 'Vos contacts, vos biens et votre site web au même endroit.<br class="max-md:hidden"> Conçue par un agent immobilier.',
             "hero.cta": "Demander une démo",
             "hero.secondaryCta": "Voir comment ça marche",
-            "hero.alt": "L'espace de travail Sonnco montrant le pipeline clients et les détails d'un bien.",
+            "hero.alt": "L'espace de travail sonco montrant le pipeline clients et les détails d'un bien.",
             "features.eyebrow": "La plateforme",
             "features.title": "Pensée pour la façon dont les agents travaillent",
             "features.crm.title": "Chaque client, clairement organisé",
             "features.crm.body": "Tous vos acquéreurs, vendeurs et prospects réunis — historique complet, critères de recherche et prochaines étapes en un coup d'œil. Plus rien ne passe entre les mailles du filet entre deux visites.",
-            "features.crm.alt": "Une fiche contact dans Sonnco avec ses coordonnées, les biens correspondants et une prochaine étape suggérée par l'IA.",
+            "features.crm.alt": "Une fiche contact dans sonco avec ses coordonnées, les biens correspondants et une prochaine étape suggérée par l'IA.",
             "features.listings.title": "Chaque bien, publié partout",
             "features.listings.body": "Créez une annonce une seule fois et publiez-la sur les portails, votre site et vos brochures depuis le même écran. Modifiez quoi que ce soit et tout se met à jour partout — ce que voient les acquéreurs est toujours exact.",
-            "features.listings.alt": "La vue des biens dans Sonnco avec un panneau de détail montrant l'état de synchronisation en direct.",
+            "features.listings.alt": "La vue des biens dans sonco avec un panneau de détail montrant l'état de synchronisation en direct.",
             "features.web.title": "Un site web qui vit tout seul",
-            "features.web.body": "Chaque agence dispose d'un site rapide et soigné, relié directement à Sonnco — les biens se publient tout seuls, les demandes arrivent dans votre CRM, rien à maintenir.",
-            "features.web.alt": "Un site d'agence créé par Sonnco, avec une recherche au-dessus d'une ville côtière et les annonces en direct dessous.",
+            "features.web.body": "Chaque agence dispose d'un site rapide et soigné, relié directement à sonco — les biens se publient tout seuls, les demandes arrivent dans votre CRM, rien à maintenir.",
+            "features.web.alt": "Un site d'agence créé par sonco, avec une recherche au-dessus d'une ville côtière et les annonces en direct dessous.",
             "more.eyebrow": "Fonctionnalités",
             "more.title": "Et bien plus encore",
             "more.matching.title": "Rapprochement automatique",
@@ -327,7 +327,7 @@
             "more.updates.title": "Mises à jour automatiques",
             "more.updates.body": "Les nouveautés arrivent pendant que vous travaillez — rien à installer, rien à migrer, jamais.",
             "portals.title": "Tous les portails, connectés.",
-            "why.title": "Pourquoi Sonnco",
+            "why.title": "Pourquoi sonco",
             "why.industry.title": "Née sur le terrain",
             "why.industry.body": "Conçue par quelqu'un qui travaille dans l'immobilier au quotidien — pas par une entreprise tech qui devine.",
             "why.size.title": "Pour toutes les tailles d'agence",
@@ -369,14 +369,14 @@
             "pricing.inc6.title": "Diffusion, tout compris",
             "pricing.inc6.body": "Publication sur les portails, WhatsApp, brochures PDF.",
             "contact.title": "Passez votre temps à vendre, pas à saisir des données.",
-            "contact.body": "Découvrez Sonnco avec vos propres biens — une démo prend 20 minutes.",
+            "contact.body": "Découvrez sonco avec vos propres biens — une démo prend 20 minutes.",
             "contact.cta": "Demander une démo",
             "footer.privacy": "Confidentialité",
             "footer.terms": "Conditions",
             "footer.contact": "Contact"
         },
         de: {
-            "meta.title": "Sonnco — Die Immobilienplattform, die arbeitet, während Sie verkaufen",
+            "meta.title": "sonco — Die Immobilienplattform, die arbeitet, während Sie verkaufen",
             "meta.description": "CRM, Objekte und Nachfassen in einem Arbeitsbereich — mit KI, die eingebaut ist, nicht angeflanscht. Ein Preis pro Büro, alles inklusive.",
             "nav.features": "Funktionen",
             "nav.pricing": "Preise",
@@ -387,18 +387,18 @@
             "hero.subtitle": 'Ihre Kontakte, Objekte und Website an einem Ort.<br class="max-md:hidden"> Entwickelt von einem Immobilienmakler.',
             "hero.cta": "Demo anfragen",
             "hero.secondaryCta": "So funktioniert es",
-            "hero.alt": "Der Sonnco-Arbeitsbereich mit der Kundenpipeline und den Details eines Objekts.",
+            "hero.alt": "Der sonco-Arbeitsbereich mit der Kundenpipeline und den Details eines Objekts.",
             "features.eyebrow": "Die Plattform",
             "features.title": "Gemacht für die Arbeitsweise von Maklern",
             "features.crm.title": "Jeder Kunde, klar organisiert",
             "features.crm.body": "Alle Käufer, Verkäufer und Leads an einem Ort — mit vollständiger Historie, Suchkriterien und nächsten Schritten. Zwischen den Besichtigungen geht nichts mehr unter.",
-            "features.crm.alt": "Eine Kontaktakte in Sonnco mit Details, passenden Objekten und einem von der KI vorgeschlagenen nächsten Schritt.",
+            "features.crm.alt": "Eine Kontaktakte in sonco mit Details, passenden Objekten und einem von der KI vorgeschlagenen nächsten Schritt.",
             "features.listings.title": "Jedes Objekt, überall veröffentlicht",
             "features.listings.body": "Legen Sie ein Objekt einmal an und veröffentlichen Sie es vom selben Bildschirm aus auf Portalen, Ihrer Website und in Exposés. Ändern Sie etwas, wird es überall aktualisiert — Käufer sehen immer den aktuellen Stand.",
-            "features.listings.alt": "Die Objektübersicht in Sonnco mit einem Detailbereich, der den Live-Synchronisierungsstatus zeigt.",
+            "features.listings.alt": "Die Objektübersicht in sonco mit einem Detailbereich, der den Live-Synchronisierungsstatus zeigt.",
             "features.web.title": "Eine Website, die sich selbst pflegt",
-            "features.web.body": "Jedes Büro erhält eine schnelle, gepflegte Website, die direkt mit Sonnco verbunden ist — Objekte veröffentlichen sich selbst, Anfragen landen im CRM, nichts zu warten.",
-            "features.web.alt": "Eine von Sonnco erstellte Büro-Website mit einer Suche über einem Küstenort und Live-Angeboten darunter.",
+            "features.web.body": "Jedes Büro erhält eine schnelle, gepflegte Website, die direkt mit sonco verbunden ist — Objekte veröffentlichen sich selbst, Anfragen landen im CRM, nichts zu warten.",
+            "features.web.alt": "Eine von sonco erstellte Büro-Website mit einer Suche über einem Küstenort und Live-Angeboten darunter.",
             "more.eyebrow": "Funktionen",
             "more.title": "Und noch mehr",
             "more.matching.title": "Automatisches Objekt-Matching",
@@ -420,7 +420,7 @@
             "more.updates.title": "Automatische Updates",
             "more.updates.body": "Neue Funktionen erscheinen, während Sie arbeiten — nichts zu installieren, nichts zu migrieren, nie.",
             "portals.title": "Jedes Portal, verbunden.",
-            "why.title": "Warum Sonnco",
+            "why.title": "Warum sonco",
             "why.industry.title": "In der Branche entstanden",
             "why.industry.body": "Entwickelt von jemandem, der jeden Tag in der Immobilienbranche arbeitet — nicht von einem Tech-Unternehmen, das rät.",
             "why.size.title": "Für jede Bürogröße",
@@ -462,7 +462,7 @@
             "pricing.inc6.title": "Veröffentlichen, alles drin",
             "pricing.inc6.body": "Portale, WhatsApp, PDF-Exposés.",
             "contact.title": "Verbringen Sie Ihre Zeit mit Abschlüssen, nicht mit Tippen.",
-            "contact.body": "Sehen Sie Sonnco mit Ihren eigenen Objekten — eine Demo dauert 20 Minuten.",
+            "contact.body": "Sehen Sie sonco mit Ihren eigenen Objekten — eine Demo dauert 20 Minuten.",
             "contact.cta": "Demo anfragen",
             "footer.privacy": "Datenschutz",
             "footer.terms": "AGB",
@@ -472,9 +472,14 @@
 
     var SUPPORTED = Object.keys(I18N);
 
+    var LANG_KEY = "sonco-lang";
+    var LEGACY_LANG_KEY = "sonnco-lang";
+
     function initialLang() {
         var stored = null;
-        try { stored = localStorage.getItem("sonnco-lang"); } catch (e) {}
+        // Read the old key too, so the rename doesn't silently drop the
+        // language a returning visitor already chose.
+        try { stored = localStorage.getItem(LANG_KEY) || localStorage.getItem(LEGACY_LANG_KEY); } catch (e) {}
         var candidates = [
             new URLSearchParams(location.search).get("lang"),
             stored,
@@ -493,10 +498,19 @@
                 languages: { en: "English", es: "Español", nl: "Nederlands", fr: "Français", de: "Deutsch" },
                 init: function () {
                     this.applyDocument();
+                    // Complete the key migration on first load, not only when
+                    // the visitor next changes language.
+                    this.persist();
                     this.$watch("lang", function () {
-                        try { localStorage.setItem("sonnco-lang", this.lang); } catch (e) {}
+                        this.persist();
                         this.applyDocument();
                     }.bind(this));
+                },
+                persist: function () {
+                    try {
+                        localStorage.setItem(LANG_KEY, this.lang);
+                        localStorage.removeItem(LEGACY_LANG_KEY);
+                    } catch (e) {}
                 },
                 applyDocument: function () {
                     document.documentElement.lang = this.lang;

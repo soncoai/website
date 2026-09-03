@@ -1,6 +1,6 @@
-# Sonnco website
+# sonco website
 
-Static marketing landing page for Sonnco, styled with Tailwind CSS.
+Static marketing landing page for sonco, styled with Tailwind CSS.
 
 ## Structure
 
