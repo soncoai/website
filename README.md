@@ -1,6 +1,6 @@
-# Sonnco website
+# sonco website
 
-Static marketing landing page for Sonnco, styled with Tailwind CSS. Served from
+Static marketing landing page for sonco, styled with Tailwind CSS. Served from
 a Cloudflare Worker at [sonco.ai](https://sonco.ai).
 
 ## Structure
@@ -10,12 +10,33 @@ index.html           Page markup (Tailwind utility classes)
 404.html             Not-found page, served by the Worker for unmatched paths
 src/input.css        Tailwind entry — @theme tokens, @font-face, custom @utility gradients
 css/site.css         Built stylesheet (generated — do not edit by hand)
-fonts/               Self-hosted Geist and Gambetta (latin variable subsets, woff2)
+fonts/               Self-hosted Geist (latin variable subset, woff2)
 images/              Screenshots and image assets
+images/brand/        Logo SVGs, copied from soncoai/brand
+favicon.*, icon-*    Favicons and app icons, copied from soncoai/brand
+site.webmanifest     App manifest, copied from soncoai/brand
 _headers             Response headers applied at deploy time
 wrangler.jsonc       Worker config
 dist/                Assembled upload directory (generated, gitignored)
 ```
+
+## Brand assets
+
+The logo, favicons and app icons come from **soncoai/brand** (`logo/svg/` and
+`logo/web/`) and are copied in rather than linked — that repo is private, so raw
+URLs would 404 in a browser. The nav lockup and footer mark are inlined in
+`index.html` so they inherit `currentColor`.
+
+Do not hand-edit the logo paths: the geometry is generated on a 24-unit grid and
+every file has to be regenerated together. If the logo changes, re-copy from the
+brand repo:
+
+```bash
+cp ../brand/logo/svg/sonco-{horizontal,mark}.svg images/brand/
+cp ../brand/logo/web/{favicon.ico,favicon.svg,apple-touch-icon.png,site.webmanifest,icon-192.png,icon-512.png,icon-maskable-512.png} .
+```
+
+A new icon or manifest file also has to be named in `npm run dist` — see Deploy.
 
 ## Develop
 
@@ -56,10 +77,13 @@ needs no token either:
 npm run deploy   # build css, assemble dist/, wrangler deploy
 ```
 
-`npm run dist` is an allow-list, not a copy of the tree: it names the six things
-that ship. Anything else in the repo — `src/`, `node_modules/`, this README — is
-not uploaded because it was never named. A new top-level directory that belongs
-on the site has to be added to that script.
+`npm run dist` is an allow-list, not a copy of the tree: it names every file and
+directory that ships. Anything else in the repo — `src/`, `node_modules/`, this
+README — is not uploaded because it was never named.
+
+The cost of that safety is that it does not update itself. **Anything new at the
+top level has to be added to the script or it 404s on the live site**, which is
+how the root icons and `site.webmanifest` nearly shipped missing.
 
 ## Hosting
 
