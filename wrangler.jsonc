@@ -1,0 +1,23 @@
+{
+	"$schema": "./node_modules/wrangler/config-schema.json",
+	"name": "sonco-website",
+	"compatibility_date": "2026-09-08",
+
+	// No "main": nothing about this site needs code at the edge, so the
+	// Worker is the asset server and nothing else. Adding an entrypoint later
+	// puts a JS invocation in front of every request — only worth it for
+	// something a static file cannot answer.
+	"assets": {
+		"directory": "./dist",
+		"html_handling": "auto-trailing-slash",
+		"not_found_handling": "404-page"
+	},
+
+	// The apex only. www is deliberately not a second custom domain: two
+	// hostnames serving one page is duplicate content with no canonical to
+	// settle it. Point www at the apex with a Cloudflare redirect rule
+	// instead — see README.
+	"routes": [
+		{ "pattern": "sonco.ai", "custom_domain": true }
+	]
+}

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex">
+    <title>Page not found — Sonnco</title>
+    <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+    <link rel="preload" href="/fonts/geist-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/gambetta-var.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/site.css?v=25">
+</head>
+<body>
+    <!-- English only, and no Alpine: i18n.js resolves a language the visitor
+         chose on a page they have already left, and a 404 that waits on a
+         script is a blank screen for anyone whose request went wrong twice. -->
+    <div class="relative flex min-h-screen flex-col items-center justify-center bg-white px-6 text-center">
+        <div class="pointer-events-none absolute inset-x-0 top-0 h-105 overflow-hidden mask-b-from-55%">
+            <div class="glow-top pointer-events-none absolute -top-70 left-1/2 h-175 w-350 -translate-x-1/2 blur-2xl"></div>
+        </div>
+
+        <a href="/" class="relative flex items-center gap-2.5 text-ink hover:text-ink">
+            <svg class="size-7 text-ink" viewBox="0 0 400 400" fill="currentColor" aria-hidden="true">
+                <ellipse cx="200" cy="112" rx="26" ry="76" transform="rotate(0 200 200)"/>
+                <ellipse cx="200" cy="112" rx="26" ry="76" transform="rotate(45 200 200)"/>
+                <ellipse cx="200" cy="112" rx="26" ry="76" transform="rotate(90 200 200)"/>
+                <ellipse cx="200" cy="112" rx="26" ry="76" transform="rotate(135 200 200)"/>
+                <ellipse cx="200" cy="112" rx="26" ry="76" transform="rotate(180 200 200)"/>
+                <ellipse cx="200" cy="112" rx="26" ry="76" transform="rotate(225 200 200)"/>
+                <ellipse cx="200" cy="112" rx="26" ry="76" transform="rotate(270 200 200)"/>
+                <ellipse cx="200" cy="112" rx="26" ry="76" transform="rotate(315 200 200)"/>
+                <circle cx="200" cy="200" r="36"/>
+            </svg>
+            <span class="text-xl font-medium tracking-[-0.01em]">Sonnco</span>
+        </a>
+
+        <h1 class="relative mt-10 font-display text-5xl font-normal tracking-[-0.02em] text-ink max-sm:text-4xl">Page not found</h1>
+        <p class="relative mt-4 max-w-prose text-base text-muted">That page has moved or never existed.</p>
+        <a href="/" class="relative mt-8 text-base text-link transition-colors hover:text-link-hover">Back to the home page</a>
+    </div>
+</body>
+</html>
