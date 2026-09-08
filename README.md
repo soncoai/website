@@ -35,8 +35,22 @@ npx wrangler dev
 
 ## Deploy
 
-Pushing to `main` deploys, via `.github/workflows/deploy.yml`. To deploy from a
-laptop instead:
+Pushing to `main` deploys. Cloudflare watches the repo through Workers Builds
+(Workers → the `sonco-website` Worker → Settings → Build), so there is no CI
+file here and no API token anywhere: Cloudflare's GitHub App carries the auth.
+The dashboard holds two commands, and they are the whole of what it knows:
+
+```
+Build command    npm run build && npm run dist
+Deploy command   npx wrangler deploy
+```
+
+`npm run dist` has to be in there. `dist/` is generated and gitignored, so a
+build that only compiles the CSS leaves `wrangler deploy` pointing at a
+directory that does not exist.
+
+To deploy from a laptop instead — `wrangler login` does browser OAuth, so this
+needs no token either:
 
 ```bash
 npm run deploy   # build css, assemble dist/, wrangler deploy
@@ -68,10 +82,13 @@ they are zone settings rather than Worker settings:
 
 ### First-time setup
 
-1. Add repository secrets `CLOUDFLARE_API_TOKEN` (permissions: *Workers Scripts
-   → Edit*, and *Workers Routes → Edit* for the custom domain) and
-   `CLOUDFLARE_ACCOUNT_ID`.
-2. Make sure `sonco.ai` is a zone on the same Cloudflare account — a custom
-   domain can only attach to a zone Cloudflare holds.
-3. Turn GitHub Pages off under Settings → Pages, so the old build stops
+1. Make sure `sonco.ai` is a zone on the same Cloudflare account — a custom
+   domain can only attach to a zone Cloudflare holds, so this comes before any
+   deploy.
+2. Workers → Create → Connect to Git → `soncoai/website`. Take the project name
+   from `wrangler.jsonc` (`sonco-website`): the deploy command reads that file,
+   so a different name in the dashboard leaves the build project and the Worker
+   pointing at two different things.
+3. Set the two commands above.
+4. Turn GitHub Pages off under Settings → Pages, so the old build stops
    answering.
