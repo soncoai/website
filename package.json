@@ -1,13 +1,13 @@
 {
-  "name": "sonnco-website",
+  "name": "sonco-website",
   "version": "1.0.0",
-  "description": "Sonnco marketing landing page — static site built with Tailwind CSS.",
+  "description": "sonco marketing landing page — static site built with Tailwind CSS.",
   "private": true,
   "scripts": {
     "build": "tailwindcss -i ./src/input.css -o ./css/site.css --minify",
     "dev": "tailwindcss -i ./src/input.css -o ./css/site.css --watch",
     "serve": "python3 -m http.server 8000",
-    "dist": "rm -rf dist && mkdir dist && cp -R index.html 404.html _headers css js fonts images dist/",
+    "dist": "rm -rf dist && mkdir dist && cp -R index.html 404.html _headers site.webmanifest favicon.ico favicon.svg apple-touch-icon.png icon-192.png icon-512.png icon-maskable-512.png css js fonts images dist/",
     "deploy": "npm run build && npm run dist && wrangler deploy"
   },
   "devDependencies": {
