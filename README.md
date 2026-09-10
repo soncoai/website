@@ -7,6 +7,8 @@ a Cloudflare Worker at [sonco.ai](https://sonco.ai).
 
 ```
 index.html           Page markup (Tailwind utility classes)
+compare.html         /compare — sonco against Inmovilla and Sooprema
+comparar.html        /comparar — the Spanish address, redirecting to /compare?lang=es
 404.html             Not-found page, served by the Worker for unmatched paths
 src/input.css        Tailwind entry — @theme tokens, @font-face, custom @utility gradients
 css/site.css         Built stylesheet (generated — do not edit by hand)
