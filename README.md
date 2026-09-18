@@ -8,6 +8,13 @@ a Cloudflare Worker at [sonco.ai](https://sonco.ai).
 ```
 index.html           Page markup (Tailwind utility classes)
 404.html             Not-found page, served by the Worker for unmatched paths
+thanks.html          Where a no-script demo request lands after the Worker takes it
+worker.mjs           The Worker script: POST /contact → email; everything else → assets
+contact.mjs          The form's validation and the email it becomes, pure, covered by test/
+test/                `npm test` — node:test, no dependencies
+js/contact-form.js   The form's in-page submit; without it the same form posts normally
+privacy.html         Privacy policy — English only, no Alpine, like the 404
+terms.html           Terms of use, the same shape
 src/input.css        Tailwind entry — @theme tokens, @font-face, custom @utility gradients
 css/site.css         Built stylesheet (generated — do not edit by hand)
 fonts/               Self-hosted Geist (latin variable subset, woff2)
@@ -19,6 +26,13 @@ _headers             Response headers applied at deploy time
 wrangler.jsonc       Worker config
 dist/                Assembled upload directory (generated, gitignored)
 ```
+
+## Cache-busting
+
+`css/site.css`, `js/i18n.js` and `js/contact-form.js` are referenced with a
+`?v=N` query. Bump it in every page that names them whenever any of the three
+changes, or a returning visitor keeps the old file — the translation file in
+particular, where a stale copy leaves every newly added string blank.
 
 ## Brand assets
 
@@ -46,13 +60,16 @@ npm run dev      # rebuild css/site.css on change
 npm run serve    # serve at http://localhost:8000
 ```
 
-`npm run serve` is enough for markup and styling. To exercise what the Worker
-actually does — the 404 page, the `_headers` rules — build and run it:
+`npm run serve` is enough for markup and styling. `npm test` covers the form's
+validation and the email it builds. To exercise what the Worker actually does —
+the form, the 404 page, the `_headers` rules — build and run it:
 
 ```bash
 npm run build && npm run dist
 npx wrangler dev
 ```
+
+`wrangler dev` does not deliver mail; it logs the message it would have sent.
 
 ## Deploy
 
@@ -65,6 +82,21 @@ The dashboard holds two commands, and they are the whole of what it knows:
 Build command    npm run build && npm run dist
 Deploy command   npx wrangler deploy
 ```
+
+**The demo form needs one secret**, the mailbox requests go to. It is a secret
+rather than a value in `wrangler.jsonc` because it is a personal address in a
+public repo. Set it once per Worker:
+
+```bash
+npx wrangler secret put CONTACT_TO      # e.g. the Gmail address Email Routing forwards to
+```
+
+The address must be a **verified destination** in the zone's Email Routing
+(Email → Email Routing → Destination addresses), because that is what the
+`send_email` binding is allowed to deliver to. Mail goes out as
+`hello@sonco.ai`, and the visitor's own address is the Reply-To, so replying
+from the inbox just works. A missing secret answers every submission with a
+500 and one line in the Worker's logs saying so.
 
 `npm run dist` has to be in there. `dist/` is generated and gitignored, so a
 build that only compiles the CSS leaves `wrangler deploy` pointing at a
@@ -87,11 +119,21 @@ how the root icons and `site.webmanifest` nearly shipped missing.
 
 ## Hosting
 
-The site is a Worker with static assets and no entrypoint script:
-`wrangler.jsonc` declares `assets` and no `main`, so Cloudflare serves the files
-directly and no JavaScript runs per request. Adding a `main` would put a Worker
-invocation in front of every asset — worth it only for something a static file
-cannot answer.
+The site is a Worker with static assets and a one-route script. Assets are
+matched first, so a page or an image never invokes the script; `worker.mjs`
+runs only for paths no asset answers, handles `POST /contact`, and hands
+everything else back to the assets binding so the 404 page still applies.
+That is the whole of what the script does — keep it that way, since anything
+it takes on runs in front of the site.
+
+## Measuring
+
+There is no analytics script, and the privacy page says so. What the site
+does keep is one log line per demo request, written by the Worker
+(`{"event":"demo-request", …}`), readable under the Worker's Logs tab. If page
+analytics are ever wanted, Cloudflare Web Analytics is the fit — cookieless,
+one `<script>` with a site token from the dashboard — and turning it on means
+editing the "What we collect" section of `privacy.html` in the same commit.
 
 `sonco.ai` is attached as a custom domain in `wrangler.jsonc`, which manages its
 DNS record on deploy. Two things are deliberately **not** in the config, because
