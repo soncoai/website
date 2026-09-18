@@ -38,13 +38,6 @@
   --color-surface: oklch(0.974 0.002 265);
   --color-surface-2: oklch(0.987 0.001 265);
 
-  /* The single accent — the "sun" warm, kept for marks and hairlines rather
-     than fills. accent-ink is the darkened step that clears 4.5:1 on white,
-     so accent text and accent icons use that, never the bright step. */
-  --color-accent: oklch(0.7 0.155 58);
-  --color-accent-ink: oklch(0.55 0.135 52);
-  --color-accent-line: oklch(0.88 0.065 62);
-  --color-accent-tint: oklch(0.975 0.018 68);
 }
 
 @layer base {
@@ -54,8 +47,8 @@
   }
   html {
     scroll-behavior: smooth;
-    /* Keep anchor targets clear of the sticky nav */
-    scroll-padding-top: 6rem;
+    /* A little air above an anchor target */
+    scroll-padding-top: 2rem;
   }
   body {
     @apply bg-white font-sans text-body antialiased;
@@ -86,105 +79,54 @@
     @apply text-[22px] font-[550] leading-[1.32] tracking-[-0.02em] max-md:text-[19px];
   }
 
-  /* Section label: an accent dot ahead of small, wide, uppercase text. This is
-     the only place the accent appears at full strength, which is what keeps it
-     reading as an accent. */
-  .eyebrow {
-    @apply flex items-center gap-2 text-[12.5px] font-medium uppercase tracking-[0.11em] text-muted-2;
-  }
-  .eyebrow::before {
-    content: "";
-    @apply size-1.5 shrink-0 rounded-full bg-accent;
-  }
-  /* Centred sections need the dot inside the centred line, not floated left */
-  .eyebrow-center {
-    @apply justify-center;
-  }
 
   /* Pill CTA used in the nav, hero, pricing card, and closing section */
   .btn {
     @apply inline-flex items-center justify-center rounded-full bg-ink px-6.5 py-3.25 text-[15px] font-medium text-white transition-[background-color,scale] duration-150 ease-out hover:bg-ink-hover active:scale-[0.96];
   }
 
-  /* Secondary pill — outlined variant for the non-featured pricing tiers */
+  /* The demo-request form's label and control, one look for input, select and textarea */
+  .label {
+    @apply mb-1.5 block text-[13.5px] font-medium text-ink;
+  }
+  /* The CRM's own field, ring included. The ring is an outline rather than a
+     box-shadow — an outline rounds to the border radius alone, where a spread
+     shadow rounds to radius + spread, so the two draw different shapes — and it
+     is held transparent at rest, because an outline that is not there cannot
+     transition. Focus changes nothing but the two colours. */
+  .field {
+    @apply w-full rounded-lg border border-line bg-white px-3.5 py-2.5 text-[15px] text-ink transition-[color,border-color,outline-color] duration-150 placeholder:text-muted-2;
+    outline: 3px solid transparent;
+    outline-offset: 0;
+  }
+  .field:focus-visible {
+    border-color: var(--color-ink);
+    outline-color: color-mix(in oklch, var(--color-ink) 16%, transparent);
+  }
+
+  /* Secondary pill — the hero's second action and the non-featured pricing tiers */
   .btn-outline {
     @apply inline-flex items-center justify-center rounded-full border border-line bg-white px-6.5 py-3 text-[15px] font-medium text-ink transition-[background-color,border-color,scale] duration-150 ease-out hover:border-muted-2/40 hover:bg-surface-2 active:scale-[0.96];
   }
 
-  /* Quiet text link with a nudging arrow, for the secondary hero action */
-  .btn-text {
-    @apply inline-flex items-center gap-1.5 text-[15px] font-medium text-ink transition-colors duration-150 hover:text-muted;
-  }
-  .btn-text svg {
-    @apply transition-transform duration-150 ease-out;
-  }
-  .btn-text:hover svg {
-    @apply translate-x-0.5;
-  }
 }
 
+/* Nothing on the page animates; what is left is hover, focus and press
+   feedback on controls, which this drops along with the smooth scroll. */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
     transition: none !important;
-    animation: none !important;
     scroll-behavior: auto !important;
   }
 }
 
-/* Staggered entrance for the hero, after transitions.dev "texts-reveal":
-   each element rises 12px while fading and sharpening from a blur, on a
-   smooth-out curve. Delay set per element via --rise-delay. */
-@keyframes rise-in {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-    filter: blur(5px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0);
-  }
-}
-
-@utility rise-in {
-  animation: rise-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
-  animation-delay: var(--rise-delay, 0s);
-}
-
-/* Nav entrance — same reveal, dropping down from above */
-@keyframes fade-down {
-  from {
-    opacity: 0;
-    transform: translateY(-12px);
-    filter: blur(5px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0);
-  }
-}
-
-@utility fade-down {
-  animation: fade-down 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-/* The one atmospheric touch left on the page: a single warm radial behind the
-   hero, one hue at low alpha. It reads as light in the room rather than as a
-   coloured background, which is the whole difference from the three-hue wash
-   it replaces. */
-@utility hero-wash {
-  /* Sized in rem rather than percent so the wash always covers the same band
-     at the top of the page, whatever the page below it grows to. It sits on
-     the page wrapper's own background, which is what lets it run up behind the
-     transparent nav instead of starting at a hard line beneath it. */
-  background-image: radial-gradient(ellipse 62% 100% at 50% 0%, oklch(0.8 0.1 62 / 0.2), transparent 72%);
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: 100% 46rem;
+/* A bento tile: white on the section's grey ground, edged by the shadow ring
+   below rather than a border, so twelve of them read as one surface with
+   cuts in it rather than twelve boxes */
+@utility bento {
+  @apply relative flex flex-col overflow-hidden rounded-xl bg-white card-shadow;
 }
 
 /* Card elevation without a solid border: a 1px shadow ring plus two soft
@@ -211,20 +153,3 @@
     24px -16px 48px -34px oklch(0.205 0.004 265 / 0.2);
 }
 
-/* Portal logo strip: two identical lists (gap-3 pr-3 keeps the seam spacing
-   equal to the in-list gap) drift left by exactly one list-width, looping
-   seamlessly. The global reduced-motion rule freezes it to a static row. */
-@keyframes marquee {
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-@utility marquee {
-  animation: marquee 50s linear infinite;
-}
-
-/* Soft crop at the strip's edges */
-@utility logo-fade {
-  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-}

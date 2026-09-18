@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>sonco — The real estate platform that works while you sell</title>
+    <title>Sonco — The real estate platform that works while you sell</title>
     <meta name="description" content="CRM, listings, and follow-ups in one workspace — with AI built in, not bolted on. One price per office, everything included.">
     <link rel="icon" href="/favicon.ico" sizes="32x32">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -12,23 +12,25 @@
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#101114" media="(prefers-color-scheme: dark)">
     <link rel="preload" href="fonts/geist-latin-var.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="css/site.css?v=26">
-    <script src="js/i18n.js"></script>
+    <link rel="stylesheet" href="css/site.css?v=40">
+    <script src="js/i18n.js?v=38"></script>
+    <script src="js/contact-form.js?v=38"></script>
     <script defer src="js/alpine.min.js"></script>
 </head>
 <body x-data="i18n">
-    <div class="hero-wash relative min-h-screen bg-white">
+    <div class="relative min-h-screen bg-white">
 
-        <nav id="nav" data-scrolled="false"
-            class="fade-down sticky top-0 z-100 grid grid-cols-[1fr_auto_1fr] items-center px-10 py-5 transition-[background-color,border-color,backdrop-filter,padding] duration-200 border-b border-transparent data-[scrolled=true]:border-hairline data-[scrolled=true]:bg-white/90 data-[scrolled=true]:py-3 data-[scrolled=true]:backdrop-blur-md max-md:px-5 max-md:py-4 max-md:data-[scrolled=true]:py-2.5">
-            <a href="/" class="col-start-1 flex items-center justify-self-start" aria-label="sonco">
+        <nav id="nav" class="mx-auto grid h-30 max-w-350 grid-cols-[1fr_auto_1fr] items-center px-10 max-md:px-5">
+            <a href="/" class="col-start-1 flex items-center justify-self-start" aria-label="Sonco">
                 <svg class="h-7 w-auto text-ink" viewBox="2.400 4.400 73.288 15.465" fill="currentColor" aria-hidden="true">
                     <path fill="currentColor" fill-rule="evenodd" transform="translate(0 -0.5)" d="M5.7 18.5A1.7 1.7 0 0 1 4 16.8L4 11.7A2.9 2.9 0 0 1 4.85 9.65L6.8 7.7A1.7 1.7 0 0 1 9.2 7.7L10.66 9.16A1.9 1.9 0 0 0 13.34 9.16L14.8 7.7A1.7 1.7 0 0 1 17.2 7.7L19.15 9.65A2.9 2.9 0 0 1 20 11.7L20 16.8A1.7 1.7 0 0 1 18.3 18.5ZM9.2 18.5A0.6 0.6 0 0 0 9.8 17.9V15.8A2.2 2.2 0 0 1 14.2 15.8V17.9A0.6 0.6 0 0 0 14.8 18.5Z"/><g transform="translate(25.4882 18.0000) scale(17.647059)" fill="currentColor"><path d="M0.166 -0.392Q0.166 -0.364 0.191 -0.347Q0.216 -0.33 0.2535 -0.3245Q0.291 -0.319 0.335 -0.3095Q0.379 -0.3 0.4165 -0.287Q0.454 -0.274 0.479 -0.241Q0.504 -0.208 0.504 -0.158Q0.504 -0.081 0.44 -0.033Q0.376 0.015 0.275 0.015Q0.173 0.015 0.108 -0.033Q0.043 -0.081 0.029 -0.175H0.157Q0.164 -0.132 0.196 -0.108Q0.228 -0.084 0.279 -0.084Q0.325 -0.084 0.35 -0.102Q0.375 -0.12 0.375 -0.15Q0.375 -0.178 0.3505 -0.194Q0.326 -0.21 0.289 -0.2155Q0.252 -0.221 0.2095 -0.2305Q0.167 -0.24 0.13 -0.253Q0.093 -0.266 0.0685 -0.2995Q0.044 -0.333 0.044 -0.384Q0.044 -0.454 0.098 -0.5025Q0.152 -0.551 0.252 -0.551Q0.349 -0.551 0.4105 -0.5035Q0.472 -0.456 0.484 -0.36H0.356Q0.342 -0.451 0.247 -0.451Q0.21 -0.451 0.188 -0.4345Q0.166 -0.418 0.166 -0.392ZM0.811 0.015Q0.692 0.015 0.623 -0.0605Q0.554 -0.136 0.554 -0.267Q0.554 -0.402 0.623 -0.4765Q0.692 -0.551 0.811 -0.551Q0.93 -0.551 0.9985 -0.475Q1.067 -0.399 1.067 -0.267Q1.067 -0.134 0.998 -0.0595Q0.929 0.015 0.811 0.015ZM0.811 -0.445Q0.75 -0.445 0.718 -0.3995Q0.686 -0.354 0.686 -0.267Q0.686 -0.182 0.718 -0.1365Q0.75 -0.091 0.811 -0.091Q0.872 -0.091 0.9035 -0.136Q0.935 -0.181 0.935 -0.267Q0.935 -0.353 0.903 -0.399Q0.871 -0.445 0.811 -0.445ZM1.148 0V-0.536H1.276V-0.464Q1.329 -0.551 1.435 -0.551Q1.518 -0.551 1.5665 -0.5015Q1.615 -0.452 1.615 -0.357V0H1.487V-0.331Q1.487 -0.445 1.391 -0.445Q1.339 -0.445 1.3075 -0.406Q1.276 -0.367 1.276 -0.311V0ZM2.185 -0.346H2.057Q2.04 -0.445 1.949 -0.445Q1.89 -0.445 1.859 -0.399Q1.828 -0.353 1.828 -0.267Q1.828 -0.182 1.86 -0.1365Q1.892 -0.091 1.953 -0.091Q2.041 -0.091 2.06 -0.182H2.189Q2.172 -0.085 2.108 -0.035Q2.044 0.015 1.95 0.015Q1.832 0.015 1.764 -0.0605Q1.696 -0.136 1.696 -0.267Q1.696 -0.402 1.764 -0.4765Q1.832 -0.551 1.949 -0.551Q2.044 -0.551 2.108 -0.4985Q2.172 -0.446 2.185 -0.346ZM2.498 0.015Q2.379 0.015 2.31 -0.0605Q2.241 -0.136 2.241 -0.267Q2.241 -0.402 2.31 -0.4765Q2.379 -0.551 2.498 -0.551Q2.617 -0.551 2.6855 -0.475Q2.754 -0.399 2.754 -0.267Q2.754 -0.134 2.685 -0.0595Q2.616 0.015 2.498 0.015ZM2.498 -0.445Q2.437 -0.445 2.405 -0.3995Q2.373 -0.354 2.373 -0.267Q2.373 -0.182 2.405 -0.1365Q2.437 -0.091 2.498 -0.091Q2.559 -0.091 2.5905 -0.136Q2.622 -0.181 2.622 -0.267Q2.622 -0.353 2.59 -0.399Q2.558 -0.445 2.498 -0.445Z"/></g>
                 </svg>
             </a>
             <div class="col-start-2 flex justify-self-center gap-8 text-[15px] max-sm:hidden">
                 <a href="#features" class="-my-2.5 py-2.5 text-muted transition-colors hover:text-ink" x-text="t('nav.features')">Features</a>
+                <a href="#founder" class="-my-2.5 py-2.5 text-muted transition-colors hover:text-ink" x-text="t('nav.about')">About</a>
                 <a href="#pricing" class="-my-2.5 py-2.5 text-muted transition-colors hover:text-ink" x-text="t('nav.pricing')">Pricing</a>
+                <a href="#faq" class="-my-2.5 py-2.5 text-muted transition-colors hover:text-ink" x-text="t('nav.faq')">FAQ</a>
             </div>
             <div class="col-start-3 flex items-center gap-2 justify-self-end">
                 <div
@@ -70,22 +72,16 @@
                     <div
                         x-ref="panel"
                         x-show="open"
-                        x-transition:enter="transition ease-out duration-150"
-                        x-transition:enter-start="-translate-y-1 scale-95 opacity-0"
-                        x-transition:enter-end="translate-y-0 scale-100 opacity-100"
-                        x-transition:leave="transition ease-in duration-100"
-                        x-transition:leave-start="scale-100 opacity-100"
-                        x-transition:leave-end="scale-95 opacity-0"
                         x-on:click.outside="close($refs.button)"
                         :id="$id('language-menu')"
                         x-cloak
-                        class="card-shadow absolute right-0 top-full z-20 mt-2 w-40 origin-top-right rounded-xl bg-white p-1.5 outline-none">
+                        class="card-shadow absolute right-0 top-full z-20 mt-2 w-40 origin-top-right rounded-lg bg-white p-1.5 outline-none">
                         <template x-for="(name, code) in languages" :key="code">
                             <button type="button" @click="lang = code; close($refs.button)"
-                                class="flex w-full cursor-pointer items-center justify-between rounded-lg px-2.5 py-2 text-left text-sm text-muted transition-colors hover:bg-surface hover:text-ink focus-visible:bg-surface focus-visible:text-ink"
+                                class="flex w-full cursor-pointer items-center justify-between rounded-md px-2.5 py-2 text-left text-sm text-muted transition-colors hover:bg-surface hover:text-ink focus-visible:bg-surface focus-visible:text-ink"
                                 :class="lang === code && 'font-medium text-ink'">
                                 <span x-text="name"></span>
-                                <svg x-show="lang === code" class="size-3.5 text-accent-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                                <svg x-show="lang === code" class="size-3.5 text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
                             </button>
                         </template>
                     </div>
@@ -95,186 +91,198 @@
         </nav>
 
         <header class="relative px-10 pt-24 text-center max-md:px-5 max-md:pt-16">
-            <p class="eyebrow eyebrow-center rise-in mb-6" x-text="t('hero.eyebrow')">Real estate software</p>
-            <h1 class="h1 rise-in mx-auto mb-6 max-w-4xl [--rise-delay:60ms]" x-text="t('hero.title')">The real estate platform that works while you sell</h1>
-            <p class="rise-in mx-auto mb-9 max-w-xl text-pretty text-[19px] leading-[1.6] text-muted [--rise-delay:120ms]" x-html="t('hero.subtitle')">Your contacts, listings, and website in one place.<br class="max-md:hidden"> Built by an estate agent.</p>
-            <div class="rise-in mb-24 flex items-center justify-center gap-7 max-md:mb-16 [--rise-delay:180ms]">
+            <h1 class="h1 mx-auto mb-6 max-w-4xl" x-html="t('hero.title')"><em>The</em> real estate platform for agencies on the costas</h1>
+            <p class="mx-auto mb-9 max-w-xl text-pretty text-[19px] leading-[1.6] text-muted" x-html="t('hero.subtitle')">Listings, contacts and your website in one place, published to every portal your buyers use. Built by an agent who works here.</p>
+            <div class="mb-24 flex items-center justify-center max-md:mb-16">
                 <a href="#contact" class="btn" x-text="t('hero.cta')">Request a demo</a>
-                <a href="#features" class="btn-text">
-                    <span x-text="t('hero.secondaryCta')">See how it works</span>
-                    <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                </a>
             </div>
-            <div class="rise-in hero-shot-shadow relative mx-auto max-w-290 rounded-t-2xl bg-white p-2 pb-0 [--rise-delay:240ms]">
-                <div class="h-150 w-full overflow-hidden rounded-t-lg bg-surface max-md:h-auto">
+            <div class="hero-shot-shadow relative mx-auto max-w-290 rounded-t-xl bg-white p-2 pb-0">
+                <div class="h-150 w-full overflow-hidden rounded-t-md bg-surface max-md:h-auto">
                     <img src="images/sonco-properties-app-v3.png" width="2880" height="1678"
-                        class="h-full w-full rounded-t-lg bg-white object-cover object-[center_top] outline -outline-offset-1 outline-black/10"
-                        alt="The sonco workspace showing the client pipeline and listing details." :alt="t('hero.alt')">
+                        class="h-full w-full rounded-t-md bg-white object-cover object-[center_top] outline -outline-offset-1 outline-black/10"
+                        alt="The Sonco workspace showing the client pipeline and listing details." :alt="t('hero.alt')">
                 </div>
             </div>
         </header>
 
-        <section id="portals" class="overflow-hidden border-t border-hairline py-16 max-md:py-12">
+        <section id="portals" class="px-10 py-14 max-md:px-5 max-md:py-10">
+            <!-- Only portals the product publishes to today or has a feed built
+                 for. A logo here is a promise, so the list follows
+                 config/portals.php in the app rather than the market. -->
             <p class="mb-9 text-center text-[14.5px] text-muted-2" x-text="t('portals.title')">Every portal, connected.</p>
-            <div class="logo-fade">
-                <div class="marquee flex w-max hover:[animation-play-state:paused]">
-                    <ul class="flex items-center gap-14 pr-14">
-                        <li><img src="images/portals/idealista.svg" width="555" height="160" loading="lazy" alt="Idealista" class="h-5.5 w-auto opacity-45 grayscale transition-opacity duration-200 hover:opacity-70"></li>
-                        <li><img src="images/portals/fotocasa.svg" width="147" height="27" loading="lazy" alt="Fotocasa" class="h-5 w-auto opacity-45 grayscale transition-opacity duration-200 hover:opacity-70"></li>
-                        <li><img src="images/portals/kyero.svg" width="126" height="34" loading="lazy" alt="Kyero" class="h-5.5 w-auto opacity-45 grayscale transition-opacity duration-200 hover:opacity-70"></li>
-                        <li><img src="images/portals/rightmove.svg" width="118" height="25" loading="lazy" alt="Rightmove" class="h-5 w-auto opacity-45 grayscale transition-opacity duration-200 hover:opacity-70"></li>
-                        <li><img src="images/portals/habitaclia.svg" width="108" height="28" loading="lazy" alt="Habitaclia" class="h-5.5 w-auto opacity-45 grayscale transition-opacity duration-200 hover:opacity-70"></li>
-                        <li><img src="images/portals/pisos.svg" width="328" height="56" loading="lazy" alt="pisos.com" class="h-4.5 w-auto opacity-45 grayscale transition-opacity duration-200 hover:opacity-70"></li>
-                        <li><img src="images/portals/yaencontre.svg" width="310" height="51" loading="lazy" alt="yaencontre" class="h-4.5 w-auto opacity-45 grayscale transition-opacity duration-200 hover:opacity-70"></li>
-                        <li><img src="images/portals/thinkspain.svg" width="125" height="24" loading="lazy" alt="thinkSPAIN" class="h-5 w-auto opacity-45 grayscale transition-opacity duration-200 hover:opacity-70"></li>
-                        <li><img src="images/portals/aplaceinthesun.svg" width="124" height="23" loading="lazy" alt="A Place in the Sun" class="h-5 w-auto opacity-45 grayscale transition-opacity duration-200 hover:opacity-70"></li>
-                        <li><img src="images/portals/greenacres.svg" width="210" height="33" loading="lazy" alt="Green-Acres" class="h-4.5 w-auto opacity-45 grayscale transition-opacity duration-200 hover:opacity-70"></li>
-                        <li><img src="images/portals/properstar.svg" width="130" height="22" loading="lazy" alt="Properstar" class="h-5 w-auto opacity-45 grayscale transition-opacity duration-200 hover:opacity-70"></li>
-                        <li><img src="images/portals/jamesedition.svg" width="140" height="18" loading="lazy" alt="JamesEdition" class="h-4 w-auto opacity-45 grayscale transition-opacity duration-200 hover:opacity-70"></li>
-                    </ul>
-                    <ul class="flex items-center gap-14 pr-14" aria-hidden="true">
-                        <li><img src="images/portals/idealista.svg" width="555" height="160" loading="lazy" alt="" class="h-5.5 w-auto opacity-45 grayscale"></li>
-                        <li><img src="images/portals/fotocasa.svg" width="147" height="27" loading="lazy" alt="" class="h-5 w-auto opacity-45 grayscale"></li>
-                        <li><img src="images/portals/kyero.svg" width="126" height="34" loading="lazy" alt="" class="h-5.5 w-auto opacity-45 grayscale"></li>
-                        <li><img src="images/portals/rightmove.svg" width="118" height="25" loading="lazy" alt="" class="h-5 w-auto opacity-45 grayscale"></li>
-                        <li><img src="images/portals/habitaclia.svg" width="108" height="28" loading="lazy" alt="" class="h-5.5 w-auto opacity-45 grayscale"></li>
-                        <li><img src="images/portals/pisos.svg" width="328" height="56" loading="lazy" alt="" class="h-4.5 w-auto opacity-45 grayscale"></li>
-                        <li><img src="images/portals/yaencontre.svg" width="310" height="51" loading="lazy" alt="" class="h-4.5 w-auto opacity-45 grayscale"></li>
-                        <li><img src="images/portals/thinkspain.svg" width="125" height="24" loading="lazy" alt="" class="h-5 w-auto opacity-45 grayscale"></li>
-                        <li><img src="images/portals/aplaceinthesun.svg" width="124" height="23" loading="lazy" alt="" class="h-5 w-auto opacity-45 grayscale"></li>
-                        <li><img src="images/portals/greenacres.svg" width="210" height="33" loading="lazy" alt="" class="h-4.5 w-auto opacity-45 grayscale"></li>
-                        <li><img src="images/portals/properstar.svg" width="130" height="22" loading="lazy" alt="" class="h-5 w-auto opacity-45 grayscale"></li>
-                        <li><img src="images/portals/jamesedition.svg" width="140" height="18" loading="lazy" alt="" class="h-4 w-auto opacity-45 grayscale"></li>
-                    </ul>
-                </div>
-            </div>
+            <ul class="mx-auto flex max-w-350 flex-wrap items-center justify-center gap-x-16 gap-y-8 max-md:gap-x-10">
+                <li><img src="images/portals/kyero.svg" width="126" height="34" loading="lazy" alt="Kyero" class="h-6 w-auto opacity-45 grayscale"></li>
+                <li><img src="images/portals/idealista.svg" width="555" height="160" loading="lazy" alt="Idealista" class="h-6 w-auto opacity-45 grayscale"></li>
+                <li><img src="images/portals/thinkspain.svg" width="125" height="24" loading="lazy" alt="thinkSPAIN" class="h-5.5 w-auto opacity-45 grayscale"></li>
+                <li><img src="images/portals/greenacres.svg" width="210" height="33" loading="lazy" alt="Green-Acres" class="h-5 w-auto opacity-45 grayscale"></li>
+                <li><img src="images/portals/aplaceinthesun.svg" width="124" height="23" loading="lazy" alt="A Place in the Sun" class="h-5.5 w-auto opacity-45 grayscale"></li>
+            </ul>
         </section>
 
-        <section id="features" class="border-t border-hairline">
-            <div class="mx-auto max-w-290 px-16 py-28 max-md:px-5 max-md:py-18">
-                <div class="mb-20 max-w-2xl max-md:mb-12">
-                    <p class="eyebrow mb-5" x-text="t('features.eyebrow')">The platform</p>
+        <section id="features" class="bg-surface">
+            <div class="mx-auto max-w-350 px-16 py-28 max-md:px-5 max-md:py-18">
+                <div class="mb-14 max-w-2xl max-md:mb-10">
                     <h2 class="h2" x-text="t('features.title')">Built for the way agents work</h2>
                 </div>
-                <div class="flex flex-col gap-28 max-md:gap-16">
+                <div class="grid grid-cols-2 gap-6 max-md:grid-cols-1">
+                    <article class="bento">
+                        <div class="p-8 pb-0 max-md:p-6 max-md:pb-0">
+                            <h3 class="h3 mb-3" x-text="t('features.crm.title')">Every client, clearly organised</h3>
+                            <p class="max-w-prose text-[15.5px] leading-[1.65] text-muted" x-text="t('features.crm.body')">All your buyers, sellers, and leads together — see their full history, requirements, and next steps. Nothing falls through the cracks between viewings.</p>
+                        </div>
+                        <!-- Placeholder until a screenshot exists for this card. Decorative,
+                             so it is hidden from assistive tech rather than given alt text. -->
+                        <div class="mt-8 ml-8 flex h-64 items-center justify-center rounded-tl-lg border-l border-t border-hairline bg-surface max-md:ml-6 max-md:h-52" aria-hidden="true">
+                            <span class="text-[13px] text-muted-2">Screenshot</span>
+                        </div>
+                    </article>
+                    <article class="bento">
+                        <div class="p-8 pb-0 max-md:p-6 max-md:pb-0">
+                            <h3 class="h3 mb-3" x-text="t('features.listings.title')">Every property on one record</h3>
+                            <p class="max-w-prose text-[15.5px] leading-[1.65] text-muted" x-text="t('features.listings.body')">Photos, descriptions, prices, keys and owner paperwork in one place. Update it once and everyone in the office is looking at the same thing.</p>
+                        </div>
+                        <!-- Placeholder until a screenshot exists for this card. Decorative,
+                             so it is hidden from assistive tech rather than given alt text. -->
+                        <div class="mt-8 ml-8 flex h-64 items-center justify-center rounded-tl-lg border-l border-t border-hairline bg-surface max-md:ml-6 max-md:h-52" aria-hidden="true">
+                            <span class="text-[13px] text-muted-2">Screenshot</span>
+                        </div>
+                    </article>
+                    <article class="bento">
+                        <div class="p-8 pb-0 max-md:p-6 max-md:pb-0">
+                            <h3 class="h3 mb-3" x-text="t('features.web.title')">A website that runs itself</h3>
+                            <p class="max-w-prose text-[15.5px] leading-[1.65] text-muted" x-text="t('features.web.body')">Every agency gets a fast, polished site connected straight to Sonco — listings publish themselves, enquiries land in your CRM, nothing to maintain.</p>
+                        </div>
+                        <!-- Placeholder until a screenshot exists for this card. Decorative,
+                             so it is hidden from assistive tech rather than given alt text. -->
+                        <div class="mt-8 ml-8 flex h-64 items-center justify-center rounded-tl-lg border-l border-t border-hairline bg-surface max-md:ml-6 max-md:h-52" aria-hidden="true">
+                            <span class="text-[13px] text-muted-2">Screenshot</span>
+                        </div>
+                    </article>
+                    <article class="bento">
+                        <div class="p-8 pb-0 max-md:p-6 max-md:pb-0">
+                            <h3 class="h3 mb-3" x-text="t('features.portals.title')">Published to every portal</h3>
+                            <p class="max-w-prose text-[15.5px] leading-[1.65] text-muted" x-text="t('features.portals.body')">Kyero, Idealista, thinkSPAIN and the rest, fed from the same record. Switch a portal on or off per listing and the feed follows.</p>
+                        </div>
+                        <!-- Placeholder until a screenshot exists for this card. Decorative,
+                             so it is hidden from assistive tech rather than given alt text. -->
+                        <div class="mt-8 ml-8 flex h-64 items-center justify-center rounded-tl-lg border-l border-t border-hairline bg-surface max-md:ml-6 max-md:h-52" aria-hidden="true">
+                            <span class="text-[13px] text-muted-2">Screenshot</span>
+                        </div>
+                    </article>
+                </div>
+                <ul class="mt-16 grid grid-cols-2 gap-x-16 gap-y-7 max-md:mt-10 max-md:grid-cols-1 max-md:gap-y-5">
+                    <li class="flex items-center gap-4">
+                        <span class="card-shadow flex size-9 shrink-0 items-center justify-center rounded-full bg-white text-ink" aria-hidden="true"><svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></span>
+                        <span class="text-[15.5px] leading-[1.5] text-body" x-text="t('more.deals.title')">Every deal, end to end</span>
+                    </li>
+                    <li class="flex items-center gap-4">
+                        <span class="card-shadow flex size-9 shrink-0 items-center justify-center rounded-full bg-white text-ink" aria-hidden="true"><svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>
+                        <span class="text-[15.5px] leading-[1.5] text-body" x-text="t('more.matching.title')">Buyers matched automatically</span>
+                    </li>
+                    <li class="flex items-center gap-4">
+                        <span class="card-shadow flex size-9 shrink-0 items-center justify-center rounded-full bg-white text-ink" aria-hidden="true"><svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/></svg></span>
+                        <span class="text-[15.5px] leading-[1.5] text-body" x-text="t('more.drafts.title')">AI drafts, you decide</span>
+                    </li>
+                    <li class="flex items-center gap-4">
+                        <span class="card-shadow flex size-9 shrink-0 items-center justify-center rounded-full bg-white text-ink" aria-hidden="true"><svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></svg></span>
+                        <span class="text-[15.5px] leading-[1.5] text-body" x-text="t('more.translate.title')">Listings in every language</span>
+                    </li>
+                    <li class="flex items-center gap-4">
+                        <span class="card-shadow flex size-9 shrink-0 items-center justify-center rounded-full bg-white text-ink" aria-hidden="true"><svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/></svg></span>
+                        <span class="text-[15.5px] leading-[1.5] text-body" x-text="t('more.viewings.title')">Viewings as a tour</span>
+                    </li>
+                    <li class="flex items-center gap-4">
+                        <span class="card-shadow flex size-9 shrink-0 items-center justify-center rounded-full bg-white text-ink" aria-hidden="true"><svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></svg></span>
+                        <span class="text-[15.5px] leading-[1.5] text-body" x-text="t('more.timeline.title')">One timeline per record</span>
+                    </li>
+                    <li class="flex items-center gap-4">
+                        <span class="card-shadow flex size-9 shrink-0 items-center justify-center rounded-full bg-white text-ink" aria-hidden="true"><svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg></span>
+                        <span class="text-[15.5px] leading-[1.5] text-body" x-text="t('more.interest.title')">How each listing is doing</span>
+                    </li>
+                    <li class="flex items-center gap-4">
+                        <span class="card-shadow flex size-9 shrink-0 items-center justify-center rounded-full bg-white text-ink" aria-hidden="true"><svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span>
+                        <span class="text-[15.5px] leading-[1.5] text-body" x-text="t('more.search.title')">Natural-language search</span>
+                    </li>
+                    <li class="flex items-center gap-4">
+                        <span class="card-shadow flex size-9 shrink-0 items-center justify-center rounded-full bg-white text-ink" aria-hidden="true"><svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></span>
+                        <span class="text-[15.5px] leading-[1.5] text-body" x-text="t('more.metrics.title')">The numbers that run the office</span>
+                    </li>
+                    <li class="flex items-center gap-4">
+                        <span class="card-shadow flex size-9 shrink-0 items-center justify-center rounded-full bg-white text-ink" aria-hidden="true"><svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/><path d="m9 16 2 2 4-4"/></svg></span>
+                        <span class="text-[15.5px] leading-[1.5] text-body" x-text="t('more.tasks.title')">Tasks and reminders</span>
+                    </li>
+                    <li class="flex items-center gap-4">
+                        <span class="card-shadow flex size-9 shrink-0 items-center justify-center rounded-full bg-white text-ink" aria-hidden="true"><svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg></span>
+                        <span class="text-[15.5px] leading-[1.5] text-body" x-text="t('more.data.title')">In from your old system, out whenever you want</span>
+                    </li>
+                    <li class="flex items-center gap-4">
+                        <span class="card-shadow flex size-9 shrink-0 items-center justify-center rounded-full bg-white text-ink" aria-hidden="true"><svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
+                        <span class="text-[15.5px] leading-[1.5] text-body" x-text="t('more.documents.title')">Private documents, GDPR built in</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
 
-                    <div class="grid grid-cols-[minmax(0,380px)_1fr] items-center gap-20 max-md:grid-cols-1 max-md:gap-7">
-                        <div class="max-md:order-1">
-                            <h3 class="h3 mb-4" x-text="t('features.crm.title')">Every client, clearly organised</h3>
-                            <p class="text-[16.5px] leading-[1.7] text-muted" x-text="t('features.crm.body')">All your buyers, sellers, and leads together — see their full history, requirements, and next steps. Nothing falls through the cracks between viewings.</p>
+        <section class="bg-ink">
+            <div class="mx-auto max-w-350 px-16 py-36 max-md:px-5 max-md:py-24">
+                <h2 class="h2 mb-20 text-white max-md:mb-14" x-text="t('why.title')">Why Sonco</h2>
+                <div class="grid grid-cols-4 gap-x-14 gap-y-16 max-md:grid-cols-2 max-md:gap-10 max-sm:grid-cols-1">
+                    <div>
+                        <div class="mb-7 flex size-9 items-center justify-center rounded-md bg-white/10 text-white" aria-hidden="true">
+                            <svg class="size-4.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>
                         </div>
-                        <div class="flex h-96 items-center justify-center overflow-hidden rounded-2xl border border-hairline bg-surface px-8 py-8 max-md:order-2 max-md:h-72 max-md:px-5 max-md:py-5">
-                            <img src="images/sonco-contact-matches-v2.png" width="2880" height="1600" loading="lazy"
-                                class="shot-shadow w-full rounded-lg outline -outline-offset-1 outline-black/10"
-                                alt="A contact record in sonco showing their details, matched properties, and an AI-suggested next step." :alt="t('features.crm.alt')">
-                        </div>
+                        <div class="mb-2 text-[15.5px] font-medium text-white" x-text="t('why.industry.title')">Built in the industry</div>
+                        <div class="text-[14.5px] leading-[1.65] text-white/65" x-text="t('why.industry.body')">Made by someone who works in real estate every day — not a tech company guessing.</div>
                     </div>
-
-                    <div class="grid grid-cols-[1fr_minmax(0,380px)] items-center gap-20 max-md:grid-cols-1 max-md:gap-7">
-                        <div class="flex h-96 items-center justify-center overflow-hidden rounded-2xl border border-hairline bg-surface px-8 py-8 max-md:order-2 max-md:h-72 max-md:px-5 max-md:py-5">
-                            <img src="images/sonco-properties-sync-v2.png" width="2880" height="1600" loading="lazy"
-                                class="shot-shadow w-full rounded-lg outline -outline-offset-1 outline-black/10"
-                                alt="The sonco listings view with a property detail panel showing live sync status." :alt="t('features.listings.alt')">
+                    <div>
+                        <div class="mb-7 flex size-9 items-center justify-center rounded-md bg-white/10 text-white" aria-hidden="true">
+                            <svg class="size-4.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                         </div>
-                        <div class="max-md:order-1">
-                            <h3 class="h3 mb-4" x-text="t('features.listings.title')">Every listing, published everywhere</h3>
-                            <p class="text-[16.5px] leading-[1.7] text-muted" x-text="t('features.listings.body')">Create a listing once and publish it to portals, your website, and brochures from the same screen. Change anything and it updates everywhere, so what buyers see is always what's true.</p>
-                        </div>
+                        <div class="mb-2 text-[15.5px] font-medium text-white" x-text="t('why.size.title')">Any size of agency</div>
+                        <div class="text-[14.5px] leading-[1.65] text-white/65" x-text="t('why.size.body')">The same workspace fits a single agent, a busy office, or a multi-national franchise.</div>
                     </div>
-
-                    <div id="websites" class="grid grid-cols-[minmax(0,380px)_1fr] items-center gap-20 max-md:grid-cols-1 max-md:gap-7">
-                        <div class="max-md:order-1">
-                            <h3 class="h3 mb-4" x-text="t('features.web.title')">A website that runs itself</h3>
-                            <p class="text-[16.5px] leading-[1.7] text-muted" x-text="t('features.web.body')">Every agency gets a fast, polished site connected straight to sonco — listings publish themselves, enquiries land in your CRM, nothing to maintain.</p>
+                    <div>
+                        <div class="mb-7 flex size-9 items-center justify-center rounded-md bg-white/10 text-white" aria-hidden="true">
+                            <svg class="size-4.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>
                         </div>
-                        <div class="flex h-96 items-center justify-center overflow-hidden rounded-2xl border border-hairline bg-surface px-8 py-8 max-md:order-2 max-md:h-72 max-md:px-5 max-md:py-5">
-                            <img src="images/sonco-agency-website-v2.png" width="2880" height="1600" loading="lazy"
-                                class="shot-shadow w-full rounded-lg outline -outline-offset-1 outline-black/10"
-                                alt="An agency website built by sonco, with a hero search over a coastal town and live listings below." :alt="t('features.web.alt')">
-                        </div>
+                        <div class="mb-2 text-[15.5px] font-medium text-white" x-text="t('why.fast.title')">Fast everywhere</div>
+                        <div class="text-[14.5px] leading-[1.65] text-white/65" x-text="t('why.fast.body')">Pages load in under 50ms — on office wifi or a phone at a viewing.</div>
                     </div>
-
+                    <div>
+                        <div class="mb-7 flex size-9 items-center justify-center rounded-md bg-white/10 text-white" aria-hidden="true">
+                            <svg class="size-4.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+                        </div>
+                        <div class="mb-2 text-[15.5px] font-medium text-white" x-text="t('why.secure.title')">Secure by design</div>
+                        <div class="text-[14.5px] leading-[1.65] text-white/65" x-text="t('why.secure.body')">Passwordless sign-in — nothing to forget, nothing to steal.</div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="border-t border-hairline">
-            <div class="mx-auto max-w-290 px-16 py-28 max-md:px-5 max-md:py-18">
-                <div class="mb-16 max-w-2xl max-md:mb-11">
-                    <p class="eyebrow mb-5" x-text="t('more.eyebrow')">Capabilities</p>
-                    <h2 class="h2" x-text="t('more.title')">And even more</h2>
-                </div>
-                <div class="grid grid-cols-3 gap-x-14 gap-y-12 max-md:grid-cols-2 max-md:gap-x-8 max-md:gap-y-9 max-sm:grid-cols-1">
-                    <div class="border-t border-hairline pt-5">
-                        <div class="mb-2 text-[15.5px] font-medium text-ink" x-text="t('more.matching.title')">Automatic property matching</div>
-                        <div class="text-[14.5px] leading-[1.65] text-muted" x-text="t('more.matching.body')">Every new listing checked against every buyer's requirements the moment it goes live — matched buyers hear about it automatically.</div>
-                    </div>
-                    <div class="border-t border-hairline pt-5">
-                        <div class="mb-2 text-[15.5px] font-medium text-ink" x-text="t('more.search.title')">Natural-language search</div>
-                        <div class="text-[14.5px] leading-[1.65] text-muted" x-text="t('more.search.body')">Ask for "three-bed flats near the marina under 400k" and get exactly that — no filter forms.</div>
-                    </div>
-                    <div class="border-t border-hairline pt-5">
-                        <div class="mb-2 text-[15.5px] font-medium text-ink" x-text="t('more.notifications.title')">Real-time notifications</div>
-                        <div class="text-[14.5px] leading-[1.65] text-muted" x-text="t('more.notifications.body')">Know the moment a lead replies, a match lands, or a price changes.</div>
-                    </div>
-                    <div class="border-t border-hairline pt-5">
-                        <div class="mb-2 text-[15.5px] font-medium text-ink" x-text="t('more.followups.title')">Follow-ups &amp; reminders</div>
-                        <div class="text-[14.5px] leading-[1.65] text-muted" x-text="t('more.followups.body')">Automated touchpoints keep every conversation moving — set once, never forgotten.</div>
-                    </div>
-                    <div class="border-t border-hairline pt-5">
-                        <div class="mb-2 text-[15.5px] font-medium text-ink" x-text="t('more.ai.title')">AI built in, not bolted on</div>
-                        <div class="text-[14.5px] leading-[1.65] text-muted" x-text="t('more.ai.body')">Listing copy drafted, calls summarised, next steps suggested — woven into every screen.</div>
-                    </div>
-                    <div class="border-t border-hairline pt-5">
-                        <div class="mb-2 text-[15.5px] font-medium text-ink" x-text="t('more.metrics.title')">Metrics &amp; analytics</div>
-                        <div class="text-[14.5px] leading-[1.65] text-muted" x-text="t('more.metrics.body')">Listing performance, pipeline health, response times — the numbers that run your office, live.</div>
-                    </div>
-                    <div class="border-t border-hairline pt-5">
-                        <div class="mb-2 text-[15.5px] font-medium text-ink" x-text="t('more.lang.title')">Multi-language</div>
-                        <div class="text-[14.5px] leading-[1.65] text-muted" x-text="t('more.lang.body')">Work in your language, publish in your buyers' — the whole workspace speaks both.</div>
-                    </div>
-                    <div class="border-t border-hairline pt-5">
-                        <div class="mb-2 text-[15.5px] font-medium text-ink" x-text="t('more.import.title')">Seamless importing</div>
-                        <div class="text-[14.5px] leading-[1.65] text-muted" x-text="t('more.import.body')">Coming from another platform? Bring your contacts, listings, and photos across in one guided import.</div>
-                    </div>
-                    <div class="border-t border-hairline pt-5">
-                        <div class="mb-2 text-[15.5px] font-medium text-ink" x-text="t('more.updates.title')">Automatic updates</div>
-                        <div class="text-[14.5px] leading-[1.65] text-muted" x-text="t('more.updates.body')">New features arrive as you work — nothing to install, nothing to migrate, ever.</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="border-t border-hairline bg-surface">
-            <div class="mx-auto max-w-290 px-16 py-24 max-md:px-5 max-md:py-16">
-                <p class="eyebrow mb-12 max-md:mb-8" x-text="t('why.title')">Why sonco</p>
-                <div class="grid grid-cols-4 gap-x-14 gap-y-10 max-md:grid-cols-2 max-md:gap-8 max-sm:grid-cols-1">
-                    <div>
-                        <div class="mb-2 text-[15.5px] font-medium text-ink" x-text="t('why.industry.title')">Built in the industry</div>
-                        <div class="text-[14.5px] leading-[1.65] text-muted" x-text="t('why.industry.body')">Made by someone who works in real estate every day — not a tech company guessing.</div>
-                    </div>
-                    <div>
-                        <div class="mb-2 text-[15.5px] font-medium text-ink" x-text="t('why.size.title')">Any size of agency</div>
-                        <div class="text-[14.5px] leading-[1.65] text-muted" x-text="t('why.size.body')">The same workspace fits a single agent, a busy office, or a multi-national franchise.</div>
-                    </div>
-                    <div>
-                        <div class="mb-2 text-[15.5px] font-medium text-ink" x-text="t('why.fast.title')">Fast everywhere</div>
-                        <div class="text-[14.5px] leading-[1.65] text-muted" x-text="t('why.fast.body')">Pages load in under 50ms — on office wifi or a phone at a viewing.</div>
-                    </div>
-                    <div>
-                        <div class="mb-2 text-[15.5px] font-medium text-ink" x-text="t('why.secure.title')">Secure by design</div>
-                        <div class="text-[14.5px] leading-[1.65] text-muted" x-text="t('why.secure.body')">Passwordless sign-in — nothing to forget, nothing to steal.</div>
+        <section id="founder">
+            <div class="mx-auto max-w-350 px-16 py-24 max-md:px-5 max-md:py-16">
+                <div class="grid grid-cols-[minmax(0,420px)_1fr] gap-20 max-md:grid-cols-1 max-md:gap-8">
+                    <h2 class="h2" x-text="t('founder.title')">Built by an estate agent, not a software company</h2>
+                    <div class="max-w-prose text-[17px] leading-[1.7] text-muted">
+                        <p class="mb-5" x-text="t('founder.body1')">I'm Scott, an estate agent on the Costa Blanca. I built Sonco because the software I used every day was made by people who had never sat with a buyer, re-typed a listing into four portals, or answered a portal enquiry at nine at night.</p>
+                        <p class="mb-8" x-text="t('founder.body2')">Sonco is what I wanted on my own desk: one place for listings, contacts and the website, that publishes everywhere and never asks you to type the same thing twice. Every agency that signs up gets me on the setup call.</p>
+                        <div class="flex items-center gap-3">
+                            <div class="flex size-10 items-center justify-center rounded-md bg-surface text-[15px] font-medium text-ink" aria-hidden="true">S</div>
+                            <div>
+                                <div class="text-[15px] font-medium text-ink">Scott</div>
+                                <div class="text-[13.5px] text-muted-2" x-text="t('founder.role')">Founder, Sonco</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="pricing" class="border-t border-hairline px-10 py-28 max-md:px-5 max-md:py-18" x-data="{ period: 'monthly' }">
-            <div class="mx-auto max-w-240">
+            <div class="mx-auto max-w-350">
                 <div class="mb-12 text-center max-md:mb-9">
-                    <p class="eyebrow eyebrow-center mb-5" x-text="t('nav.pricing')">Pricing</p>
                     <h2 class="h2 mb-4" x-text="t('pricing.title')">Simple pricing. Everything included.</h2>
-                    <p class="mx-auto max-w-lg text-[17px] leading-[1.6] text-muted" x-text="t('pricing.subtitle')">The same product in every plan. No feature gating.</p>
+                    <p class="mx-auto max-w-xl text-[17px] leading-[1.6] text-muted" x-text="t('pricing.subtitle')">One product, priced by how many of you use it. No feature gating, unlimited properties.</p>
                 </div>
                 <div class="mb-3.5 flex justify-center">
                     <div class="inline-flex rounded-full bg-surface p-1" role="group" aria-label="Billing period" :aria-label="t('pricing.periodLabel')">
@@ -282,102 +290,232 @@
                         <button type="button" @click="period = 'yearly'" :aria-pressed="period === 'yearly' ? 'true' : 'false'" aria-pressed="false" class="cursor-pointer rounded-full px-5 py-2 text-[14.5px] font-medium text-muted transition-colors hover:text-ink aria-pressed:bg-white aria-pressed:text-ink aria-pressed:shadow-sm" x-text="t('pricing.yearly')">Pay yearly</button>
                     </div>
                 </div>
-                <p class="mb-12 text-center text-[14.5px] text-muted-2 max-md:mb-9" x-text="t('pricing.yearlyNote')">Pay yearly and get 12 months for the price of 10.</p>
+                <p class="mb-14 text-center text-[14.5px] text-muted-2 max-md:mb-9" x-text="t('pricing.yearlyNote')">Pay yearly and get 12 months for the price of 10.</p>
+                <div class="overflow-hidden rounded-xl border border-line">
+                    <div class="grid grid-cols-3 divide-x divide-hairline max-md:grid-cols-1 max-md:divide-x-0 max-md:divide-y">
+                        <div class="flex flex-col px-9 py-10 max-md:px-6 max-md:py-8">
+                            <div class="text-[16.5px] font-medium text-ink" x-text="t('pricing.solo.name')">Solo</div>
+                            <p class="mb-8 mt-1 text-[14.5px] text-muted" x-text="t('pricing.solo.who')">1 user, 1 office</p>
+                            <div class="flex items-baseline gap-2.5">
+                                <span class="text-[46px] font-[560] leading-none tracking-[-0.03em] text-ink max-sm:text-[38px]" x-text="period === 'monthly' ? '42€' : '420€'">42€</span>
+                                <span class="text-[15px] text-muted" x-text="period === 'monthly' ? t('pricing.perMonthVat') : t('pricing.perYearVat')">/month + IVA</span>
+                            </div>
+                            <ul class="mt-8 space-y-2.5 border-t border-hairline pt-7 text-[14.5px] leading-[1.55] text-muted">
+                                <li x-text="t('pricing.solo.onboarding')">Self-serve, no onboarding fee</li>
+                                <li x-text="t('pricing.solo.storage')">20 GB storage</li>
+                            </ul>
+                            <div class="mt-auto pt-9">
+                                <a href="#contact" class="btn-outline w-full" x-text="t('pricing.cta')">Request a demo</a>
+                            </div>
+                        </div>
+                        <div class="relative flex flex-col bg-surface-2 px-9 py-10 max-md:px-6 max-md:py-8">
+                            <div class="text-[16.5px] font-medium text-ink" x-text="t('pricing.office.name')">Office</div>
+                            <p class="mb-8 mt-1 text-[14.5px] text-muted" x-text="t('pricing.office.who')">Up to 9 users, 1 office</p>
+                            <div class="flex items-baseline gap-2.5">
+                                <span class="text-[46px] font-[560] leading-none tracking-[-0.03em] text-ink max-sm:text-[38px]" x-text="period === 'monthly' ? '99€' : '990€'">99€</span>
+                                <span class="text-[15px] text-muted" x-text="period === 'monthly' ? t('pricing.perMonthVat') : t('pricing.perYearVat')">/month + IVA</span>
+                            </div>
+                            <ul class="mt-8 space-y-2.5 border-t border-hairline pt-7 text-[14.5px] leading-[1.55] text-muted">
+                                <li x-text="t('pricing.office.onboarding')">€250 migration & onboarding, waived for founding agencies</li>
+                                <li x-text="t('pricing.office.extra')">€8/month per extra user</li>
+                                <li x-text="t('pricing.office.storage')">50 GB storage</li>
+                            </ul>
+                            <div class="mt-auto pt-9">
+                                <a href="#contact" class="btn w-full" x-text="t('pricing.cta')">Request a demo</a>
+                            </div>
+                        </div>
+                        <div class="flex flex-col px-9 py-10 max-md:px-6 max-md:py-8">
+                            <div class="text-[16.5px] font-medium text-ink" x-text="t('pricing.group.name')">Group</div>
+                            <p class="mb-8 mt-1 text-[14.5px] text-muted" x-text="t('pricing.group.who')">10+ users or several offices</p>
+                            <div class="flex items-baseline">
+                                <span class="text-[46px] font-[560] leading-none tracking-[-0.03em] text-ink max-sm:text-[38px]" x-text="t('pricing.group.price')">Let's talk</span>
+                            </div>
+                            <ul class="mt-8 space-y-2.5 border-t border-hairline pt-7 text-[14.5px] leading-[1.55] text-muted">
+                                <li x-text="t('pricing.group.onboarding')">Migration & onboarding in your quote</li>
+                            </ul>
+                            <div class="mt-auto pt-9">
+                                <a href="#contact" class="btn-outline w-full" x-text="t('pricing.contactCta')">Get in touch</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-x-12 gap-y-8 border-t border-hairline bg-surface px-9 py-10 max-md:grid-cols-2 max-md:px-6 max-md:py-8 max-sm:grid-cols-1">
+                        <div class="flex gap-3">
+                            <svg class="mt-0.5 size-4.5 shrink-0 text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                            <div>
+                                <div class="mb-1 text-[14.5px] font-medium text-ink" x-text="t('pricing.inc1.title')">Unlimited properties</div>
+                                <div class="text-[13.5px] leading-[1.6] text-muted" x-text="t('pricing.inc1.body')">No listing caps, no tiers.</div>
+                            </div>
+                        </div>
+                        <div class="flex gap-3">
+                            <svg class="mt-0.5 size-4.5 shrink-0 text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                            <div>
+                                <div class="mb-1 text-[14.5px] font-medium text-ink" x-text="t('pricing.inc2.title')">Your agency website</div>
+                                <div class="text-[13.5px] leading-[1.6] text-muted" x-text="t('pricing.inc2.body')">Included, not an add-on.</div>
+                            </div>
+                        </div>
+                        <div class="flex gap-3">
+                            <svg class="mt-0.5 size-4.5 shrink-0 text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                            <div>
+                                <div class="mb-1 text-[14.5px] font-medium text-ink" x-text="t('pricing.inc3.title')">AI included</div>
+                                <div class="text-[13.5px] leading-[1.6] text-muted" x-text="t('pricing.inc3.body')">Descriptions, translations and summaries under fair use. No credits to buy.</div>
+                            </div>
+                        </div>
+                        <div class="flex gap-3">
+                            <svg class="mt-0.5 size-4.5 shrink-0 text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                            <div>
+                                <div class="mb-1 text-[14.5px] font-medium text-ink" x-text="t('pricing.inc4.title')">Publishing, all in</div>
+                                <div class="text-[13.5px] leading-[1.6] text-muted" x-text="t('pricing.inc4.body')">Portal feeds, alerts and enquiries, in and out.</div>
+                            </div>
+                        </div>
+                        <div class="flex gap-3">
+                            <svg class="mt-0.5 size-4.5 shrink-0 text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                            <div>
+                                <div class="mb-1 text-[14.5px] font-medium text-ink" x-text="t('pricing.inc5.title')">Video & virtual tours</div>
+                                <div class="text-[13.5px] leading-[1.6] text-muted" x-text="t('pricing.inc5.body')">Embed from YouTube, Vimeo or Matterport.</div>
+                            </div>
+                        </div>
+                        <div class="flex gap-3">
+                            <svg class="mt-0.5 size-4.5 shrink-0 text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                            <div>
+                                <div class="mb-1 text-[14.5px] font-medium text-ink" x-text="t('pricing.inc6.title')">Your data, exportable</div>
+                                <div class="text-[13.5px] leading-[1.6] text-muted" x-text="t('pricing.inc6.body')">Full export in open formats, whenever you ask.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-8 text-center text-[14.5px] text-muted" x-text="t('pricing.trial')">14-day free trial on the Office plan. No card needed.</p>
+            </div>
+        </section>
 
-                <div class="grid grid-cols-2 items-stretch gap-5 max-md:grid-cols-1">
-                <div class="relative flex flex-col overflow-hidden rounded-2xl border border-line bg-white p-10 max-md:p-7">
-                    <div class="mb-1.5 flex min-h-6 flex-wrap items-center gap-x-3 gap-y-1.5">
-                        <span class="text-[18px] font-medium text-ink" x-text="t('pricing.solo.name')">Solo</span>
-                    </div>
-                    <p class="mb-9 text-[15px] leading-[1.5] text-muted" x-text="t('pricing.solo.who')">1 user, 1 office</p>
-                    <div class="flex items-baseline gap-2.5">
-                        <span class="text-[48px] font-[560] leading-none tracking-[-0.032em] text-ink max-sm:text-[40px]" x-text="period === 'monthly' ? '€42' : '€420'">€42</span>
-                        <span class="text-[15px] text-muted" x-text="period === 'monthly' ? t('pricing.perMonthVat') : t('pricing.perYearVat')">/month + IVA</span>
-                    </div>
-                    <div class="mt-2.5 min-h-5 text-[13px] text-accent-ink" x-text="period === 'yearly' ? t('pricing.twoMonthsFree') : ''"></div>
-                    <ul class="mt-8 space-y-2.5 border-t border-hairline pt-7 text-[14.5px] leading-[1.55] text-muted">
-                        <li x-text="t('pricing.solo.setup')">No setup fee — self-serve</li>
-                    </ul>
-                    <div class="mt-auto pt-9">
-                        <a href="#contact" class="btn-outline w-full" x-text="t('pricing.cta')">Request a demo</a>
-                    </div>
-                </div>
-                <div class="relative flex flex-col overflow-hidden rounded-2xl border border-line bg-surface-2 p-10 max-md:p-7">
-                    <span class="absolute inset-x-0 top-0 h-0.5 bg-accent" aria-hidden="true"></span>
-                    <div class="mb-1.5 flex min-h-6 flex-wrap items-center gap-x-3 gap-y-1.5">
-                        <span class="text-[18px] font-medium text-ink" x-text="t('pricing.office.name')">Office</span>
-                        <span class="rounded-full bg-accent-tint px-2.5 py-1 text-[11.5px] font-medium uppercase tracking-[0.06em] text-accent-ink" x-text="t('pricing.popular')">Most popular</span>
-                    </div>
-                    <p class="mb-9 text-[15px] leading-[1.5] text-muted" x-text="t('pricing.office.who')">Up to 9 users, 1 office</p>
-                    <div class="flex items-baseline gap-2.5">
-                        <span class="text-[48px] font-[560] leading-none tracking-[-0.032em] text-ink max-sm:text-[40px]" x-text="period === 'monthly' ? '€99' : '€990'">€99</span>
-                        <span class="text-[15px] text-muted" x-text="period === 'monthly' ? t('pricing.perMonthVat') : t('pricing.perYearVat')">/month + IVA</span>
-                    </div>
-                    <div class="mt-2.5 min-h-5 text-[13px] text-accent-ink" x-text="period === 'yearly' ? t('pricing.twoMonthsFree') : ''"></div>
-                    <ul class="mt-8 space-y-2.5 border-t border-hairline pt-7 text-[14.5px] leading-[1.55] text-muted">
-                        <li x-text="t('pricing.office.setup')">€300 setup, waived for founding agencies</li>
-                        <li x-text="t('pricing.office.extra')">€8/month per extra user</li>
-                    </ul>
-                    <div class="mt-auto pt-9">
-                        <a href="#contact" class="btn w-full" x-text="t('pricing.cta')">Request a demo</a>
-                    </div>
-                </div>
-                </div>
-
-                <div class="mt-5 flex items-center justify-between gap-8 rounded-2xl border border-line bg-white px-9 py-7 max-sm:flex-col max-sm:items-start max-sm:gap-5 max-md:px-7">
-                    <div>
-                        <div class="mb-1 flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                            <span class="text-[18px] font-medium text-ink" x-text="t('pricing.group.name')">Group</span>
-                            <span class="text-[15px] text-muted" x-text="t('pricing.group.who')">10+ users or multiple offices</span>
-                        </div>
-                        <p class="text-[13.5px] text-muted-2" x-text="t('pricing.group.setup')">Setup included in your quote</p>
-                    </div>
-                    <a href="#contact" class="btn-outline shrink-0 max-sm:w-full" x-text="t('pricing.contactCta')">Get in touch</a>
-                </div>
-
-                <div class="mt-14 rounded-2xl border border-hairline bg-surface px-9 py-10 max-md:mt-10 max-md:px-7 max-md:py-8">
-                    <p class="eyebrow mb-8" x-text="t('pricing.includedTitle')">Every plan includes</p>
-                    <div class="grid grid-cols-3 gap-x-12 gap-y-8 max-md:grid-cols-2 max-md:gap-x-8 max-sm:grid-cols-1">
-                        <div class="flex gap-3">
-                            <svg class="mt-0.5 size-4.5 shrink-0 text-accent-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-                            <div>
-                                <div class="mb-1 text-[14.5px] font-medium text-ink" x-text="t('pricing.inc1.title')">Every deal, end to end</div>
-                                <div class="text-[13.5px] leading-[1.6] text-muted" x-text="t('pricing.inc1.body')">From first enquiry to signed sale, on one timeline.</div>
+        <section id="faq" class="bg-surface">
+            <div class="mx-auto max-w-350 px-16 py-24 max-md:px-5 max-md:py-16">
+                <div class="grid grid-cols-[minmax(0,380px)_1fr] gap-20 max-md:grid-cols-1 max-md:gap-8">
+                    <h2 class="h2" x-text="t('faq.title')">Common questions</h2>
+                    <div x-data="{ open: null }" class="border-t border-line">
+                        <div class="border-b border-line">
+                            <h3>
+                                <button type="button" @click="open = open === 1 ? null : 1"
+                                    :aria-expanded="open === 1 ? 'true' : 'false'" aria-expanded="false" aria-controls="faq-a1"
+                                    class="flex w-full cursor-pointer items-center justify-between gap-6 py-5 text-left text-[16.5px] font-medium text-ink">
+                                    <span x-text="t('faq.q1')">How long does setup take?</span>
+                                    <svg class="size-4 shrink-0 text-muted-2" :class="open === 1 && 'rotate-45'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+                                </button>
+                            </h3>
+                            <!-- 0fr to 1fr collapses a height nobody has to measure, so the
+                                 answer stays in the markup and a reader with no script
+                                 running sees every one of them open -->
+                            <div id="faq-a1" class="grid" :class="open === 1 ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'">
+                                <div class="overflow-hidden">
+                                    <p class="max-w-prose pb-6 text-[15.5px] leading-[1.7] text-muted" x-text="t('faq.a1')">One call. We import your listings and contacts, connect your portal feeds and put your website live, with you on the phone. Most agencies are working in Sonco the same week.</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="flex gap-3">
-                            <svg class="mt-0.5 size-4.5 shrink-0 text-accent-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-                            <div>
-                                <div class="mb-1 text-[14.5px] font-medium text-ink" x-text="t('pricing.inc2.title')">A full audit trail</div>
-                                <div class="text-[13.5px] leading-[1.6] text-muted" x-text="t('pricing.inc2.body')">Every change recorded — who changed what, and when.</div>
+                        <div class="border-b border-line">
+                            <h3>
+                                <button type="button" @click="open = open === 2 ? null : 2"
+                                    :aria-expanded="open === 2 ? 'true' : 'false'" aria-expanded="false" aria-controls="faq-a2"
+                                    class="flex w-full cursor-pointer items-center justify-between gap-6 py-5 text-left text-[16.5px] font-medium text-ink">
+                                    <span x-text="t('faq.q2')">Can you import from my current system?</span>
+                                    <svg class="size-4 shrink-0 text-muted-2" :class="open === 2 && 'rotate-45'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+                                </button>
+                            </h3>
+                            <!-- 0fr to 1fr collapses a height nobody has to measure, so the
+                                 answer stays in the markup and a reader with no script
+                                 running sees every one of them open -->
+                            <div id="faq-a2" class="grid" :class="open === 2 ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'">
+                                <div class="overflow-hidden">
+                                    <p class="max-w-prose pb-6 text-[15.5px] leading-[1.7] text-muted" x-text="t('faq.a2')">Yes. Contacts come in from a spreadsheet export with a guided column match, and listings with their photos come in from the portal feed you already publish. You keep working while it runs.</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="flex gap-3">
-                            <svg class="mt-0.5 size-4.5 shrink-0 text-accent-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-                            <div>
-                                <div class="mb-1 text-[14.5px] font-medium text-ink" x-text="t('pricing.inc3.title')">Portals in and out</div>
-                                <div class="text-[13.5px] leading-[1.6] text-muted" x-text="t('pricing.inc3.body')">Import your listings, publish to every portal.</div>
+                        <div class="border-b border-line">
+                            <h3>
+                                <button type="button" @click="open = open === 3 ? null : 3"
+                                    :aria-expanded="open === 3 ? 'true' : 'false'" aria-expanded="false" aria-controls="faq-a3"
+                                    class="flex w-full cursor-pointer items-center justify-between gap-6 py-5 text-left text-[16.5px] font-medium text-ink">
+                                    <span x-text="t('faq.q3')">Do I keep my own portal accounts?</span>
+                                    <svg class="size-4 shrink-0 text-muted-2" :class="open === 3 && 'rotate-45'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+                                </button>
+                            </h3>
+                            <!-- 0fr to 1fr collapses a height nobody has to measure, so the
+                                 answer stays in the markup and a reader with no script
+                                 running sees every one of them open -->
+                            <div id="faq-a3" class="grid" :class="open === 3 ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'">
+                                <div class="overflow-hidden">
+                                    <p class="max-w-prose pb-6 text-[15.5px] leading-[1.7] text-muted" x-text="t('faq.a3')">Yes. Your Kyero, Idealista and other accounts stay yours. Sonco produces the feed each portal reads, and you switch each portal on or off per listing.</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="flex gap-3">
-                            <svg class="mt-0.5 size-4.5 shrink-0 text-accent-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-                            <div>
-                                <div class="mb-1 text-[14.5px] font-medium text-ink" x-text="t('pricing.inc4.title')">AI chat, built in</div>
-                                <div class="text-[13.5px] leading-[1.6] text-muted" x-text="t('pricing.inc4.body')">Ask anything about your listings, contacts and deals.</div>
+                        <div class="border-b border-line">
+                            <h3>
+                                <button type="button" @click="open = open === 4 ? null : 4"
+                                    :aria-expanded="open === 4 ? 'true' : 'false'" aria-expanded="false" aria-controls="faq-a4"
+                                    class="flex w-full cursor-pointer items-center justify-between gap-6 py-5 text-left text-[16.5px] font-medium text-ink">
+                                    <span x-text="t('faq.q4')">What happens to my data if I leave?</span>
+                                    <svg class="size-4 shrink-0 text-muted-2" :class="open === 4 && 'rotate-45'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+                                </button>
+                            </h3>
+                            <!-- 0fr to 1fr collapses a height nobody has to measure, so the
+                                 answer stays in the markup and a reader with no script
+                                 running sees every one of them open -->
+                            <div id="faq-a4" class="grid" :class="open === 4 ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'">
+                                <div class="overflow-hidden">
+                                    <p class="max-w-prose pb-6 text-[15.5px] leading-[1.7] text-muted" x-text="t('faq.a4')">It stays yours. Export your contacts as a spreadsheet at any time, and on request we hand you a complete copy of your agency's data and photos. Nothing is held back and nothing is charged for it.</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="flex gap-3">
-                            <svg class="mt-0.5 size-4.5 shrink-0 text-accent-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-                            <div>
-                                <div class="mb-1 text-[14.5px] font-medium text-ink" x-text="t('pricing.inc5.title')">Your agency website</div>
-                                <div class="text-[13.5px] leading-[1.6] text-muted" x-text="t('pricing.inc5.body')">Included, not an add-on.</div>
+                        <div class="border-b border-line">
+                            <h3>
+                                <button type="button" @click="open = open === 5 ? null : 5"
+                                    :aria-expanded="open === 5 ? 'true' : 'false'" aria-expanded="false" aria-controls="faq-a5"
+                                    class="flex w-full cursor-pointer items-center justify-between gap-6 py-5 text-left text-[16.5px] font-medium text-ink">
+                                    <span x-text="t('faq.q5')">Does it work with more than one office?</span>
+                                    <svg class="size-4 shrink-0 text-muted-2" :class="open === 5 && 'rotate-45'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+                                </button>
+                            </h3>
+                            <!-- 0fr to 1fr collapses a height nobody has to measure, so the
+                                 answer stays in the markup and a reader with no script
+                                 running sees every one of them open -->
+                            <div id="faq-a5" class="grid" :class="open === 5 ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'">
+                                <div class="overflow-hidden">
+                                    <p class="max-w-prose pb-6 text-[15.5px] leading-[1.7] text-muted" x-text="t('faq.a5')">Yes. Each user works in one or several branches and every list filters by branch. The Office plan is one office; several offices are the Group plan, priced on a quote.</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="flex gap-3">
-                            <svg class="mt-0.5 size-4.5 shrink-0 text-accent-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-                            <div>
-                                <div class="mb-1 text-[14.5px] font-medium text-ink" x-text="t('pricing.inc6.title')">No feature gating</div>
-                                <div class="text-[13.5px] leading-[1.6] text-muted" x-text="t('pricing.inc6.body')">Solo runs exactly the same product as Group.</div>
+                        <div class="border-b border-line">
+                            <h3>
+                                <button type="button" @click="open = open === 6 ? null : 6"
+                                    :aria-expanded="open === 6 ? 'true' : 'false'" aria-expanded="false" aria-controls="faq-a6"
+                                    class="flex w-full cursor-pointer items-center justify-between gap-6 py-5 text-left text-[16.5px] font-medium text-ink">
+                                    <span x-text="t('faq.q6')">Who owns the website?</span>
+                                    <svg class="size-4 shrink-0 text-muted-2" :class="open === 6 && 'rotate-45'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+                                </button>
+                            </h3>
+                            <!-- 0fr to 1fr collapses a height nobody has to measure, so the
+                                 answer stays in the markup and a reader with no script
+                                 running sees every one of them open -->
+                            <div id="faq-a6" class="grid" :class="open === 6 ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'">
+                                <div class="overflow-hidden">
+                                    <p class="max-w-prose pb-6 text-[15.5px] leading-[1.7] text-muted" x-text="t('faq.a6')">You do. It runs on your own domain under your own name, logo and colours, and every enquiry lands straight in your CRM. Nothing to host and nothing to update.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-b border-line">
+                            <h3>
+                                <button type="button" @click="open = open === 7 ? null : 7"
+                                    :aria-expanded="open === 7 ? 'true' : 'false'" aria-expanded="false" aria-controls="faq-a7"
+                                    class="flex w-full cursor-pointer items-center justify-between gap-6 py-5 text-left text-[16.5px] font-medium text-ink">
+                                    <span x-text="t('faq.q7')">Which languages does it work in?</span>
+                                    <svg class="size-4 shrink-0 text-muted-2" :class="open === 7 && 'rotate-45'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+                                </button>
+                            </h3>
+                            <!-- 0fr to 1fr collapses a height nobody has to measure, so the
+                                 answer stays in the markup and a reader with no script
+                                 running sees every one of them open -->
+                            <div id="faq-a7" class="grid" :class="open === 7 ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'">
+                                <div class="overflow-hidden">
+                                    <p class="max-w-prose pb-6 text-[15.5px] leading-[1.7] text-muted" x-text="t('faq.a7')">The workspace runs in English and Spanish. Listing text is translated per language for your website and the portals, and every email to a contact goes out in that contact's language.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -385,40 +523,85 @@
             </div>
         </section>
 
-        <section id="contact" class="border-t border-hairline px-10 py-32 text-center max-md:px-5 max-md:py-20">
-            <h2 class="h2 mx-auto mb-5 max-w-2xl" x-text="t('contact.title')">Spend your time closing, not typing.</h2>
-            <p class="mx-auto mb-9 max-w-lg text-[17px] leading-[1.6] text-muted" x-text="t('contact.body')">See sonco on your own listings — a demo takes 20 minutes.</p>
-            <a href="#contact" class="btn" x-text="t('contact.cta')">Request a demo</a>
+        <section id="contact">
+            <div class="mx-auto max-w-350 px-16 py-28 max-md:px-5 max-md:py-18">
+                <div class="mx-auto max-w-2xl">
+                    <div class="mb-12 text-center max-md:mb-9">
+                        <h2 class="h2 mb-4" x-text="t('form.title')">See Sonco on your own listings</h2>
+                        <p class="mx-auto max-w-lg text-[17px] leading-[1.6] text-muted" x-text="t('form.body')">Tell us a little about your agency and we'll set up a 20-minute demo on your listings, in your language.</p>
+                        <p class="mt-5 text-[14.5px] text-muted-2" x-text="t('hero.ctaNote')">20 minutes, on your own listings. No commitment.</p>
+                    </div>
+                    <div x-data="demoForm()">
+                        <!-- Posts to the Worker (worker.mjs). With a script it answers in
+                             place; without one the same POST redirects to /thanks.html -->
+                        <form x-show="state !== 'sent'" action="/contact" method="post" @submit.prevent="submit($event)" class="grid grid-cols-2 gap-x-4 gap-y-5 max-sm:grid-cols-1">
+                            <label class="block">
+                                <span class="label" x-text="t('form.name')">Your name</span>
+                                <input name="name" class="field" required autocomplete="name">
+                            </label>
+                            <label class="block">
+                                <span class="label" x-text="t('form.agency')">Agency</span>
+                                <input name="agency" class="field" required autocomplete="organization">
+                            </label>
+                            <label class="block">
+                                <span class="label" x-text="t('form.email')">Email</span>
+                                <input name="email" class="field" type="email" required autocomplete="email">
+                            </label>
+                            <label class="block">
+                                <span class="label" x-text="t('form.phone')">Phone (optional)</span>
+                                <input name="phone" class="field" type="tel" autocomplete="tel">
+                            </label>
+                            <label class="block col-span-2 max-sm:col-span-1">
+                                <span class="label" x-text="t('form.agents')">How many agents?</span>
+                                <select name="agents" class="field" required>
+                                    <option value="1" x-text="t('form.agents1')">Just me</option>
+                                    <option value="2-5" selected x-text="t('form.agents2')">2 to 5</option>
+                                    <option value="6-10" x-text="t('form.agents3')">6 to 10</option>
+                                    <option value="10+" x-text="t('form.agents4')">More than 10</option>
+                                </select>
+                            </label>
+                            <label class="block col-span-2 max-sm:col-span-1">
+                                <span class="label" x-text="t('form.message')">Anything we should know? (optional)</span>
+                                <textarea name="message" rows="3" class="field" maxlength="2000"></textarea>
+                            </label>
+                            <!-- Honeypot: hidden from people, filled by bots, and the Worker
+                                 answers a filled one as a success so the bot learns nothing -->
+                            <div class="hidden" aria-hidden="true"><input type="text" name="website" tabindex="-1" autocomplete="off"></div>
+                            <input type="hidden" name="lang" :value="lang">
+                            <div class="col-span-2 flex flex-wrap items-center gap-x-5 gap-y-3 max-sm:col-span-1">
+                                <button type="submit" class="btn" :disabled="state === 'sending'" :class="state === 'sending' && 'opacity-60'">
+                                    <span x-text="state === 'sending' ? t('form.sending') : t('form.submit')">Request a demo</span>
+                                </button>
+                                <span class="text-[13.5px] text-muted-2" x-text="t('form.privacy')">Used only to arrange your demo.</span>
+                            </div>
+                            <p x-show="state === 'error'" x-cloak class="col-span-2 text-[14.5px] font-medium text-ink max-sm:col-span-1" x-text="t('form.error')"></p>
+                        </form>
+                        <div x-show="state === 'sent'" x-cloak class="rounded-xl bg-surface px-8 py-10">
+                            <h3 class="h3 mb-2" x-text="t('form.sentTitle')"></h3>
+                            <p class="text-[16px] leading-[1.6] text-muted" x-text="t('form.sentBody')"></p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <footer class="flex flex-wrap items-center justify-between gap-6 border-t border-hairline px-10 py-7 max-md:px-5">
+        <footer class="border-t border-hairline">
+            <div class="mx-auto flex max-w-350 flex-wrap items-center justify-between gap-6 px-10 py-7 max-md:px-5">
             <div class="flex items-center gap-2 text-[13px] text-muted-2">
                 <svg class="size-4 text-muted-2" viewBox="3.304 3.304 17.391 17.391" fill="currentColor" aria-hidden="true">
                     <path fill="currentColor" fill-rule="evenodd" transform="translate(0 -0.5)" d="M5.7 18.5A1.7 1.7 0 0 1 4 16.8L4 11.7A2.9 2.9 0 0 1 4.85 9.65L6.8 7.7A1.7 1.7 0 0 1 9.2 7.7L10.66 9.16A1.9 1.9 0 0 0 13.34 9.16L14.8 7.7A1.7 1.7 0 0 1 17.2 7.7L19.15 9.65A2.9 2.9 0 0 1 20 11.7L20 16.8A1.7 1.7 0 0 1 18.3 18.5ZM9.2 18.5A0.6 0.6 0 0 0 9.8 17.9V15.8A2.2 2.2 0 0 1 14.2 15.8V17.9A0.6 0.6 0 0 0 14.8 18.5Z"/>
                 </svg>
-                © 2026 sonco
+                © 2026 Sonco
             </div>
             <div class="flex gap-7 text-[13px]">
-                <a href="#" class="-my-3 py-3 text-muted-2 transition-colors hover:text-ink" x-text="t('footer.privacy')">Privacy</a>
-                <a href="#" class="-my-3 py-3 text-muted-2 transition-colors hover:text-ink" x-text="t('footer.terms')">Terms</a>
-                <a href="#" class="-my-3 py-3 text-muted-2 transition-colors hover:text-ink" x-text="t('footer.contact')">Contact</a>
+                <a href="/privacy.html" class="-my-3 py-3 text-muted-2 transition-colors hover:text-ink" x-text="t('footer.privacy')">Privacy</a>
+                <a href="/terms.html" class="-my-3 py-3 text-muted-2 transition-colors hover:text-ink" x-text="t('footer.terms')">Terms</a>
+                <a href="mailto:hello@sonco.ai" class="-my-3 py-3 text-muted-2 transition-colors hover:text-ink" x-text="t('footer.contact')">Contact</a>
+            </div>
             </div>
         </footer>
     </div>
 
-    <script>
-        (function () {
-            var nav = document.getElementById('nav');
-            var scrolled = null;
-            function onScroll() {
-                var s = window.scrollY > 8;
-                if (s === scrolled) return;
-                scrolled = s;
-                nav.dataset.scrolled = s ? 'true' : 'false';
-            }
-            window.addEventListener('scroll', onScroll, { passive: true });
-            onScroll();
-        })();
-    </script>
 </body>
 </html>
