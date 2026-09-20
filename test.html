@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noindex">
+        <title>Sonco &middot; The real estate platform for agencies on the Costa Blanca</title>
+        <link rel="icon" href="/favicon.ico" sizes="32x32">
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+        <meta name="theme-color" content="#101114" media="(prefers-color-scheme: dark)">
+        <link rel="preload" href="/fonts/geist-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" href="/css/site.css?v=41">
+        <script defer src="/js/alpine.min.js"></script>
+    </head>
+    <body>
+        <!-- Defined once and pulled in with <use>, rather than inlined at every call site -->
+        <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+            <symbol id="flag-es" viewBox="0 0 30 20">
+                <path d="M30 0H0V20H30V0Z" fill="#FFDA44"/>
+                <path d="M30 0H0V6.66643H30V0Z" fill="#D80027"/>
+                <path d="M30 13.3329H0V19.9993H30V13.3329Z" fill="#D80027"/>
+            </symbol>
+            <symbol id="flag-gb" viewBox="0 0 30 20">
+                <path d="M30 0.00012207H0V20H30V0.00012207Z" fill="#F0F0F0"/>
+                <path d="M16.875 0H13.125V8.1248H0V11.8747H13.125V19.9995H16.875V11.8747H30V8.1248H16.875V0Z" fill="#D80027"/>
+                <path d="M23.0742 13.4779L30.0009 17.326V13.4779H23.0742Z" fill="#0052B4"/>
+                <path d="M18.2617 13.4779L30.0009 19.9995V18.1554L21.5813 13.4779H18.2617Z" fill="#0052B4"/>
+                <path d="M26.8739 19.9995L18.2617 15.2146V19.9995H26.8739Z" fill="#0052B4"/>
+                <path d="M18.2617 13.4779L30.0009 19.9995V18.1554L21.5813 13.4779H18.2617Z" fill="#D80027"/>
+                <path d="M5.29341 13.4778L0 16.4185V13.4778H5.29341Z" fill="#0052B4"/>
+                <path d="M11.7397 14.3071V19.9995H1.49414L11.7397 14.3071Z" fill="#0052B4"/>
+                <path d="M8.41951 13.4779L0 18.1554V19.9995L11.7391 13.4779H8.41951Z" fill="#D80027"/>
+                <path d="M6.92665 6.52159L0 2.67346V6.52159H6.92665Z" fill="#0052B4"/>
+                <path d="M11.7391 6.52159L0 0V1.84414L8.41951 6.52159H11.7391Z" fill="#0052B4"/>
+                <path d="M3.12695 0L11.7392 4.78491V0H3.12695Z" fill="#0052B4"/>
+                <path d="M11.7391 6.52159L0 0V1.84414L8.41951 6.52159H11.7391Z" fill="#D80027"/>
+                <path d="M24.707 6.5217L30.0004 3.58093V6.5217H24.707Z" fill="#0052B4"/>
+                <path d="M18.2617 5.69233V0H28.5072L18.2617 5.69233Z" fill="#0052B4"/>
+                <path d="M21.5813 6.52159L30.0009 1.84414V0L18.2617 6.52159H21.5813Z" fill="#D80027"/>
+            </symbol>
+            <symbol id="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 6 9 17l-5-5"/>
+            </symbol>
+            <symbol id="arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14"/>
+                <path d="m12 5 7 7-7 7"/>
+            </symbol>
+        </svg>
+
+        <!-- Mobile first: md: (900px) is where the links go inline and the toggle goes -->
+        <header x-data="{ open: false, lang: 'en' }" @keydown.escape.window="open = false">
+            <div class="mx-auto flex max-w-350 flex-wrap items-center px-5 md:grid md:grid-cols-[1fr_auto_1fr] md:px-10">
+                <a href="/" class="flex h-16 items-center gap-2.5 md:col-start-1 md:h-24 md:justify-self-start">
+                    <svg class="size-6 shrink-0 text-ink" viewBox="3.304 3.304 17.391 17.391" fill="currentColor" aria-hidden="true">
+                        <path fill="currentColor" fill-rule="evenodd" transform="translate(0 -0.5)" d="M5.7 18.5A1.7 1.7 0 0 1 4 16.8L4 11.7A2.9 2.9 0 0 1 4.85 9.65L6.8 7.7A1.7 1.7 0 0 1 9.2 7.7L10.66 9.16A1.9 1.9 0 0 0 13.34 9.16L14.8 7.7A1.7 1.7 0 0 1 17.2 7.7L19.15 9.65A2.9 2.9 0 0 1 20 11.7L20 16.8A1.7 1.7 0 0 1 18.3 18.5ZM9.2 18.5A0.6 0.6 0 0 0 9.8 17.9V15.8A2.2 2.2 0 0 1 14.2 15.8V17.9A0.6 0.6 0 0 0 14.8 18.5Z"/>
+                    </svg>
+                    <span class="text-[18px] font-medium tracking-[-0.02em] text-ink">Sonco</span>
+                </a>
+
+                <!-- Lucide menu and x -->
+                <button type="button" @click="open = ! open" :aria-expanded="open ? 'true' : 'false'"
+                    aria-expanded="false" aria-controls="site-menu" aria-label="Menu"
+                    class="-mr-2 ml-auto flex h-16 size-10 cursor-pointer items-center justify-center rounded-md text-ink md:hidden">
+                    <svg x-show="! open" class="size-5.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"/><path d="M4 18h16"/><path d="M4 6h16"/></svg>
+                    <svg x-show="open" x-cloak class="size-5.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                </button>
+
+                <!-- The collapsed panel on mobile; md:contents! dissolves it so its two children become grid cells of the bar -->
+                <div id="site-menu" x-show="open" x-cloak
+                    class="-mx-5 flex w-[calc(100%+var(--spacing)*10)] flex-col border-t border-hairline px-5 py-4 md:contents!">
+                    <nav aria-label="Main" class="flex flex-col md:col-start-2 md:row-start-1 md:flex-row md:items-center md:justify-self-center md:gap-8">
+                        <a href="#features" @click="open = false" class="py-2.5 text-[15px] text-muted transition-colors hover:text-ink">Features</a>
+                        <a href="#pricing" @click="open = false" class="py-2.5 text-[15px] text-muted transition-colors hover:text-ink">Pricing</a>
+                        <a href="#faq" @click="open = false" class="py-2.5 text-[15px] text-muted transition-colors hover:text-ink">FAQ</a>
+                    </nav>
+                    <button type="button" @click="lang = lang === 'en' ? 'es' : 'en'"
+                        class="mt-2 cursor-pointer border-t border-hairline pt-4 pb-1 text-left text-[15px] text-muted transition-colors hover:text-ink md:col-start-3 md:row-start-1 md:mt-0 md:justify-self-end md:border-0 md:p-0">
+                        <span x-show="lang === 'en'" class="flex items-center gap-2">
+                            <svg class="h-3.5 w-5.25 shrink-0 rounded-xs" aria-hidden="true"><use href="#flag-es"/></svg>Español
+                        </span>
+                        <span x-show="lang === 'es'" x-cloak class="flex items-center gap-2">
+                            <svg class="h-3.5 w-5.25 shrink-0 rounded-xs" aria-hidden="true"><use href="#flag-gb"/></svg>English
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <section class="px-5 pt-16 text-center md:px-10 md:pt-24">
+            <!-- Fluid from 36px to 56px, so it never snaps at one breakpoint -->
+            <h1 class="mx-auto mb-5 max-w-4xl text-[clamp(2.25rem,1.76rem+2.17vw,3.5rem)] font-medium leading-[1.1] tracking-[-0.028em] md:mb-7 md:leading-[1.05] md:tracking-[-0.033em]"><em>The</em> real estate platform for agencies on the Costa Blanca</h1>
+            <p class="mx-auto mb-8 max-w-xl text-pretty text-[17px] leading-[1.6] text-muted md:mb-10 md:max-w-2xl md:text-xl">Your listings, portal publishing, CRM, and website in one place — built by a local estate agent, not a software company.</p>
+            <div class="mb-14 md:mb-24"><a href="#book-demo" class="btn btn-lg gap-2 pr-7">Book a demo<svg class="size-[18px] shrink-0" aria-hidden="true"><use href="#arrow-right"/></svg></a></div>
+            <div class="mx-auto aspect-2880/1678 w-full max-w-290 rounded-lg bg-gray-75 mask-b-from-55% mask-b-to-100%"></div>
+        </section>
+
+        <section class="px-5 py-12 md:px-10 md:py-20">
+            <div class="mx-auto max-w-290">
+                <p class="mb-12 text-center text-[15px] md:text-base text-muted-2">Publish automatically to major property portals</p>
+                <ul class="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 md:justify-between md:gap-x-14">
+                    <li class="flex h-7 w-32 items-center justify-center"><img src="/images/portals/kyero.svg" width="126" height="34" loading="lazy" alt="Kyero" class="max-h-full max-w-full opacity-45 grayscale"></li>
+                    <li class="flex h-7 w-32 items-center justify-center"><img src="/images/portals/idealista.svg" width="555" height="160" loading="lazy" alt="Idealista" class="max-h-full max-w-full opacity-45 grayscale"></li>
+                    <li class="flex h-7 w-32 items-center justify-center"><img src="/images/portals/fotocasa.svg" width="147" height="27" loading="lazy" alt="Fotocasa" class="max-h-full max-w-full opacity-45 grayscale"></li>
+                    <li class="flex h-7 w-32 items-center justify-center"><img src="/images/portals/rightmove.svg" width="118" height="25" loading="lazy" alt="Rightmove" class="max-h-full max-w-full opacity-45 grayscale"></li>
+                    <li class="flex h-7 w-32 items-center justify-center"><img src="/images/portals/thinkspain.svg" width="125" height="24" loading="lazy" alt="thinkSPAIN" class="max-h-full max-w-full opacity-45 grayscale"></li>
+                    <li class="flex h-7 w-32 items-center justify-center"><img src="/images/portals/jamesedition.svg" width="280" height="35" loading="lazy" alt="JamesEdition" class="max-h-full max-w-full translate-y-0.75 opacity-45 grayscale"></li>
+                </ul>
+            </div>
+        </section>
+        <!-- Zinc runs straight on from the section above, no rule between them -->
+        <section id="features" class="bg-gray-75 px-5 py-16 md:px-10 md:py-24">
+            <div class="mx-auto max-w-350">
+                <h2 class="mb-10 max-w-2xl text-[clamp(1.75rem,1.51rem+1.09vw,2rem)] font-medium leading-[1.12] tracking-[-0.028em] md:mb-14">Built for the way agents work</h2>
+                <div class="grid grid-cols-1 gap-4 md:grid-cols-12 md:gap-8">
+                    <!-- The one card that leads with its image -->
+                    <article class="flex flex-col rounded-lg bg-white p-6 shadow-xs md:col-span-5 md:p-8">
+                        <div class="mb-8 min-h-48 grow rounded-md bg-gray-75"></div>
+                        <div class="max-w-prose text-[17px] leading-[1.6] text-pretty">
+                            <h3 class="inline text-ink font-medium">Every client, every conversation.</h3>
+                            <span class="text-muted">All your buyers, owners, and leads in one place — their full history, search criteria, and next steps.</span>
+                        </div>
+                        <ul class="mt-6 flex flex-col gap-y-2.5 text-[15px] text-body">
+                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-green-200 text-green-800" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Automatic property matching</li>
+                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-green-200 text-green-800" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Robust filtering</li>
+                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-green-200 text-green-800" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Natural-language search</li>
+                        </ul>
+                    </article>
+                    <article class="flex flex-col rounded-lg bg-white p-6 shadow-xs md:col-span-7 md:p-8">
+                        <div class="max-w-prose text-[17px] leading-[1.6] text-pretty">
+                            <h3 class="inline text-ink font-medium">Every property on one record.</h3>
+                            <span class="text-muted">Photos, prices, descriptions and key property details in one place. No more conflicting versions between agents or portals.</span>
+                        </div>
+                        <ul class="mt-6 flex flex-col gap-y-2.5 text-[15px] text-body xl:flex-row xl:gap-x-8 xl:gap-y-0">
+                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-green-200 text-green-800" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>AI-drafted descriptions</li>
+                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-green-200 text-green-800" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Automatic translations</li>
+                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-green-200 text-green-800" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Price and status history</li>
+                        </ul>
+                        <div class="mt-8 min-h-48 grow rounded-md bg-gray-75"></div>
+                    </article>
+                    <!-- The one card that puts its placeholder beside the text from md up -->
+                    <article class="flex flex-col rounded-lg bg-white p-6 shadow-xs md:col-span-7 md:flex-row md:gap-8 md:p-8">
+                        <div class="flex flex-col">
+                            <div class="max-w-prose text-[17px] leading-[1.6] text-pretty">
+                                <h3 class="inline text-ink font-medium">A website that runs itself.</h3>
+                                <span class="text-muted">Every agency gets a fast, polished site connected straight to Sonco — listings publish themselves, enquiries land in your CRM, nothing to maintain.</span>
+                            </div>
+                            <ul class="mt-6 flex flex-col gap-y-2.5 text-[15px] text-body">
+                                <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-green-200 text-green-800" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>SEO-ready pages</li>
+                                <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-green-200 text-green-800" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Mobile-friendly</li>
+                                <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-green-200 text-green-800" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Basic customisation</li>
+                            </ul>
+                            <p class="mt-8 text-[15px] leading-[1.6] text-muted md:mt-auto md:pt-8">Want us to build a bespoke website? <a href="#book-demo" class="underline decoration-line underline-offset-3">Get in touch</a></p>
+                        </div>
+                        <div class="mt-8 min-h-48 grow rounded-md bg-gray-75 md:mt-0 md:w-2/5 md:shrink-0 md:grow-0"></div>
+                    </article>
+                    <article class="flex flex-col rounded-lg bg-white p-6 shadow-xs md:col-span-5 md:p-8">
+                        <div class="max-w-prose text-[17px] leading-[1.6] text-pretty">
+                            <h3 class="inline text-ink font-medium">Published to every portal.</h3>
+                            <span class="text-muted">Kyero, Idealista, thinkSPAIN and the rest, fed from the same record. Switch a portal on or off per listing and the feed follows.</span>
+                        </div>
+                        <ul class="mt-6 flex flex-col gap-y-2.5 text-[15px] text-body">
+                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-green-200 text-green-800" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Keep your own accounts</li>
+                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-green-200 text-green-800" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Live sync status</li>
+                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-green-200 text-green-800" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Enquiries land in your CRM</li>
+                        </ul>
+                        <div class="mt-8 min-h-48 grow rounded-md bg-gray-75"></div>
+                    </article>
+                </div>
+                <div class="mx-auto max-w-290">
+                    <h3 class="mt-14 mb-12 text-center text-[15px] md:text-base text-muted-2 md:mt-20 font-medium">Global features</h3>
+                    <ul class="grid grid-cols-1 gap-x-12 gap-y-4 text-[17px] text-body sm:grid-cols-2 lg:grid-cols-3">
+                        <li class="flex items-center gap-3"><span class="flex size-5 shrink-0 items-center justify-center rounded-full bg-green-200 text-green-800" aria-hidden="true"><svg class="size-3.5"><use href="#check"/></svg></span>Automatic task reminders</li>
+                        <li class="flex items-center gap-3"><span class="flex size-5 shrink-0 items-center justify-center rounded-full bg-green-200 text-green-800" aria-hidden="true"><svg class="size-3.5"><use href="#check"/></svg></span>Real-time notifications</li>
+                        <li class="flex items-center gap-3"><span class="flex size-5 shrink-0 items-center justify-center rounded-full bg-green-200 text-green-800" aria-hidden="true"><svg class="size-3.5"><use href="#check"/></svg></span>Deal history and next steps</li>
+                        <li class="flex items-center gap-3"><span class="flex size-5 shrink-0 items-center justify-center rounded-full bg-green-200 text-green-800" aria-hidden="true"><svg class="size-3.5"><use href="#check"/></svg></span>Commission tracking</li>
+                        <li class="flex items-center gap-3"><span class="flex size-5 shrink-0 items-center justify-center rounded-full bg-green-200 text-green-800" aria-hidden="true"><svg class="size-3.5"><use href="#check"/></svg></span>Detailed analytics and reports</li>
+                        <li class="flex items-center gap-3"><span class="flex size-5 shrink-0 items-center justify-center rounded-full bg-green-200 text-green-800" aria-hidden="true"><svg class="size-3.5"><use href="#check"/></svg></span>Multi-branch support</li>
+                        <li class="flex items-center gap-3"><span class="flex size-5 shrink-0 items-center justify-center rounded-full bg-green-200 text-green-800" aria-hidden="true"><svg class="size-3.5"><use href="#check"/></svg></span>Custom roles and permissions</li>
+                        <li class="flex items-center gap-3"><span class="flex size-5 shrink-0 items-center justify-center rounded-full bg-green-200 text-green-800" aria-hidden="true"><svg class="size-3.5"><use href="#check"/></svg></span>Passwordless sign-in</li>
+                        <li class="flex items-center gap-3"><span class="flex size-5 shrink-0 items-center justify-center rounded-full bg-green-200 text-green-800" aria-hidden="true"><svg class="size-3.5"><use href="#check"/></svg></span>GDPR-compliant</li>
+                        <li class="flex items-center gap-3"><span class="flex size-5 shrink-0 items-center justify-center rounded-full bg-green-200 text-green-800" aria-hidden="true"><svg class="size-3.5"><use href="#check"/></svg></span>One-click migration</li>
+                        <li class="flex items-center gap-3"><span class="flex size-5 shrink-0 items-center justify-center rounded-full bg-green-200 text-green-800" aria-hidden="true"><svg class="size-3.5"><use href="#check"/></svg></span>Automatic updates</li>
+                        <li class="flex items-center gap-3"><span class="flex size-5 shrink-0 items-center justify-center rounded-full bg-green-200 text-green-800" aria-hidden="true"><svg class="size-3.5"><use href="#check"/></svg></span>Multi-language throughout</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- White runs straight on from the grey above, no rule between them -->
+        <section id="pricing" x-data="{ period: 'monthly' }" class="bg-white px-5 py-16 md:px-10 md:py-24">
+            <div class="mx-auto max-w-290">
+                <h2 class="mb-9 text-center text-[clamp(1.75rem,1.51rem+1.09vw,2rem)] font-medium leading-[1.12] tracking-[-0.028em] md:mb-12">Pricing that fits your business</h2>
+
+                <div class="mb-10 flex flex-col items-center gap-4 md:mb-14">
+                    <div class="flex items-center gap-4" role="group" aria-label="Billing period">
+                        <span class="text-sm transition-colors" :class="period === 'monthly' ? 'text-ink' : 'text-muted'">Pay monthly</span>
+                        <button type="button" role="switch" aria-label="Pay yearly"
+                            :aria-checked="period === 'yearly' ? 'true' : 'false'" aria-checked="false"
+                            @click="period = period === 'monthly' ? 'yearly' : 'monthly'"
+                            class="relative h-7 w-12 shrink-0 cursor-pointer rounded-full transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
+                            :class="period === 'yearly' ? 'bg-ink hover:bg-ink-hover' : 'bg-gray-200 hover:bg-gray-300'">
+                            <span class="absolute top-1 left-1 size-5 rounded-full bg-white transition-transform duration-200 ease-out"
+                                :class="period === 'yearly' && 'translate-x-5'"></span>
+                        </button>
+                        <!-- absolute so the saving hangs below without pulling the row off-centre -->
+                        <span class="relative text-sm transition-colors" :class="period === 'yearly' ? 'text-ink' : 'text-muted'">Pay yearly<span class="absolute inset-x-0 top-full mt-1 text-left text-xs whitespace-nowrap text-muted-2">Save 20%</span></span>
+                    </div>
+                </div>
+
+                <div class="grid gap-4 md:grid-cols-3 md:gap-8">
+                    <article class="flex flex-col rounded-lg bg-gray-75 p-7 md:p-8">
+                        <h3 class="text-[17px] font-medium text-ink">Solo agent</h3>
+                        <div class="mt-5 mb-8">
+                            <div class="swap-stack">
+                                <p :data-swap="period === 'monthly' ? 'in' : 'out-up'" :inert="period !== 'monthly'" class="flex flex-wrap items-baseline gap-x-2">
+                                    <span class="text-[40px] font-medium leading-none tracking-[-0.03em] text-ink md:text-4xl">42€</span>
+                                    <span class="text-base text-muted">monthly + IVA</span>
+                                </p>
+                                <p :data-swap="period === 'yearly' ? 'in' : 'out-down'" :inert="period !== 'yearly'" x-cloak class="flex flex-wrap items-baseline gap-x-2">
+                                    <span class="text-[40px] font-medium leading-none tracking-[-0.03em] text-ink md:text-4xl">403€</span>
+                                    <span class="text-base text-muted">yearly + IVA</span>
+                                </p>
+                            </div>
+                            <div :data-shown="period === 'yearly'" :inert="period !== 'yearly'" class="reveal">
+                                <div>
+                                    <p class="pt-2.5"><span class="inline-block rounded-full bg-gray-200 px-2.5 py-1 text-[13px] text-muted">≈ 34€ monthly</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <h4 class="mb-3 text-sm text-muted">Everything included:</h4>
+                        <ul class="space-y-2.5 text-[15px] leading-[1.55] text-muted">
+                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-gray-200 text-gray-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>1 user, 1 office</li>
+                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-gray-200 text-gray-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Unlimited properties</li>
+                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-gray-200 text-gray-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Unlimited contacts</li>
+                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-gray-200 text-gray-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Your agency's website</li>
+                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-gray-200 text-gray-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Publish to all supported feeds</li>
+                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-gray-200 text-gray-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>All AI features</li>
+                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-gray-200 text-gray-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Storage</li>
+                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-gray-200 text-gray-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Emails</li>
+                        </ul>
+                        <div class="mt-auto pt-8">
+                            <a href="#book-demo" class="btn-soft w-full">Request a demo</a>
+                        </div>
+                    </article>
+                    <article class="flex flex-col rounded-lg bg-gray-75 p-7 md:p-8">
+                        <h3 class="text-[17px] font-medium text-ink">Small agency</h3>
+                        <div class="mt-5 mb-8">
+                            <div class="swap-stack">
+                                <p :data-swap="period === 'monthly' ? 'in' : 'out-up'" :inert="period !== 'monthly'" class="flex flex-wrap items-baseline gap-x-2">
+                                    <span class="text-[40px] font-medium leading-none tracking-[-0.03em] text-ink md:text-4xl">99€</span>
+                                    <span class="text-base text-muted">monthly + IVA</span>
+                                </p>
+                                <p :data-swap="period === 'yearly' ? 'in' : 'out-down'" :inert="period !== 'yearly'" x-cloak class="flex flex-wrap items-baseline gap-x-2">
+                                    <span class="text-[40px] font-medium leading-none tracking-[-0.03em] text-ink md:text-4xl">950€</span>
+                                    <span class="text-base text-muted">yearly + IVA</span>
+                                </p>
+                            </div>
+                            <div :data-shown="period === 'yearly'" :inert="period !== 'yearly'" class="reveal">
+                                <div>
+                                    <p class="pt-2.5"><span class="inline-block rounded-full bg-gray-200 px-2.5 py-1 text-[13px] text-muted">≈ 79€ monthly</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <h4 class="mb-3 text-sm text-muted">Everything included:</h4>
+                        <ul class="space-y-2.5 text-[15px] leading-[1.55] text-muted">
+                            <li class="flex items-center gap-3 font-medium text-ink"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-ink text-white" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Everything in Solo agent</li>
+                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-gray-200 text-gray-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Up to 9 users, 1 office</li>
+                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-gray-200 text-gray-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Unlimited properties</li>
+                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-gray-200 text-gray-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Your agency website</li>
+                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-gray-200 text-gray-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>All portal feeds</li>
+                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-gray-200 text-gray-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>AI descriptions & translations</li>
+                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-gray-200 text-gray-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Video & virtual tours</li>
+                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-gray-200 text-gray-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>50 GB storage</li>
+                        </ul>
+                        <div class="mt-auto pt-8">
+                            <a href="#book-demo" class="btn w-full">Request a demo</a>
+                        </div>
+                    </article>
+                    <article class="flex flex-col rounded-lg bg-gray-75 p-7 md:p-8">
+                        <h3 class="text-[17px] font-medium text-ink">Multi-office agency</h3>
+                        <div class="mt-5 mb-8">
+                            <p class="flex flex-wrap items-baseline gap-x-2">
+                                <span class="text-[40px] font-medium leading-none tracking-[-0.03em] text-ink md:text-4xl">Custom</span>
+                            </p>
+                            <!-- Keeps the three lists level once the priced cards grow a badge -->
+                            <div :data-shown="period === 'yearly'" aria-hidden="true" class="reveal">
+                                <div>
+                                    <p class="pt-2.5"><span class="invisible inline-block rounded-full px-2.5 py-1 text-[13px]">&nbsp;</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <h4 class="mb-3 text-sm text-muted">Everything included:</h4>
+                        <ul class="space-y-2.5 text-[15px] leading-[1.55] text-muted">
+                            <li class="flex items-center gap-3 font-medium text-ink"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-ink text-white" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Everything in Small agency</li>
+                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-gray-200 text-gray-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>10+ users or several offices</li>
+                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-gray-200 text-gray-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Unlimited properties</li>
+                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-gray-200 text-gray-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Your agency website</li>
+                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-gray-200 text-gray-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>All portal feeds</li>
+                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-gray-200 text-gray-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>AI descriptions & translations</li>
+                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-gray-200 text-gray-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Video & virtual tours</li>
+                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-gray-200 text-gray-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Storage to suit</li>
+                        </ul>
+                        <div class="mt-auto pt-8">
+                            <a href="#book-demo" class="btn-soft w-full">Get in touch</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section id="faq" class="px-5 py-16 md:px-10 md:py-24">
+            <div class="mx-auto max-w-290">
+                <div class="grid gap-10 md:grid-cols-[minmax(0,380px)_1fr] md:gap-20">
+                    <div class="space-y-3">
+                        <h2 class="text-[clamp(1.75rem,1.51rem+1.09vw,2rem)] font-medium leading-[1.12] tracking-[-0.028em]">Questions</h2>
+                        <p class="text-[17px] leading-[1.6] text-muted">Some basic questions about how Sonco works and what to expect.</p>
+                    </div>
+                    <div x-data="{ open: 1 }" class="border-t border-gray-100">
+                        <div class="border-b border-gray-100">
+                            <h3>
+                                <button type="button" @click="open = open === 1 ? null : 1"
+                                    :aria-expanded="open === 1 ? 'true' : 'false'" aria-expanded="false" aria-controls="faq-a1"
+                                    class="flex w-full cursor-pointer items-center justify-between gap-6 py-5 text-left text-[16.5px] font-medium text-ink">
+                                    <span>How long does setup take?</span>
+                                    <svg class="size-4 shrink-0 text-muted-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14" class="origin-center transition-transform duration-300 ease-out [transform-box:fill-box]" :class="open === 1 && 'scale-y-0'"/><path d="M5 12h14"/></svg>
+                                </button>
+                            </h3>
+                            <!-- 0fr to 1fr collapses a height nobody has to measure, so the answer stays in the markup -->
+                            <div id="faq-a1" class="grid transition-[grid-template-rows] duration-300 ease-out" :inert="open !== 1" :class="open === 1 ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'">
+                                <div class="overflow-hidden">
+                                    <p class="max-w-prose pb-6 text-[15.5px] leading-[1.7] text-muted">One call. We import your listings and contacts, connect your portal feeds and put your website live, with you on the phone. Most agencies are working in Sonco the same week.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-b border-gray-100">
+                            <h3>
+                                <button type="button" @click="open = open === 2 ? null : 2"
+                                    :aria-expanded="open === 2 ? 'true' : 'false'" aria-expanded="false" aria-controls="faq-a2"
+                                    class="flex w-full cursor-pointer items-center justify-between gap-6 py-5 text-left text-[16.5px] font-medium text-ink">
+                                    <span>Can you import from my current system?</span>
+                                    <svg class="size-4 shrink-0 text-muted-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14" class="origin-center transition-transform duration-300 ease-out [transform-box:fill-box]" :class="open === 2 && 'scale-y-0'"/><path d="M5 12h14"/></svg>
+                                </button>
+                            </h3>
+                            <!-- 0fr to 1fr collapses a height nobody has to measure, so the answer stays in the markup -->
+                            <div id="faq-a2" class="grid transition-[grid-template-rows] duration-300 ease-out" :inert="open !== 2" :class="open === 2 ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'">
+                                <div class="overflow-hidden">
+                                    <p class="max-w-prose pb-6 text-[15.5px] leading-[1.7] text-muted">Yes. Contacts come in from a spreadsheet export with a guided column match, and listings with their photos come in from the portal feed you already publish. You keep working while it runs.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-b border-gray-100">
+                            <h3>
+                                <button type="button" @click="open = open === 3 ? null : 3"
+                                    :aria-expanded="open === 3 ? 'true' : 'false'" aria-expanded="false" aria-controls="faq-a3"
+                                    class="flex w-full cursor-pointer items-center justify-between gap-6 py-5 text-left text-[16.5px] font-medium text-ink">
+                                    <span>Do I keep my own portal accounts?</span>
+                                    <svg class="size-4 shrink-0 text-muted-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14" class="origin-center transition-transform duration-300 ease-out [transform-box:fill-box]" :class="open === 3 && 'scale-y-0'"/><path d="M5 12h14"/></svg>
+                                </button>
+                            </h3>
+                            <!-- 0fr to 1fr collapses a height nobody has to measure, so the answer stays in the markup -->
+                            <div id="faq-a3" class="grid transition-[grid-template-rows] duration-300 ease-out" :inert="open !== 3" :class="open === 3 ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'">
+                                <div class="overflow-hidden">
+                                    <p class="max-w-prose pb-6 text-[15.5px] leading-[1.7] text-muted">Yes. Your Kyero, Idealista and other accounts stay yours. Sonco produces the feed each portal reads, and you switch each portal on or off per listing.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-b border-gray-100">
+                            <h3>
+                                <button type="button" @click="open = open === 4 ? null : 4"
+                                    :aria-expanded="open === 4 ? 'true' : 'false'" aria-expanded="false" aria-controls="faq-a4"
+                                    class="flex w-full cursor-pointer items-center justify-between gap-6 py-5 text-left text-[16.5px] font-medium text-ink">
+                                    <span>What happens to my data if I leave?</span>
+                                    <svg class="size-4 shrink-0 text-muted-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14" class="origin-center transition-transform duration-300 ease-out [transform-box:fill-box]" :class="open === 4 && 'scale-y-0'"/><path d="M5 12h14"/></svg>
+                                </button>
+                            </h3>
+                            <!-- 0fr to 1fr collapses a height nobody has to measure, so the answer stays in the markup -->
+                            <div id="faq-a4" class="grid transition-[grid-template-rows] duration-300 ease-out" :inert="open !== 4" :class="open === 4 ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'">
+                                <div class="overflow-hidden">
+                                    <p class="max-w-prose pb-6 text-[15.5px] leading-[1.7] text-muted">It stays yours. Export your contacts as a spreadsheet at any time, and on request we hand you a complete copy of your agency's data and photos. Nothing is held back and nothing is charged for it.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-b border-gray-100">
+                            <h3>
+                                <button type="button" @click="open = open === 5 ? null : 5"
+                                    :aria-expanded="open === 5 ? 'true' : 'false'" aria-expanded="false" aria-controls="faq-a5"
+                                    class="flex w-full cursor-pointer items-center justify-between gap-6 py-5 text-left text-[16.5px] font-medium text-ink">
+                                    <span>Who owns the website?</span>
+                                    <svg class="size-4 shrink-0 text-muted-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14" class="origin-center transition-transform duration-300 ease-out [transform-box:fill-box]" :class="open === 5 && 'scale-y-0'"/><path d="M5 12h14"/></svg>
+                                </button>
+                            </h3>
+                            <!-- 0fr to 1fr collapses a height nobody has to measure, so the answer stays in the markup -->
+                            <div id="faq-a5" class="grid transition-[grid-template-rows] duration-300 ease-out" :inert="open !== 5" :class="open === 5 ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'">
+                                <div class="overflow-hidden">
+                                    <p class="max-w-prose pb-6 text-[15.5px] leading-[1.7] text-muted">You do. It runs on your own domain under your own name, logo and colours, and every enquiry lands straight in your CRM. Nothing to host and nothing to update.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Full bleed again, with a slight top-to-bottom gradient on the same hue as ink -->
+        <section id="book-demo" class="bg-linear-to-b from-[oklch(0.30_0.006_265)] to-[oklch(0.13_0.003_265)] px-5 py-20 md:px-10 md:py-28">
+            <div class="mx-auto max-w-290">
+                <div class="text-center">
+                    <h2 class="mx-auto max-w-xl text-[clamp(1.75rem,1.51rem+1.09vw,2.25rem)] font-medium leading-[1.12] tracking-[-0.028em] text-white">Spend your time closing, not typing.</h2>
+                    <p class="mx-auto mt-5 max-w-lg text-[17px] leading-[1.6] text-pretty text-white/80">20 minutes, on your own listings. No commitment — and every agency that signs up gets me on the setup call.</p>
+                    <div class="mx-auto mt-10 w-full max-w-[425px] rounded-lg bg-white p-6 text-left md:mt-12 md:p-10">
+                        <form action="/contact" method="post" class="flex flex-col gap-5">
+                            <div>
+                                <label for="f-name" class="label">Your name</label>
+                                <input id="f-name" name="name" type="text" autocomplete="name" required="required" class="field">
+                            </div>
+                            <div>
+                                <label for="f-agency" class="label">Agency</label>
+                                <input id="f-agency" name="agency" type="text" autocomplete="organization" required="required" class="field">
+                            </div>
+                            <div>
+                                <label for="f-email" class="label">Email</label>
+                                <input id="f-email" name="email" type="email" autocomplete="email" required="required" class="field">
+                            </div>
+                            <div>
+                                <label for="f-agents" class="label">How many agents?</label>
+                                <div class="relative">
+                                    <select id="f-agents" name="agents" required class="field appearance-none pr-10">
+                                    <option value="" disabled selected>—</option>
+                                    <option value="1">Just me</option>
+                                    <option value="2-9">2-9</option>
+                                    <option value="10+">10 or more</option>
+                                    </select>
+                                    <svg class="pointer-events-none absolute top-1/2 right-3.5 size-4 -translate-y-1/2 text-muted-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                                </div>
+                            </div>
+                            <!-- Honeypot: contact.mjs answers a filled-in one as if it succeeded, so bots learn nothing -->
+                            <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" class="hidden">
+                            <input type="hidden" name="lang" value="en">
+                            <button type="submit" class="btn mt-2 w-full rounded-lg">Request a demo</button>
+                            <p class="-mt-1 text-center text-[13px] leading-[1.5] text-muted-2">By sending this you agree to our <a href="/privacy-policy.html" class="text-muted underline decoration-line underline-offset-2 transition-colors hover:text-ink hover:decoration-muted-2">Privacy</a> and <a href="/terms-of-use.html" class="text-muted underline decoration-line underline-offset-2 transition-colors hover:text-ink hover:decoration-muted-2">Terms</a>.</p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="bg-[oklch(0.13_0.003_265)] px-5 py-10 md:px-10">
+            <div class="mx-auto grid max-w-350 gap-6 text-center text-[13px] md:grid-cols-3 md:items-center">
+                <div class="text-white/50 md:text-left">© 2026 Sonco</div>
+            <nav class="flex flex-wrap justify-center gap-x-7 gap-y-1" aria-label="Footer">
+                <a href="#features" class="-my-3 py-3 text-white/60 transition-colors hover:text-white">Features</a>
+                <a href="#pricing" class="-my-3 py-3 text-white/60 transition-colors hover:text-white">Pricing</a>
+                <a href="#faq" class="-my-3 py-3 text-white/60 transition-colors hover:text-white">FAQ</a>
+            </nav>
+            <nav class="flex flex-wrap justify-center gap-x-7 gap-y-1 md:justify-end" aria-label="Legal">
+                <a href="/privacy-policy.html" class="-my-3 py-3 text-white/60 transition-colors hover:text-white">Privacy policy</a>
+                <a href="/terms-of-use.html" class="-my-3 py-3 text-white/60 transition-colors hover:text-white">Terms of use</a>
+            </nav>
+            </div>
+        </footer>
+    </body>
+</html>
