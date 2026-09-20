@@ -13,8 +13,8 @@ worker.mjs           The Worker script: POST /contact → email; everything else
 contact.mjs          The form's validation and the email it becomes, pure, covered by test/
 test/                `npm test` — node:test, no dependencies
 js/contact-form.js   The form's in-page submit; without it the same form posts normally
-privacy.html         Privacy policy — English only, no Alpine, like the 404
-terms.html           Terms of use, the same shape
+privacy-policy.html         Privacy policy — English only, no Alpine, like the 404
+terms-of-use.html           Terms of use, the same shape
 src/input.css        Tailwind entry — @theme tokens, @font-face, custom @utility gradients
 css/site.css         Built stylesheet (generated — do not edit by hand)
 fonts/               Self-hosted Geist (latin variable subset, woff2)
@@ -133,7 +133,7 @@ does keep is one log line per demo request, written by the Worker
 (`{"event":"demo-request", …}`), readable under the Worker's Logs tab. If page
 analytics are ever wanted, Cloudflare Web Analytics is the fit — cookieless,
 one `<script>` with a site token from the dashboard — and turning it on means
-editing the "What we collect" section of `privacy.html` in the same commit.
+editing the "What we collect" section of `privacy-policy.html` in the same commit.
 
 `sonco.ai` is attached as a custom domain in `wrangler.jsonc`, which manages its
 DNS record on deploy. Two things are deliberately **not** in the config, because
