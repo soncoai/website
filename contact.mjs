@@ -5,7 +5,7 @@
 export const FROM = "hello@sonco.ai";
 
 const AGENTS = new Set(["1", "2-5", "6-10", "10+"]);
-const LANGS = new Set(["en", "es", "nl", "fr", "de"]);
+const LANGS = new Set(["en", "es"]);
 const MAX = { name: 100, agency: 150, email: 254, phone: 40, message: 2000 };
 
 /* Returns { ok: false, errors } naming the fields that failed, or

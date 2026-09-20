@@ -1,20 +1,36 @@
-/* The one thing a static file cannot do: take the demo-request form and turn
-   it into an email. Every other request is handed to the static assets,
-   which is what the Worker was before it had a script at all. */
+/* The two things a static file cannot do: take the demo-request form and turn
+   it into an email, and tell a page where its reader is. Everything else is
+   handed to the static assets, which is what the Worker was before it had a
+   script at all. */
 
 import { EmailMessage } from "cloudflare:email";
 import { FROM, buildMessage, validate } from "./contact.mjs";
+import { placeFor } from "./geo.mjs";
 
 export default {
     async fetch(request, env) {
         const url = new URL(request.url);
-        if (url.pathname !== "/contact") return env.ASSETS.fetch(request);
+        if (url.pathname !== "/contact") return withPlace(request, await env.ASSETS.fetch(request));
         if (request.method !== "POST") {
             return new Response("Method not allowed", { status: 405, headers: { Allow: "POST" } });
         }
         return handleContact(request, env, url.origin);
     },
 };
+
+/* One attribute on <html>, which js/i18n.js reads to phrase the hero. The page
+   cannot be rewritten in place: the heading is Alpine's, so anything written
+   into it is replaced the moment Alpine boots. */
+function withPlace(request, response) {
+    if (!(response.headers.get("Content-Type") || "").includes("text/html")) return response;
+    return new HTMLRewriter()
+        .on("html", {
+            element(el) {
+                el.setAttribute("data-place", placeFor(request.cf));
+            },
+        })
+        .transform(response);
+}
 
 async function handleContact(request, env, origin) {
     // The page's own script asks for JSON and shows the result in place; a
