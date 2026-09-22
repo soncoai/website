@@ -111,16 +111,36 @@
             </div>
         </section>
         <!-- Zinc runs straight on from the section above, no rule between them -->
-        <section id="features" class="bg-gray-75 px-5 py-16 md:px-10 md:py-24">
+        <section id="features" class="bg-zinc-75 px-5 py-16 md:px-10 md:py-24">
             <div class="mx-auto max-w-350">
-                <h2 class="mb-10 max-w-2xl text-[clamp(1.75rem,1.51rem+1.09vw,2rem)] font-medium leading-[1.12] tracking-[-0.028em] md:mb-14">Built for the way agents work</h2>
+                <h2 class="mb-10 max-w-2xl text-[clamp(1.75rem,1.51rem+1.09vw,2rem)] font-medium leading-[1.12] tracking-[-0.028em] md:mb-14">Built for the way agencies think</h2>
                 <div class="grid grid-cols-1 gap-4 md:grid-cols-12 md:gap-8">
                     <!-- The one card that leads with its image -->
                     <article class="flex flex-col rounded-lg bg-white p-6 shadow-xs md:col-span-5 md:p-8">
-                        <div class="mb-8 min-h-48 grow rounded-md bg-gray-75"></div>
+                        <!-- The contact page's match list: one saved search, its matches stacked like a deck -->
+                        <div class="mt-4 mb-14 flex grow flex-col justify-center">
+                            <p class="mb-2.5 flex items-center gap-2 text-[13.5px] font-medium text-ink">
+                                <span class="relative isolate flex size-4.5 flex-none items-center justify-center rounded-full bg-purple-100 text-[10px] font-medium text-purple-800" aria-hidden="true">M<span class="pointer-events-none absolute inset-0 rounded-[inherit] inset-ring inset-ring-black/10"></span></span>
+                                <span class="truncate">&ldquo;Luxury villas in J&aacute;vea&rdquo;</span>
+                            </p>
+                            <div class="relative">
+                                <div class="absolute inset-x-5 top-5 h-full rounded-lg bg-white outline-1 -outline-offset-1 outline-black/10" aria-hidden="true"></div>
+                                <div class="absolute inset-x-2.5 top-2.5 h-full rounded-lg bg-white outline-1 -outline-offset-1 outline-black/10" aria-hidden="true"></div>
+                                <div class="relative flex flex-wrap items-center gap-x-3 gap-y-2 p-3 shadow-xs rounded-lg bg-white outline-1 -outline-offset-1 outline-black/10">
+                                    <img src="/images/property-thumb.webp" width="256" height="192" alt="" loading="lazy" class="h-12 w-16 shrink-0 rounded-md object-cover outline-1 -outline-offset-1 outline-black/10">
+                                    <div class="min-w-28 flex-1">
+                                        <p class="truncate text-[13px] font-medium text-ink">Luxury Villa with panoramic sea views</p>
+                                        <p class="mt-1 truncate text-[12px] text-muted-2">1.285.000&nbsp;&euro; &middot; 4 beds &middot; 2 baths</p>
+                                    </div>
+                                    <span class="inline-flex shrink-0 items-center gap-1 rounded-full bg-emerald-400/20 px-1.5 py-0.5 text-[11px] font-medium text-emerald-800">
+                                        <span class="size-1.5 shrink-0 rounded-full bg-emerald-400"></span>Strong match
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                         <div class="max-w-prose text-[17px] leading-[1.6] text-pretty">
-                            <h3 class="inline text-ink font-medium">Every client, every conversation.</h3>
-                            <span class="text-muted">All your buyers, owners, and leads in one place — their full history, search criteria, and next steps.</span>
+                            <h3 class="inline text-ink font-medium">Which properties are perfect for this client?</h3>
+                            <span class="text-muted">Save what they&rsquo;re looking for once. Each new listing is matched and scored, and their calls, viewings and next steps sit on the same record.</span>
                         </div>
                         <ul class="mt-6 flex flex-col gap-y-2.5 text-[15px] text-body">
                             <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-green-200 text-green-800" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Automatic property matching</li>
@@ -130,22 +150,22 @@
                     </article>
                     <article class="flex flex-col rounded-lg bg-white p-6 shadow-xs md:col-span-7 md:p-8">
                         <div class="max-w-prose text-[17px] leading-[1.6] text-pretty">
-                            <h3 class="inline text-ink font-medium">Every property on one record.</h3>
-                            <span class="text-muted">Photos, prices, descriptions and key property details in one place. No more conflicting versions between agents or portals.</span>
+                            <h3 class="inline text-ink font-medium">What&rsquo;s the latest on this property?</h3>
+                            <span class="text-muted">One record holds the photos, prices, descriptions and history, so agents and portals never see different versions.</span>
                         </div>
                         <ul class="mt-6 flex flex-col gap-y-2.5 text-[15px] text-body xl:flex-row xl:gap-x-8 xl:gap-y-0">
                             <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-green-200 text-green-800" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>AI-drafted descriptions</li>
                             <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-green-200 text-green-800" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Automatic translations</li>
                             <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-green-200 text-green-800" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Price and status history</li>
                         </ul>
-                        <div class="mt-8 min-h-48 grow rounded-md bg-gray-75"></div>
+                        <div class="mt-8 min-h-48 grow rounded-md bg-zinc-75"></div>
                     </article>
                     <!-- The one card that puts its placeholder beside the text from md up -->
                     <article class="flex flex-col rounded-lg bg-white p-6 shadow-xs md:col-span-7 md:flex-row md:gap-8 md:p-8">
                         <div class="flex flex-col">
                             <div class="max-w-prose text-[17px] leading-[1.6] text-pretty">
-                                <h3 class="inline text-ink font-medium">A website that runs itself.</h3>
-                                <span class="text-muted">Every agency gets a fast, polished site connected straight to Sonco — listings publish themselves, enquiries land in your CRM, nothing to maintain.</span>
+                                <h3 class="inline text-ink font-medium">Is our website up to date?</h3>
+                                <span class="text-muted">Always. Every agency gets a fast, polished site connected straight to Sonco — listings publish themselves, enquiries land in your CRM, nothing to maintain.</span>
                             </div>
                             <ul class="mt-6 flex flex-col gap-y-2.5 text-[15px] text-body">
                                 <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-green-200 text-green-800" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>SEO-ready pages</li>
@@ -154,19 +174,100 @@
                             </ul>
                             <p class="mt-8 text-[15px] leading-[1.6] text-muted md:mt-auto md:pt-8">Want us to build a bespoke website? <a href="#book-demo" class="underline decoration-line underline-offset-3">Get in touch</a></p>
                         </div>
-                        <div class="mt-8 min-h-48 grow rounded-md bg-gray-75 md:mt-0 md:w-2/5 md:shrink-0 md:grow-0"></div>
+                        <div class="mt-8 min-h-48 grow rounded-md bg-zinc-75 md:mt-0 md:w-2/5 md:shrink-0 md:grow-0"></div>
                     </article>
                     <article class="flex flex-col rounded-lg bg-white p-6 shadow-xs md:col-span-5 md:p-8">
                         <div class="max-w-prose text-[17px] leading-[1.6] text-pretty">
-                            <h3 class="inline text-ink font-medium">Published to every portal.</h3>
+                            <h3 class="inline text-ink font-medium">Which portals is this on?</h3>
                             <span class="text-muted">Kyero, Idealista, thinkSPAIN and the rest, fed from the same record. Switch a portal on or off per listing and the feed follows.</span>
                         </div>
-                        <ul class="mt-6 flex flex-col gap-y-2.5 text-[15px] text-body">
+                        <ul class="mt-6 mb-8 flex flex-col gap-y-2.5 text-[15px] text-body">
                             <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-green-200 text-green-800" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Keep your own accounts</li>
                             <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-green-200 text-green-800" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Live sync status</li>
                             <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-green-200 text-green-800" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Enquiries land in your CRM</li>
                         </ul>
-                        <div class="mt-8 min-h-48 grow rounded-md bg-gray-75"></div>
+                        <!-- The property page's portals panel, cut down to four rows -->
+                        <div class="-mb-6 mt-auto rounded-t-lg border border-line bg-white px-4 py-1.5 mask-b-from-55% mask-b-to-100% md:-mb-8">
+                            <div x-data="{ on: true }" class="flex items-center justify-between gap-3 py-2.5">
+                                <div class="flex min-w-0 items-center gap-2.5">
+                                    <span class="flex size-8 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-white outline-1 -outline-offset-1 outline-black/10" aria-hidden="true"><img src="/images/portals/marks/kyero.png" width="128" height="128" alt="" class="size-full"></span>
+                                    <div class="min-w-0">
+                                        <span class="block text-[13.5px] font-medium text-ink">Kyero</span>
+                                        <span class="swap-stack text-[12.5px] leading-[1.4] text-muted-2">
+                                            <span :data-swap="on ? 'in' : 'out-up'" :inert="!on">Live · updated 2 hours ago</span>
+                                            <span x-cloak :data-swap="on ? 'out-down' : 'in'" :inert="on">Not published</span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <button type="button" role="switch" aria-label="Publish to Kyero"
+                                    :aria-checked="on ? 'true' : 'false'" aria-checked="true" @click="on = !on"
+                                    class="relative h-4.5 w-7.5 shrink-0 cursor-pointer rounded-full transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
+                                    :class="on ? 'bg-ink hover:bg-ink-hover' : 'bg-ink/15 hover:bg-ink/25'">
+                                    <span class="absolute top-0.75 left-0.75 size-3 rounded-full bg-white transition-transform duration-150 ease-out"
+                                        :class="on && 'translate-x-3'"></span>
+                                </button>
+                            </div>
+                            <div class="border-t border-hairline"></div>
+                            <div x-data="{ on: true }" class="flex items-center justify-between gap-3 py-2.5">
+                                <div class="flex min-w-0 items-center gap-2.5">
+                                    <span class="flex size-8 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-white outline-1 -outline-offset-1 outline-black/10" aria-hidden="true"><img src="/images/portals/marks/idealista.svg" width="194" height="194" alt="" class="size-full"></span>
+                                    <div class="min-w-0">
+                                        <span class="block text-[13.5px] font-medium text-ink">Idealista</span>
+                                        <span class="swap-stack text-[12.5px] leading-[1.4] text-muted-2">
+                                            <span :data-swap="on ? 'in' : 'out-up'" :inert="!on">Queued for the next feed</span>
+                                            <span x-cloak :data-swap="on ? 'out-down' : 'in'" :inert="on">Not published</span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <button type="button" role="switch" aria-label="Publish to Idealista"
+                                    :aria-checked="on ? 'true' : 'false'" aria-checked="true" @click="on = !on"
+                                    class="relative h-4.5 w-7.5 shrink-0 cursor-pointer rounded-full transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
+                                    :class="on ? 'bg-ink hover:bg-ink-hover' : 'bg-ink/15 hover:bg-ink/25'">
+                                    <span class="absolute top-0.75 left-0.75 size-3 rounded-full bg-white transition-transform duration-150 ease-out"
+                                        :class="on && 'translate-x-3'"></span>
+                                </button>
+                            </div>
+                            <div class="border-t border-hairline"></div>
+                            <div x-data="{ on: false }" class="flex items-center justify-between gap-3 py-2.5">
+                                <div class="flex min-w-0 items-center gap-2.5">
+                                    <span class="flex size-8 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-white outline-1 -outline-offset-1 outline-black/10" aria-hidden="true"><img src="/images/portals/marks/fotocasa.png" width="128" height="128" alt="" class="size-full"></span>
+                                    <div class="min-w-0">
+                                        <span class="block text-[13.5px] font-medium text-ink">Fotocasa</span>
+                                        <span class="swap-stack text-[12.5px] leading-[1.4] text-muted-2">
+                                            <span :data-swap="on ? 'in' : 'out-up'" :inert="!on">Queued for the next feed</span>
+                                            <span x-cloak :data-swap="on ? 'out-down' : 'in'" :inert="on">Not published</span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <button type="button" role="switch" aria-label="Publish to Fotocasa"
+                                    :aria-checked="on ? 'true' : 'false'" aria-checked="false" @click="on = !on"
+                                    class="relative h-4.5 w-7.5 shrink-0 cursor-pointer rounded-full transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
+                                    :class="on ? 'bg-ink hover:bg-ink-hover' : 'bg-ink/15 hover:bg-ink/25'">
+                                    <span class="absolute top-0.75 left-0.75 size-3 rounded-full bg-white transition-transform duration-150 ease-out"
+                                        :class="on && 'translate-x-3'"></span>
+                                </button>
+                            </div>
+                            <div class="border-t border-hairline"></div>
+                            <div x-data="{ on: false }" class="flex items-center justify-between gap-3 py-2.5">
+                                <div class="flex min-w-0 items-center gap-2.5">
+                                    <span class="flex size-8 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-white outline-1 -outline-offset-1 outline-black/10" aria-hidden="true"><img src="/images/portals/marks/rightmove.png" width="128" height="128" alt="" class="size-full"></span>
+                                    <div class="min-w-0">
+                                        <span class="block text-[13.5px] font-medium text-ink">Rightmove</span>
+                                        <span class="swap-stack text-[12.5px] leading-[1.4] text-muted-2">
+                                            <span :data-swap="on ? 'in' : 'out-up'" :inert="!on">Queued for the next feed</span>
+                                            <span x-cloak :data-swap="on ? 'out-down' : 'in'" :inert="on">Not published</span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <button type="button" role="switch" aria-label="Publish to Rightmove"
+                                    :aria-checked="on ? 'true' : 'false'" aria-checked="false" @click="on = !on"
+                                    class="relative h-4.5 w-7.5 shrink-0 cursor-pointer rounded-full transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
+                                    :class="on ? 'bg-ink hover:bg-ink-hover' : 'bg-ink/15 hover:bg-ink/25'">
+                                    <span class="absolute top-0.75 left-0.75 size-3 rounded-full bg-white transition-transform duration-150 ease-out"
+                                        :class="on && 'translate-x-3'"></span>
+                                </button>
+                            </div>
+                        </div>
                     </article>
                 </div>
                 <div class="mx-auto max-w-290">
@@ -200,7 +301,7 @@
                             :aria-checked="period === 'yearly' ? 'true' : 'false'" aria-checked="false"
                             @click="period = period === 'monthly' ? 'yearly' : 'monthly'"
                             class="relative h-7 w-12 shrink-0 cursor-pointer rounded-full transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
-                            :class="period === 'yearly' ? 'bg-ink hover:bg-ink-hover' : 'bg-gray-200 hover:bg-gray-300'">
+                            :class="period === 'yearly' ? 'bg-ink hover:bg-ink-hover' : 'bg-zinc-200 hover:bg-zinc-300'">
                             <span class="absolute top-1 left-1 size-5 rounded-full bg-white transition-transform duration-200 ease-out"
                                 :class="period === 'yearly' && 'translate-x-5'"></span>
                         </button>
@@ -210,7 +311,7 @@
                 </div>
 
                 <div class="grid gap-4 md:grid-cols-3 md:gap-8">
-                    <article class="flex flex-col rounded-lg bg-gray-75 p-7 md:p-8">
+                    <article class="flex flex-col rounded-lg bg-zinc-75 p-7 md:p-8">
                         <h3 class="text-[17px] font-medium text-ink">Solo agent</h3>
                         <div class="mt-5 mb-8">
                             <div class="swap-stack">
@@ -225,26 +326,26 @@
                             </div>
                             <div :data-shown="period === 'yearly'" :inert="period !== 'yearly'" class="reveal">
                                 <div>
-                                    <p class="pt-2.5"><span class="inline-block rounded-full bg-gray-200 px-2.5 py-1 text-[13px] text-muted">≈ 34€ monthly</span></p>
+                                    <p class="pt-2.5"><span class="inline-block rounded-full bg-zinc-200 px-2.5 py-0.5 text-[13px] text-muted">≈ 34€ monthly</span></p>
                                 </div>
                             </div>
                         </div>
                         <h4 class="mb-3 text-sm text-muted">Everything included:</h4>
                         <ul class="space-y-2.5 text-[15px] leading-[1.55] text-muted">
-                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-gray-200 text-gray-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>1 user, 1 office</li>
-                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-gray-200 text-gray-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Unlimited properties</li>
-                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-gray-200 text-gray-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Unlimited contacts</li>
-                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-gray-200 text-gray-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Your agency's website</li>
-                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-gray-200 text-gray-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Publish to all supported feeds</li>
-                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-gray-200 text-gray-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>All AI features</li>
-                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-gray-200 text-gray-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Storage</li>
-                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-gray-200 text-gray-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Emails</li>
+                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-zinc-200 text-zinc-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>1 user, 1 office</li>
+                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-zinc-200 text-zinc-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Unlimited properties</li>
+                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-zinc-200 text-zinc-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Unlimited contacts</li>
+                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-zinc-200 text-zinc-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Your agency's website</li>
+                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-zinc-200 text-zinc-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Publish to all supported feeds</li>
+                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-zinc-200 text-zinc-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>All AI features</li>
+                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-zinc-200 text-zinc-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Storage</li>
+                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-zinc-200 text-zinc-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Emails</li>
                         </ul>
                         <div class="mt-auto pt-8">
                             <a href="#book-demo" class="btn-soft w-full">Request a demo</a>
                         </div>
                     </article>
-                    <article class="flex flex-col rounded-lg bg-gray-75 p-7 md:p-8">
+                    <article class="flex flex-col rounded-lg bg-zinc-75 p-7 md:p-8">
                         <h3 class="text-[17px] font-medium text-ink">Small agency</h3>
                         <div class="mt-5 mb-8">
                             <div class="swap-stack">
@@ -259,26 +360,26 @@
                             </div>
                             <div :data-shown="period === 'yearly'" :inert="period !== 'yearly'" class="reveal">
                                 <div>
-                                    <p class="pt-2.5"><span class="inline-block rounded-full bg-gray-200 px-2.5 py-1 text-[13px] text-muted">≈ 79€ monthly</span></p>
+                                    <p class="pt-2.5"><span class="inline-block rounded-full bg-zinc-200 px-2.5 py-0.5 text-[13px] text-muted">≈ 79€ monthly</span></p>
                                 </div>
                             </div>
                         </div>
                         <h4 class="mb-3 text-sm text-muted">Everything included:</h4>
                         <ul class="space-y-2.5 text-[15px] leading-[1.55] text-muted">
                             <li class="flex items-center gap-3 font-medium text-ink"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-ink text-white" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Everything in Solo agent</li>
-                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-gray-200 text-gray-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Up to 9 users, 1 office</li>
-                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-gray-200 text-gray-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Unlimited properties</li>
-                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-gray-200 text-gray-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Your agency website</li>
-                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-gray-200 text-gray-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>All portal feeds</li>
-                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-gray-200 text-gray-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>AI descriptions & translations</li>
-                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-gray-200 text-gray-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Video & virtual tours</li>
-                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-gray-200 text-gray-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>50 GB storage</li>
+                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-zinc-200 text-zinc-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Up to 9 users, 1 office</li>
+                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-zinc-200 text-zinc-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Unlimited properties</li>
+                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-zinc-200 text-zinc-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Your agency website</li>
+                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-zinc-200 text-zinc-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>All portal feeds</li>
+                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-zinc-200 text-zinc-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>AI descriptions & translations</li>
+                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-zinc-200 text-zinc-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Video & virtual tours</li>
+                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-zinc-200 text-zinc-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>50 GB storage</li>
                         </ul>
                         <div class="mt-auto pt-8">
                             <a href="#book-demo" class="btn w-full">Request a demo</a>
                         </div>
                     </article>
-                    <article class="flex flex-col rounded-lg bg-gray-75 p-7 md:p-8">
+                    <article class="flex flex-col rounded-lg bg-zinc-75 p-7 md:p-8">
                         <h3 class="text-[17px] font-medium text-ink">Multi-office agency</h3>
                         <div class="mt-5 mb-8">
                             <p class="flex flex-wrap items-baseline gap-x-2">
@@ -294,13 +395,13 @@
                         <h4 class="mb-3 text-sm text-muted">Everything included:</h4>
                         <ul class="space-y-2.5 text-[15px] leading-[1.55] text-muted">
                             <li class="flex items-center gap-3 font-medium text-ink"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-ink text-white" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Everything in Small agency</li>
-                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-gray-200 text-gray-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>10+ users or several offices</li>
-                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-gray-200 text-gray-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Unlimited properties</li>
-                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-gray-200 text-gray-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Your agency website</li>
-                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-gray-200 text-gray-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>All portal feeds</li>
-                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-gray-200 text-gray-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>AI descriptions & translations</li>
-                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-gray-200 text-gray-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Video & virtual tours</li>
-                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-gray-200 text-gray-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Storage to suit</li>
+                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-zinc-200 text-zinc-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>10+ users or several offices</li>
+                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-zinc-200 text-zinc-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Unlimited properties</li>
+                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-zinc-200 text-zinc-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Your agency website</li>
+                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-zinc-200 text-zinc-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>All portal feeds</li>
+                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-zinc-200 text-zinc-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>AI descriptions & translations</li>
+                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-zinc-200 text-zinc-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Video & virtual tours</li>
+                            <li class="flex items-center gap-3"><span class="flex size-4.5 shrink-0 items-center justify-center rounded-full bg-zinc-200 text-zinc-700" aria-hidden="true"><svg class="size-3"><use href="#check"/></svg></span>Storage to suit</li>
                         </ul>
                         <div class="mt-auto pt-8">
                             <a href="#book-demo" class="btn-soft w-full">Get in touch</a>
