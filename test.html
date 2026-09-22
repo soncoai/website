@@ -54,8 +54,8 @@
         <header x-data="{ open: false, lang: 'en' }" @keydown.escape.window="open = false">
             <div class="mx-auto flex max-w-350 flex-wrap items-center px-5 md:grid md:grid-cols-[1fr_auto_1fr] md:px-10">
                 <a href="/" class="flex h-16 items-center gap-2.5 md:col-start-1 md:h-24 md:justify-self-start">
-                    <svg class="size-6 shrink-0 text-ink" viewBox="3.304 3.304 17.391 17.391" fill="currentColor" aria-hidden="true">
-                        <path fill="currentColor" fill-rule="evenodd" transform="translate(0 -0.5)" d="M5.7 18.5A1.7 1.7 0 0 1 4 16.8L4 11.7A2.9 2.9 0 0 1 4.85 9.65L6.8 7.7A1.7 1.7 0 0 1 9.2 7.7L10.66 9.16A1.9 1.9 0 0 0 13.34 9.16L14.8 7.7A1.7 1.7 0 0 1 17.2 7.7L19.15 9.65A2.9 2.9 0 0 1 20 11.7L20 16.8A1.7 1.7 0 0 1 18.3 18.5ZM9.2 18.5A0.6 0.6 0 0 0 9.8 17.9V15.8A2.2 2.2 0 0 1 14.2 15.8V17.9A0.6 0.6 0 0 0 14.8 18.5Z"/>
+                    <svg class="size-6 shrink-0 text-ink" viewBox="0 0 1024 904" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M0.0 382.545 L662.588 0.0 L1024.0 208.661 L1024.0 521.653 L361.412 904.198 L0.0 695.537Z M220.461 372.112 L313.224 318.556 L472.245 410.367 L379.482 463.923Z M386.108 276.476 L478.871 222.92 L637.892 314.731 L545.129 368.287Z M551.755 180.84 L644.518 127.283 L803.539 219.094 L710.776 272.651Z"/>
                     </svg>
                     <span class="text-[18px] font-medium tracking-[-0.02em] text-ink">Sonco</span>
                 </a>
@@ -445,16 +445,21 @@
         </section>
         <footer class="bg-[oklch(0.13_0.003_265)] px-5 py-10 md:px-10">
             <div class="mx-auto grid max-w-350 gap-6 text-center text-[13px] md:grid-cols-3 md:items-center">
-                <div class="text-white/50 md:text-left">© 2026 Sonco</div>
-            <nav class="flex flex-wrap justify-center gap-x-7 gap-y-1" aria-label="Footer">
-                <a href="#features" class="-my-3 py-3 text-white/60 transition-colors hover:text-white">Features</a>
-                <a href="#pricing" class="-my-3 py-3 text-white/60 transition-colors hover:text-white">Pricing</a>
-                <a href="#faq" class="-my-3 py-3 text-white/60 transition-colors hover:text-white">FAQ</a>
-            </nav>
-            <nav class="flex flex-wrap justify-center gap-x-7 gap-y-1 md:justify-end" aria-label="Legal">
-                <a href="/privacy-policy.html" class="-my-3 py-3 text-white/60 transition-colors hover:text-white">Privacy policy</a>
-                <a href="/terms-of-use.html" class="-my-3 py-3 text-white/60 transition-colors hover:text-white">Terms of use</a>
-            </nav>
+                <div class="flex items-center justify-center gap-2 text-white/50 md:justify-start">
+                    <svg class="size-4.5 shrink-0 text-white" viewBox="0 0 1024 904" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M0.0 382.545 L662.588 0.0 L1024.0 208.661 L1024.0 521.653 L361.412 904.198 L0.0 695.537Z M220.461 372.112 L313.224 318.556 L472.245 410.367 L379.482 463.923Z M386.108 276.476 L478.871 222.92 L637.892 314.731 L545.129 368.287Z M551.755 180.84 L644.518 127.283 L803.539 219.094 L710.776 272.651Z"/>
+                    </svg>
+                    © 2026 Sonco
+                </div>
+                <nav class="flex flex-wrap justify-center gap-x-7 gap-y-1" aria-label="Footer">
+                    <a href="#features" class="-my-3 py-3 text-white/60 transition-colors hover:text-white">Features</a>
+                    <a href="#pricing" class="-my-3 py-3 text-white/60 transition-colors hover:text-white">Pricing</a>
+                    <a href="#faq" class="-my-3 py-3 text-white/60 transition-colors hover:text-white">FAQ</a>
+                </nav>
+                <nav class="flex flex-wrap justify-center gap-x-7 gap-y-1 md:justify-end" aria-label="Legal">
+                    <a href="/privacy-policy.html" class="-my-3 py-3 text-white/60 transition-colors hover:text-white">Privacy policy</a>
+                    <a href="/terms-of-use.html" class="-my-3 py-3 text-white/60 transition-colors hover:text-white">Terms of use</a>
+                </nav>
             </div>
         </footer>
     </body>
