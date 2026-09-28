@@ -6,22 +6,23 @@ a Cloudflare Worker at [sonco.ai](https://sonco.ai).
 ## Structure
 
 ```
-index.html           Page markup (Tailwind utility classes)
+index.html           The landing page (Tailwind utility classes)
 404.html             Not-found page, served by the Worker for unmatched paths
-thanks.html          Where a no-script demo request lands after the Worker takes it
+thanks.html          Where a demo request ends, with or without a script
+privacy-policy.html  Privacy policy
+terms-of-use.html    Terms of use, the same shape
 worker.mjs           The Worker script: POST /contact → email; everything else → assets
 contact.mjs          The form's validation and the email it becomes, pure, covered by test/
 test/                `npm test` — node:test, no dependencies
-js/contact-form.js   The form's in-page submit; without it the same form posts normally
-privacy-policy.html         Privacy policy — English only, no Alpine, like the 404
-terms-of-use.html           Terms of use, the same shape
+js/lang.js           English/Spanish switching for every page (see Languages)
+js/contact-form.js   The form's checks and in-page submit; without it the form posts normally
+js/alpine.min.js     Vendored Alpine, for the header menu, the switcher and the page's toggles
 src/input.css        Tailwind entry — @theme tokens, @font-face, custom @utility gradients
 css/site.css         Built stylesheet (generated — do not edit by hand)
 fonts/               Self-hosted Geist (latin variable subset, woff2)
-images/              Screenshots and image assets
-images/brand/        Logo SVGs, copied from soncoai/brand
-favicon.*, icon-*    Favicons and app icons, copied from soncoai/brand
-site.webmanifest     App manifest, copied from soncoai/brand
+images/              Screenshots, portal logos and marks
+favicon.*, icon-*    Favicons and app icons, from the Sonco brand pack
+site.webmanifest     App manifest
 _headers             Response headers applied at deploy time
 wrangler.jsonc       Worker config
 dist/                Assembled upload directory (generated, gitignored)
@@ -29,28 +30,36 @@ dist/                Assembled upload directory (generated, gitignored)
 
 ## Cache-busting
 
-`css/site.css`, `js/i18n.js` and `js/contact-form.js` are referenced with a
-`?v=N` query. Bump it in every page that names them whenever any of the three
-changes, or a returning visitor keeps the old file — the translation file in
-particular, where a stale copy leaves every newly added string blank.
+`css/site.css`, `js/lang.js` and `js/contact-form.js` are referenced with a
+`?v=N` query, one number shared by all three. Bump it in every page that names
+them whenever any of them changes, or a returning visitor keeps the old file.
+
+## Languages
+
+Every page reads in English or Spanish. English is the markup, so a page with no
+script still reads whole; `js/lang.js` swaps in the Spanish, which sits beside
+the English it replaces:
+
+- `data-es="…"` on an element holds its content in Spanish, markup allowed.
+- `data-es-alt` and `data-es-content` do the same for an image's alt text and
+  the meta description.
+- `data-lang="en"` / `data-lang="es"` mark whole blocks, for the legal texts,
+  which are too long to carry in an attribute. The Spanish block ships `hidden`.
+
+The language comes from `?lang=`, then the visitor's earlier choice (kept in
+local storage under `sonco-lang`, which the privacy policy names), then the
+browser's. **A new string needs its Spanish in the same edit**, or a Spanish
+visitor reads that one line in English.
 
 ## Brand assets
 
-The logo, favicons and app icons come from **soncoai/brand** (`logo/svg/` and
-`logo/web/`) and are copied in rather than linked — that repo is private, so raw
-URLs would 404 in a browser. The nav lockup and footer mark are inlined in
-`index.html` so they inherit `currentColor`.
+The mark is the brick, inlined wherever it appears (every page's header and
+footer, the 404 and the thanks page) so it inherits `currentColor`; "Sonco"
+beside it is set in text, not drawn. Do not hand-edit its path: copy it from the
+brand pack if the mark changes, and change every copy together.
 
-Do not hand-edit the logo paths: the geometry is generated on a 24-unit grid and
-every file has to be regenerated together. If the logo changes, re-copy from the
-brand repo:
-
-```bash
-cp ../brand/logo/svg/sonco-{horizontal,mark}.svg images/brand/
-cp ../brand/logo/web/{favicon.ico,favicon.svg,apple-touch-icon.png,site.webmanifest,icon-192.png,icon-512.png,icon-maskable-512.png} .
-```
-
-A new icon or manifest file also has to be named in `npm run dist` — see Deploy.
+The favicons and app icons are copied in from the brand pack. A new icon or
+manifest file also has to be named in `npm run dist` — see Deploy.
 
 ## Develop
 

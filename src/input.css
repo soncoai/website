@@ -1,8 +1,6 @@
 @import "tailwindcss";
 
-/* Self-hosted Geist — the latin subset ships as one variable file covering the
-   full weight axis, so a single @font-face serves every weight the page uses.
-   Geist is the only typeface on the site, matching the product UI. */
+/* Geist, latin subset: one variable file for every weight */
 @font-face {
   font-family: "Geist";
   font-style: normal;
@@ -14,40 +12,34 @@
 @theme {
   --font-sans: "Geist", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
-  /* Breakpoints matched to the source design's two media queries */
+  /* The source design's breakpoints */
   --breakpoint-sm: 560px;
   --breakpoint-md: 900px;
 
-  /* Near-neutral gray scale. Chroma is held at 0.004–0.006 on a constant hue
-     (H 265) — enough to keep the grays from reading dead, far too little to
-     read as a colour. Every step is a lightness move only, so nothing drifts
-     warm or cool against its neighbours.
-
-     Contrast on white: ink 15.5:1, body 8.9:1, muted 5.9:1, muted-2 4.5:1
-     (muted-2 is the lightest step that still clears 4.5:1 for small text). */
+  /* Near-neutral greys: one hue and chroma, lightness steps only. On white:
+     ink 15.5:1, body 8.9:1, muted 5.9:1, muted-2 4.5:1 (lightest for small text) */
   --color-ink: oklch(0.205 0.004 265);
   --color-ink-hover: oklch(0.32 0.005 265);
   --color-body: oklch(0.37 0.005 265);
   --color-muted: oklch(0.5 0.006 265);
   --color-muted-2: oklch(0.56 0.006 265);
 
-  /* Structure: line is a border you are meant to see, hairline a divider you
-     are not. surface/surface-2 are the two panel fills. */
+  /* line: a visible border; hairline: a quiet divider; surface: panel fills */
   --color-line: oklch(0.905 0.004 265);
   --color-hairline: oklch(0.945 0.003 265);
   --color-surface: oklch(0.974 0.002 265);
   --color-surface-2: oklch(0.987 0.001 265);
 
-  /* Fills and glyph greys come from Tailwind's own zinc, which ships whole and
-     needs nothing declared here. The one exception is 75: the section ground
-     wants to sit between 50 and 100, and Tailwind has no stop there, so this is
-     the midpoint of the two on zinc's own curve. */
+  /* Between zinc 50 and 100, for the section ground */
   --color-zinc-75: oklch(0.976 0.001 286.375);
+
+  /* Invalid fields only (red-500), as a border and halo */
+  --color-danger: oklch(0.637 0.237 25.331);
 
 }
 
 @layer base {
-  /* Alpine: keep x-show panels (language dropdown) hidden until Alpine boots */
+  /* Hidden until Alpine boots */
   [x-cloak] {
     display: none !important;
   }
@@ -57,13 +49,12 @@
     scroll-padding-top: 2rem;
   }
   body {
-    @apply bg-white font-sans text-body antialiased;
+    @apply font-sans text-body antialiased bg-white;
   }
   a {
     color: inherit;
     text-decoration: none;
   }
-  /* Headings carry the ink step and the tight tracking the display sizes need */
   h1,
   h2,
   h3 {
@@ -73,8 +64,7 @@
 }
 
 @layer components {
-  /* Type scale. Held here rather than repeated across the markup so the whole
-     page moves together when a size changes. */
+  /* Type scale */
   .h1 {
     @apply text-[56px] font-[560] leading-[1.05] tracking-[-0.033em] max-md:text-[36px] max-md:leading-[1.1];
   }
@@ -82,13 +72,12 @@
     @apply text-[38px] font-[560] leading-[1.12] tracking-[-0.028em] max-md:text-[28px];
   }
   .h3 {
-    @apply text-[22px] font-[550] leading-[1.32] tracking-[-0.02em] max-md:text-[19px];
+    @apply text-[22px] font-medium leading-[1.32] tracking-[-0.02em] max-md:text-[19px];
   }
 
-
-  /* Pill CTA used in the nav, hero, pricing card, and closing section */
+  /* Pill CTA */
   .btn {
-    @apply inline-flex cursor-pointer items-center justify-center rounded-full bg-ink px-6.5 py-2.5 text-sm font-normal text-white transition-[background-color,outline-color,scale] duration-150 ease-out hover:bg-ink-hover active:scale-[0.96];
+    @apply inline-flex items-center justify-center px-6.5 py-2.5 text-sm font-normal text-white bg-ink rounded-full transition-[background-color,outline-color,scale] duration-150 ease-out cursor-pointer hover:bg-ink-hover active:scale-[0.96];
     outline: 3px solid transparent;
     outline-offset: 0;
   }
@@ -96,22 +85,18 @@
     outline-color: color-mix(in oklch, var(--color-ink) 16%, transparent);
   }
 
-  /* The hero CTA, which stands alone and sits against much larger type */
+  /* Larger, to stand against the hero's type */
   .btn-lg {
     @apply px-8 py-3.5 text-[15px];
   }
 
-  /* The demo-request form's label and control, one look for input, select and textarea */
   .label {
-    @apply mb-1.5 block w-fit text-[13.5px] font-medium text-ink;
+    @apply block w-fit mb-1.5 text-[13.5px] font-medium text-ink;
   }
-  /* The CRM's own field, ring included. The ring is an outline rather than a
-     box-shadow — an outline rounds to the border radius alone, where a spread
-     shadow rounds to radius + spread, so the two draw different shapes — and it
-     is held transparent at rest, because an outline that is not there cannot
-     transition. Focus changes nothing but the two colours. */
+  /* The ring is an outline, not a box-shadow, so it keeps the border radius;
+     transparent at rest so it can transition */
   .field {
-    @apply w-full rounded-lg border border-line bg-zinc-50 px-3.5 py-2.25 text-[15px] leading-5 text-ink transition-[color,border-color,outline-color] duration-150 placeholder:text-muted-2 shadow-xs;
+    @apply w-full px-3.5 py-2.25 text-[15px] leading-5 text-ink bg-zinc-50 rounded-lg border border-line transition-[color,border-color,outline-color] duration-150 shadow-xs placeholder:text-muted-2;
     outline: 3px solid transparent;
     outline-offset: 0;
   }
@@ -122,31 +107,26 @@
     border-color: var(--color-ink);
     outline-color: color-mix(in oklch, var(--color-ink) 16%, transparent);
   }
+  /* Invalid: red border, red halo on focus */
+  .field[aria-invalid="true"] {
+    border-color: var(--color-danger);
+  }
+  .field[aria-invalid="true"]:focus-visible {
+    outline-color: color-mix(in oklch, var(--color-danger) 16%, transparent);
+  }
 
-  /* The secondary pill on a grey card — filled, because a border on grey all but disappears */
+  /* Secondary pill: filled, since a border vanishes on grey */
   .btn-soft {
-    @apply inline-flex cursor-pointer items-center justify-center rounded-full bg-zinc-200 px-6.5 py-2.5 text-sm font-normal text-ink transition-[background-color,outline-color,scale] duration-150 ease-out hover:bg-zinc-300 active:scale-[0.96];
+    @apply inline-flex items-center justify-center px-6.5 py-2.5 text-sm font-normal text-ink bg-zinc-200 rounded-full transition-[background-color,outline-color,scale] duration-150 ease-out cursor-pointer hover:bg-zinc-300 active:scale-[0.96];
     outline: 3px solid transparent;
     outline-offset: 0;
   }
   .btn-soft:focus-visible {
     outline-color: color-mix(in oklch, var(--color-ink) 16%, transparent);
   }
-
-  /* Secondary pill — the hero's second action and the non-featured pricing tiers */
-  .btn-outline {
-    @apply inline-flex cursor-pointer items-center justify-center rounded-full border border-line bg-white px-6.5 py-[calc(--spacing(2.5)-1px)] text-sm font-normal text-ink transition-[background-color,border-color,outline-color,scale] duration-150 ease-out hover:border-muted-2/40 hover:bg-surface-2 active:scale-[0.96];
-    outline: 3px solid transparent;
-    outline-offset: 0;
-  }
-  .btn-outline:focus-visible {
-    outline-color: color-mix(in oklch, var(--color-ink) 16%, transparent);
-  }
-
 }
 
-/* Nothing on the page animates; what is left is hover, focus and press
-   feedback on controls, which this drops along with the smooth scroll. */
+/* Reduced motion: no animations, transitions or smooth scroll */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -157,39 +137,7 @@
   }
 }
 
-/* A bento tile: white on the section's grey ground, edged by the shadow ring
-   below rather than a border, so twelve of them read as one surface with
-   cuts in it rather than twelve boxes */
-@utility bento {
-  @apply relative flex flex-col overflow-hidden rounded-xl bg-white card-shadow;
-}
-
-/* Card elevation without a solid border: a 1px shadow ring plus two soft
-   neutral layers, so the edge adapts to whatever sits behind the card */
-@utility card-shadow {
-  box-shadow:
-    0 0 0 1px oklch(0 0 0 / 0.055),
-    0 1px 2px -1px oklch(0 0 0 / 0.06),
-    0 2px 4px 0 oklch(0 0 0 / 0.03);
-}
-
-/* Screenshot frames. Neutral now — the old shadow was tinted warm, which read
-   as a colour cast on every screenshot that sat in it. */
-@utility shot-shadow {
-  box-shadow:
-    0 10px 32px -14px oklch(0.205 0.004 265 / 0.22),
-    0 2px 6px -3px oklch(0.205 0.004 265 / 0.08);
-}
-
-@utility hero-shot-shadow {
-  box-shadow:
-    0 -1px 0 0 oklch(0 0 0 / 0.05),
-    -24px -16px 48px -34px oklch(0.205 0.004 265 / 0.2),
-    24px -16px 48px -34px oklch(0.205 0.004 265 / 0.2);
-}
-
-/* Two states sharing one grid cell: the outgoing copy lifts and blurs away as
-   the incoming one arrives from the opposite side. */
+/* Two states in one grid cell: one lifts and blurs out as the other arrives */
 .swap-stack {
   display: grid;
 }
@@ -219,8 +167,7 @@
   translate: 0 4px;
 }
 
-/* The slot opens on a curve that is ~80% done by 100ms, so the delayed content
-   arrives into space that is already there rather than being wiped into view. */
+/* ~80% open by 100ms, so the delayed content arrives into space already there */
 .reveal {
   display: grid;
   grid-template-rows: 0fr;
@@ -251,3 +198,26 @@
   filter: blur(0);
   transition-delay: 100ms;
 }
+
+/* The brick as a loader: slots open in turn, then close together. A slot is
+   white painted over a solid slab, which leaves no seams. Longhands only: the
+   minifier turns a nameless animation shorthand into animation: none. */
+.brick-loader svg {
+  display: block;
+}
+
+.brick-loader path:not(:first-child) {
+  /* Open at rest, so reduced motion shows the logo rather than a blank block */
+  fill: var(--color-white);
+  animation-duration: 2000ms;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.brick-loader path:nth-child(2) { animation-name: brick-charge-1; }
+.brick-loader path:nth-child(3) { animation-name: brick-charge-2; }
+.brick-loader path:nth-child(4) { animation-name: brick-charge-3; }
+
+@keyframes brick-charge-1 { 0%, 14% { fill: transparent; } 15%, 96% { fill: var(--color-white); } 97%, 100% { fill: transparent; } }
+@keyframes brick-charge-2 { 0%, 44% { fill: transparent; } 45%, 96% { fill: var(--color-white); } 97%, 100% { fill: transparent; } }
+@keyframes brick-charge-3 { 0%, 74% { fill: transparent; } 75%, 96% { fill: var(--color-white); } 97%, 100% { fill: transparent; } }

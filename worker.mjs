@@ -1,16 +1,12 @@
-/* The two things a static file cannot do: take the demo-request form and turn
-   it into an email, and tell a page where its reader is. Everything else is
-   handed to the static assets, which is what the Worker was before it had a
-   script at all. */
+/* POST /contact becomes an email; everything else is a static asset. */
 
 import { EmailMessage } from "cloudflare:email";
 import { FROM, buildMessage, validate } from "./contact.mjs";
-import { placeFor } from "./geo.mjs";
 
 export default {
     async fetch(request, env) {
         const url = new URL(request.url);
-        if (url.pathname !== "/contact") return withPlace(request, await env.ASSETS.fetch(request));
+        if (url.pathname !== "/contact") return env.ASSETS.fetch(request);
         if (request.method !== "POST") {
             return new Response("Method not allowed", { status: 405, headers: { Allow: "POST" } });
         }
@@ -18,23 +14,8 @@ export default {
     },
 };
 
-/* One attribute on <html>, which js/i18n.js reads to phrase the hero. The page
-   cannot be rewritten in place: the heading is Alpine's, so anything written
-   into it is replaced the moment Alpine boots. */
-function withPlace(request, response) {
-    if (!(response.headers.get("Content-Type") || "").includes("text/html")) return response;
-    return new HTMLRewriter()
-        .on("html", {
-            element(el) {
-                el.setAttribute("data-place", placeFor(request.cf));
-            },
-        })
-        .transform(response);
-}
-
 async function handleContact(request, env, origin) {
-    // The page's own script asks for JSON and shows the result in place; a
-    // browser with no script running posts the form and follows a redirect
+    // The page's script gets JSON; a no-script post gets a redirect
     const json = (request.headers.get("Accept") || "").includes("application/json");
     const answer = (status, body, path) => {
         if (json) {
@@ -49,16 +30,16 @@ async function handleContact(request, env, origin) {
     try {
         data = Object.fromEntries(await request.formData());
     } catch {
-        // Not a form: falls through to validation, which refuses it
+        // Not a form: validation refuses it
     }
 
     const result = validate(data);
-    if (!result.ok) return answer(400, { ok: false, errors: result.errors }, "/#contact");
+    if (!result.ok) return answer(400, { ok: false, errors: result.errors }, "/#book-demo");
     if (result.spam) return answer(200, { ok: true }, "/thanks.html");
 
     if (!env.CONTACT_TO) {
         console.error("CONTACT_TO is not set — see README, Deploy");
-        return answer(500, { ok: false }, "/#contact");
+        return answer(500, { ok: false }, "/#book-demo");
     }
 
     const raw = buildMessage({ from: FROM, to: env.CONTACT_TO, values: result.values, now: new Date(), id: crypto.randomUUID() });
@@ -66,10 +47,10 @@ async function handleContact(request, env, origin) {
         await env.CONTACT.send(new EmailMessage(FROM, env.CONTACT_TO, raw));
     } catch (error) {
         console.error("demo request not sent:", error.message);
-        return answer(502, { ok: false }, "/#contact");
+        return answer(502, { ok: false }, "/#book-demo");
     }
 
-    // The only analytics the site keeps: one line per request, in the Worker's logs
+    // The site's only analytics: one log line per request
     console.log(JSON.stringify({ event: "demo-request", agents: result.values.agents, lang: result.values.lang }));
     return answer(200, { ok: true }, "/thanks.html");
 }

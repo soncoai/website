@@ -1,16 +1,13 @@
-/* The demo-request form, minus the network: what a valid submission is, and
-   the raw email one becomes. Pure so `npm test` can cover it in Node; the
-   Worker in worker.mjs is the only caller. */
+/* The demo form's validation and the email it becomes. Pure, for `npm test`. */
 
 export const FROM = "hello@sonco.ai";
 
-const AGENTS = new Set(["1", "2-5", "6-10", "10+"]);
+const AGENTS = new Set(["1", "2-9", "10+"]);
 const LANGS = new Set(["en", "es"]);
 const MAX = { name: 100, agency: 150, email: 254, phone: 40, message: 2000 };
 
-/* Returns { ok: false, errors } naming the fields that failed, or
-   { ok: true, spam, values } where spam means the honeypot was filled in —
-   the caller answers a bot as if it had succeeded, so it learns nothing. */
+/* { ok: false, errors } or { ok: true, spam, values }. Spam means the honeypot
+   was filled; the caller answers it as a success. */
 export function validate(data) {
     const s = (k) => String(data[k] ?? "").replace(/[\r\n]+/g, " ").trim();
     const lang = s("lang");
@@ -37,9 +34,8 @@ export function validate(data) {
     return { ok: true, spam: s("website") !== "", values };
 }
 
-/* One RFC 5322 message, CRLF-terminated, everything user-supplied either
-   base64-encoded or stripped of line breaks, so nothing typed into the form
-   can add a header. */
+/* An RFC 5322 message. User input is base64-encoded or stripped of line
+   breaks, so it cannot add a header. */
 export function buildMessage({ from, to, values, now, id }) {
     const body = [
         "Demo request from sonco.ai",

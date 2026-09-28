@@ -1,7 +1,7 @@
 {
-  "name": "sonco",
-  "short_name": "sonco",
-  "description": "Homes on the Costa Blanca",
+  "name": "Sonco",
+  "short_name": "Sonco",
+  "description": "The real estate platform for agencies on the Costa Blanca",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#FBFAF7",

@@ -3,10 +3,8 @@
 	"name": "sonco-website",
 	"compatibility_date": "2026-09-08",
 
-	// The script exists for one route, POST /contact, which turns the demo
-	// form into an email. Static assets are still served first for every path
-	// they match; the script only runs for what they don't, and hands those
-	// back to ASSETS so the 404 page keeps working.
+	// Assets are served first; the script handles POST /contact and hands
+	// everything else back to ASSETS, so the 404 page still applies.
 	"main": "worker.mjs",
 	"assets": {
 		"directory": "./dist",
@@ -15,16 +13,14 @@
 		"not_found_handling": "404-page"
 	},
 
-	// Sends through Email Routing on this zone, so there is no mail provider
-	// and no API key. Where it goes is the CONTACT_TO secret — see README.
+	// Email Routing on this zone: no provider, no API key. The recipient is
+	// the CONTACT_TO secret (see README).
 	"send_email": [
 		{ "name": "CONTACT" }
 	],
 
-	// The apex only. www is deliberately not a second custom domain: two
-	// hostnames serving one page is duplicate content with no canonical to
-	// settle it. Point www at the apex with a Cloudflare redirect rule
-	// instead — see README.
+	// Apex only: www redirects here via a Cloudflare rule, to avoid duplicate
+	// content (see README).
 	"routes": [
 		{ "pattern": "sonco.ai", "custom_domain": true }
 	]

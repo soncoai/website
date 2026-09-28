@@ -2,7 +2,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { buildMessage, validate } from "../contact.mjs";
 
-const good = { name: "Ana García", agency: "Costa Homes", email: "ana@example.com", phone: "+34 600 000 000", agents: "2-5", message: "Two offices, Kyero and Idealista.", lang: "es" };
+const good = { name: "Ana García", agency: "Costa Homes", email: "ana@example.com", phone: "+34 600 000 000", agents: "2-9", message: "Two offices, Kyero and Idealista.", lang: "es" };
 
 test("a complete submission is accepted with its values trimmed", () => {
     const result = validate({ ...good, name: "  Ana García  " });
@@ -16,6 +16,11 @@ test("the required fields are named when missing", () => {
     const result = validate({ email: "not-an-email", agents: "lots" });
     assert.equal(result.ok, false);
     assert.deepEqual(result.errors, ["name", "agency", "email", "agents"]);
+});
+
+test("the agent bands are the form's three and nothing else", () => {
+    for (const agents of ["1", "2-9", "10+"]) assert.equal(validate({ ...good, agents }).ok, true, agents);
+    for (const agents of ["2-5", "6-10", ""]) assert.deepEqual(validate({ ...good, agents }).errors, ["agents"], agents);
 });
 
 test("phone and message are optional", () => {
