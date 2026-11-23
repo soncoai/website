@@ -62,9 +62,10 @@ test("the message carries the submission, base64-encoded, with the sender as Rep
     assert.equal(headers["Content-Transfer-Encoding"], "base64");
 
     const subject = Buffer.from(headers.Subject.slice(10, -2), "base64").toString("utf8");
-    assert.equal(subject, "Demo request — Costa Homes");
+    assert.equal(subject, "Question — Costa Homes");
 
     const text = Buffer.from(body.replace(/\r\n/g, ""), "base64").toString("utf8");
+    assert.match(text, /^Question from sonco\.ai\n/);
     assert.match(text, /Agency: {3}Costa Homes/);
     assert.match(text, /Two offices, Kyero and Idealista\./);
     for (const line of body.trim().split("\r\n")) assert.ok(line.length <= 76, "base64 lines stay under 76 characters");

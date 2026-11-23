@@ -1,4 +1,4 @@
-/* The demo form's validation and the email it becomes. Pure, for `npm test`. */
+/* The contact form's validation and the email it becomes. Pure, for `npm test`. */
 
 export const FROM = "hello@sonco.ai";
 
@@ -38,7 +38,7 @@ export function validate(data) {
    breaks, so it cannot add a header. */
 export function buildMessage({ from, to, values, now, id }) {
     const body = [
-        "Demo request from sonco.ai",
+        "Question from sonco.ai",
         "",
         `Name:     ${values.name}`,
         `Agency:   ${values.agency}`,
@@ -56,7 +56,7 @@ export function buildMessage({ from, to, values, now, id }) {
         `From: sonco <${from}>`,
         `To: <${to}>`,
         `Reply-To: ${encodedWord(values.name)} <${values.email}>`,
-        `Subject: ${encodedWord(`Demo request — ${values.agency}`)}`,
+        `Subject: ${encodedWord(`Question — ${values.agency}`)}`,
         `Date: ${now.toUTCString()}`,
         `Message-ID: <${id}@${from.split("@")[1]}>`,
         "MIME-Version: 1.0",

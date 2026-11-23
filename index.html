@@ -33,9 +33,9 @@
             as="font"
             type="font/woff2"
             crossorigin>
-        <link rel="stylesheet" href="/css/site.css?v=42">
-        <script defer src="/js/contact-form.js?v=42"></script>
-        <script defer src="/js/lang.js?v=42"></script>
+        <link rel="stylesheet" href="/css/site.css?v=43">
+        <script defer src="/js/contact-form.js?v=43"></script>
+        <script defer src="/js/lang.js?v=43"></script>
         <script defer src="/js/alpine.min.js"></script>
     </head>
     <body>
@@ -201,10 +201,19 @@
             <p
                 data-es="Tus inmuebles, la publicación en portales, el CRM y tu web en un solo lugar. Creado por un agente inmobiliario de aquí, no por una empresa de software."
                 class="max-w-xl mx-auto mb-8 text-pretty text-[17px] leading-[1.6] text-muted md:mb-10 md:max-w-2xl md:text-xl">Your listings, portal publishing, CRM, and website in one place. Built by a local estate agent, not a software company.</p>
-            <div class="mb-14 md:mb-24"><a href="#book-demo" class="btn btn-lg gap-2 pe-7"><span
-                data-es="Reserva una demo">Book a demo</span><svg
-                    aria-hidden="true"
-                    class="size-[18px] shrink-0"><use href="#arrow-right" /></svg></a></div>
+            <div
+                x-data="{ lang: document.documentElement.lang }"
+                x-on:lang-change.window="lang = $event.detail"
+                class="flex flex-wrap items-center justify-center gap-3 mb-14 md:mb-24"><a
+                    x-bind:href="signupUrl(lang)"
+                    href="https://app.sonco.ai/"
+                    class="btn btn-lg gap-2 pe-7"><span
+                        data-es="Prueba gratis 14 días">Start your 14-day free trial</span><svg
+                        aria-hidden="true"
+                        class="size-[18px] shrink-0"><use href="#arrow-right" /></svg></a><a
+                    href="#contact"
+                    data-es="Habla con nosotros"
+                    class="btn-soft btn-lg">Talk to us</a></div>
             <div
                 class="overflow-hidden w-full max-w-290 mx-auto bg-white rounded-lg outline-1 -outline-offset-1 outline-black/10 shadow-md mask-b-from-55% mask-b-to-100%">
                 <div aria-hidden="true" class="flex items-center gap-1.5 px-3.5 py-3">
@@ -858,7 +867,8 @@
         </section>
         <section
             id="pricing"
-            x-data="{ period: 'monthly' }"
+            x-data="{ period: 'monthly', lang: document.documentElement.lang }"
+            x-on:lang-change.window="lang = $event.detail"
             class="px-5 py-16 bg-white md:px-10 md:py-24">
             <div class="max-w-290 mx-auto">
                 <h2
@@ -969,9 +979,10 @@
                         </ul>
                         <div class="mt-auto pt-8">
                             <a
-                                href="#book-demo"
-                                data-es="Solicita una demo"
-                                class="btn-soft w-full">Request a demo</a>
+                                x-bind:href="signupUrl(lang, 'solo', period === 'yearly' ? 'year' : 'month')"
+                                href="https://app.sonco.ai/?plan=solo&amp;interval=month"
+                                data-es="Prueba gratis 14 días"
+                                class="btn-soft w-full">Start free trial</a>
                         </div>
                     </article>
                     <article class="flex flex-col p-7 bg-zinc-75 rounded-lg md:p-8">
@@ -1050,9 +1061,10 @@
                         </ul>
                         <div class="mt-auto pt-8">
                             <a
-                                href="#book-demo"
-                                data-es="Solicita una demo"
-                                class="btn w-full">Request a demo</a>
+                                x-bind:href="signupUrl(lang, 'small', period === 'yearly' ? 'year' : 'month')"
+                                href="https://app.sonco.ai/?plan=small&amp;interval=month"
+                                data-es="Prueba gratis 14 días"
+                                class="btn w-full">Start free trial</a>
                         </div>
                     </article>
                     <article class="flex flex-col p-7 bg-zinc-75 rounded-lg md:p-8">
@@ -1119,12 +1131,15 @@
                         </ul>
                         <div class="mt-auto pt-8">
                             <a
-                                href="#book-demo"
+                                href="#contact"
                                 data-es="Escríbenos"
                                 class="btn-soft w-full">Get in touch</a>
                         </div>
                     </article>
                 </div>
+                <p
+                    data-es="14 días gratis. Pedimos tarjeta al empezar, pero no cobramos nada hasta que termine la prueba. Cancela cuando quieras."
+                    class="max-w-prose mx-auto mt-8 text-center text-balance text-[14px] leading-[1.6] text-muted md:mt-10">14 days free. A card is needed to start, but nothing is charged until the trial ends. Cancel anytime.</p>
             </div>
         </section>
         <section id="faq" class="px-5 py-16 md:px-10 md:py-24">
@@ -1135,9 +1150,9 @@
                             data-es="Preguntas"
                             class="text-[clamp(1.75rem,1.51rem+1.09vw,2rem)] font-medium leading-[1.12] tracking-[-0.028em]">Questions</h2>
                         <p
-                            data-es='Las preguntas que más nos hacen las agencias. Si la tuya no está aquí, <a href="#book-demo" class="underline decoration-line underline-offset-3">escríbenos</a>.'
+                            data-es='Las preguntas que más nos hacen las agencias. Si la tuya no está aquí, <a href="#contact" class="underline decoration-line underline-offset-3">escríbenos</a>.'
                             class="text-[17px] leading-[1.6] text-muted">The questions agencies ask us most. If yours isn&rsquo;t here, just <a
-                                href="#book-demo"
+                                href="#contact"
                                 class="underline decoration-line underline-offset-3">get in touch</a>.</p>
                     </div>
                     <div x-data="{ open: 1 }" class="border-t border-zinc-100">
@@ -1173,8 +1188,8 @@
                                 class="grid transition-[grid-template-rows] duration-300 ease-out">
                                 <div class="overflow-hidden">
                                     <p
-                                        data-es="Depende de cuánto traigas contigo, pero el trabajo pesado lo hacemos nosotros. Pasamos tus inmuebles y contactos, conectamos tus portales y ponemos tu web en marcha, y te acompañamos en cada paso. Cuéntanos un poco sobre tu agencia y te daremos un plazo realista."
-                                        class="max-w-prose pb-6 text-[15.5px] leading-[1.7] text-muted">It depends on how much you&rsquo;re bringing with you, but we do the heavy lifting. We move your listings and contacts across, connect your portals and get your website live, and we&rsquo;re with you at every step. Tell us a little about your agency and we&rsquo;ll give you a realistic timeline.</p>
+                                        data-es="Minutos. Date de alta y, si tu sistema actual envía tus inmuebles a Kyero, pega la dirección de ese feed: tus inmuebles llegan solos mientras echas un vistazo. Tus portales y tu web se activan desde los ajustes, y si te atascas en algo, estamos a un mensaje."
+                                        class="max-w-prose pb-6 text-[15.5px] leading-[1.7] text-muted">Minutes. Sign up and, if your current system sends your listings to Kyero, paste that feed&rsquo;s address: your listings come across on their own while you look around. Your portals and your website are switched on from settings, and if you get stuck, we&rsquo;re a message away.</p>
                                 </div>
                             </div>
                         </div>
@@ -1209,8 +1224,8 @@
                                 class="grid transition-[grid-template-rows] duration-300 ease-out">
                                 <div class="overflow-hidden">
                                     <p
-                                        data-es="Sí. Tanto si vienes de otro CRM como de una hoja de cálculo o de una mezcla de ambos, te ayudamos a traer tus inmuebles y contactos sin empezar de cero. Escríbenos y cuéntanos qué usas hoy."
-                                        class="max-w-prose pb-6 text-[15.5px] leading-[1.7] text-muted">Yes. Whether you&rsquo;re coming from another CRM, a spreadsheet or a mix of both, we&rsquo;ll help you bring your listings and contacts across without starting from scratch. Get in touch and tell us what you use today.</p>
+                                        data-es="Sí. Tus inmuebles llegan desde el feed que tu sistema actual envía a los portales, sea en el formato de Kyero o en otro cuyos campos emparejas una sola vez. Tus contactos se importan desde una hoja de cálculo. ¿Usas algo distinto? Escríbenos y te ayudamos."
+                                        class="max-w-prose pb-6 text-[15.5px] leading-[1.7] text-muted">Yes. Your listings come across from the feed your current system sends to portals, in Kyero&rsquo;s format or another whose fields you match once. Your contacts import from a spreadsheet. Using something else? Get in touch and we&rsquo;ll help.</p>
                                 </div>
                             </div>
                         </div>
@@ -1331,7 +1346,7 @@
                                     aria-expanded="false"
                                     aria-controls="faq-a6"
                                     class="flex w-full items-center justify-between gap-6 py-5 text-start text-[16.5px] font-medium text-ink cursor-pointer">
-                                    <span data-es="¿Puedo verlo antes de decidir?">Can I see it before I decide?</span>
+                                    <span data-es="¿Puedo probarlo antes de decidir?">Can I try it before I decide?</span>
                                     <svg
                                         viewBox="0 0 24 24"
                                         fill="none"
@@ -1353,10 +1368,12 @@
                                 class="grid transition-[grid-template-rows] duration-300 ease-out">
                                 <div class="overflow-hidden">
                                     <p
-                                        data-es='Por supuesto. <a href="#book-demo" class="underline decoration-line underline-offset-3">Reserva una demo</a> y te enseñamos Sonco funcionando con tus propios inmuebles, sin compromiso.'
+                                        data-es='Por supuesto. <a href="https://app.sonco.ai/?lang=es" class="underline decoration-line underline-offset-3">Empieza una prueba gratuita</a> y úsalo con tus propios inmuebles durante 14 días, sin cobrar nada hasta que termine. ¿Prefieres hablar antes? <a href="#contact" class="underline decoration-line underline-offset-3">Escríbenos</a>.'
                                         class="max-w-prose pb-6 text-[15.5px] leading-[1.7] text-muted">Of course. <a
-                                            href="#book-demo"
-                                            class="underline decoration-line underline-offset-3">Book a demo</a> and we&rsquo;ll show you Sonco working with your own listings, with no commitment.</p>
+                                            href="https://app.sonco.ai/?lang=en"
+                                            class="underline decoration-line underline-offset-3">Start a free trial</a> and use it with your own listings for 14 days, with nothing charged until it ends. Rather talk first? <a
+                                            href="#contact"
+                                            class="underline decoration-line underline-offset-3">Get in touch</a>.</p>
                                 </div>
                             </div>
                         </div>
@@ -1365,21 +1382,21 @@
             </div>
         </section>
         <section
-            id="book-demo"
+            id="contact"
             class="px-5 py-20 bg-linear-to-b from-[oklch(0.30_0.006_265)] to-[oklch(0.13_0.003_265)] md:px-10 md:py-28">
             <div class="max-w-290 mx-auto">
                 <div class="text-center">
                     <h2
-                        data-es="Dedica tu tiempo a cerrar ventas, no a teclear."
-                        class="max-w-xl mx-auto text-[clamp(1.75rem,1.51rem+1.09vw,2.25rem)] font-medium leading-[1.12] tracking-[-0.028em] text-white">Spend your time closing, not typing.</h2>
+                        data-es="¿Tienes preguntas? Habla con nosotros primero."
+                        class="max-w-xl mx-auto text-[clamp(1.75rem,1.51rem+1.09vw,2.25rem)] font-medium leading-[1.12] tracking-[-0.028em] text-white">Have questions? Speak to us first.</h2>
                     <p
-                        data-es="20 minutos, con tus propios inmuebles. Sin compromiso, y en cada agencia que se da de alta estoy yo en la llamada de puesta en marcha."
-                        class="max-w-lg mx-auto mt-5 text-[17px] leading-[1.6] text-pretty text-white/80">20 minutes, on your own listings. No commitment — and every agency that signs up gets me on the setup call.</p>
+                        data-es="¿No sabes si Sonco encaja con tu forma de trabajar? Cuéntanos un poco sobre tu agencia y te responderemos en un día laborable."
+                        class="max-w-lg mx-auto mt-5 text-[17px] leading-[1.6] text-pretty text-white/80">Not sure Sonco fits how your agency works? Tell us a little about it and we&rsquo;ll reply within one working day.</p>
                     <div
                         class="w-full max-w-[425px] mx-auto mt-10 p-6 text-start bg-white rounded-lg md:mt-12 md:p-10">
                         <!-- No script: the browser validates, the Worker redirects to /thanks.html -->
                         <form
-                            x-data="bookDemoForm()"
+                            x-data="contactForm()"
                             x-on:submit.prevent="submit()"
                             x-on:input="recheck($event.target)"
                             x-on:change="recheck($event.target)"
@@ -1457,6 +1474,18 @@
                                             d="m6 9 6 6 6-6" /></svg>
                                 </div>
                             </div>
+                            <div>
+                                <label
+                                    for="f-message"
+                                    data-es="Tu pregunta"
+                                    class="label">Your question</label>
+                                <textarea
+                                    id="f-message"
+                                    name="message"
+                                    rows="4"
+                                    maxlength="2000"
+                                    class="field resize-y"></textarea>
+                            </div>
                             <!-- Honeypot: a filled one is answered as a success -->
                             <input
                                 name="website"
@@ -1473,8 +1502,8 @@
                                 x-bind:disabled="sending"
                                 x-bind:class="sending && 'opacity-60'"
                                 type="submit"
-                                data-es="Solicita una demo"
-                                class="btn w-full mt-2 rounded-lg">Request a demo</button>
+                                data-es="Enviar"
+                                class="btn w-full mt-2 rounded-lg">Send</button>
                             <p
                                 x-show="failed"
                                 x-cloak

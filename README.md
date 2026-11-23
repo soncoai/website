@@ -8,13 +8,13 @@ a Cloudflare Worker at [sonco.ai](https://sonco.ai).
 ```
 index.html           The landing page (Tailwind utility classes)
 404.html             Not-found page, served by the Worker for unmatched paths
-thanks.html          Where a demo request ends, with or without a script
+thanks.html          Where a question sent through the contact form ends, with or without a script
 privacy-policy.html  Privacy policy
 terms-of-use.html    Terms of use, the same shape
 worker.mjs           The Worker script: POST /contact → email; everything else → assets
 contact.mjs          The form's validation and the email it becomes, pure, covered by test/
 test/                `npm test` — node:test, no dependencies
-js/lang.js           English/Spanish switching for every page (see Languages)
+js/lang.js           English/Spanish switching for every page (see Languages), and signupUrl()
 js/contact-form.js   The form's checks and in-page submit; without it the form posts normally
 js/alpine.min.js     Vendored Alpine, for the header menu, the switcher and the page's toggles
 src/input.css        Tailwind entry — @theme tokens, @font-face, custom @utility gradients
@@ -27,6 +27,18 @@ _headers             Response headers applied at deploy time
 wrangler.jsonc       Worker config
 dist/                Assembled upload directory (generated, gitignored)
 ```
+
+## Signing up
+
+The site sells nothing itself. Every *Start free trial* leads to signing up
+on `app.sonco.ai`, which proves the address, holds the agency and only then
+sends the visitor to Stripe — a Stripe link straight from here would take a
+card for an agency that does not exist. `signupUrl()` in `js/lang.js` builds
+the address: the page's language as `?lang=`, and on a pricing card the plan's
+key and the period, `?plan=solo&interval=year`, which the signup form opens on.
+The keys are the platform's (`solo`, `small`), so a plan renamed or repriced
+there needs nothing here. Each link carries a plain `href` as well, for a
+visitor with no script.
 
 ## Cache-busting
 
@@ -92,7 +104,7 @@ Build command    npm run build && npm run dist
 Deploy command   npx wrangler deploy
 ```
 
-**The demo form needs one secret**, the mailbox requests go to. It is a secret
+**The contact form needs one secret**, the mailbox questions go to. It is a secret
 rather than a value in `wrangler.jsonc` because it is a personal address in a
 public repo. Set it once per Worker:
 
@@ -138,8 +150,8 @@ it takes on runs in front of the site.
 ## Measuring
 
 There is no analytics script, and the privacy page says so. What the site
-does keep is one log line per demo request, written by the Worker
-(`{"event":"demo-request", …}`), readable under the Worker's Logs tab. If page
+does keep is one log line per question, written by the Worker
+(`{"event":"question", …}`), readable under the Worker's Logs tab. If page
 analytics are ever wanted, Cloudflare Web Analytics is the fit — cookieless,
 one `<script>` with a site token from the dashboard — and turning it on means
 editing the "What we collect" section of `privacy-policy.html` in the same commit.

@@ -34,23 +34,23 @@ async function handleContact(request, env, origin) {
     }
 
     const result = validate(data);
-    if (!result.ok) return answer(400, { ok: false, errors: result.errors }, "/#book-demo");
+    if (!result.ok) return answer(400, { ok: false, errors: result.errors }, "/#contact");
     if (result.spam) return answer(200, { ok: true }, "/thanks.html");
 
     if (!env.CONTACT_TO) {
         console.error("CONTACT_TO is not set — see README, Deploy");
-        return answer(500, { ok: false }, "/#book-demo");
+        return answer(500, { ok: false }, "/#contact");
     }
 
     const raw = buildMessage({ from: FROM, to: env.CONTACT_TO, values: result.values, now: new Date(), id: crypto.randomUUID() });
     try {
         await env.CONTACT.send(new EmailMessage(FROM, env.CONTACT_TO, raw));
     } catch (error) {
-        console.error("demo request not sent:", error.message);
-        return answer(502, { ok: false }, "/#book-demo");
+        console.error("question not sent:", error.message);
+        return answer(502, { ok: false }, "/#contact");
     }
 
-    // The site's only analytics: one log line per request
-    console.log(JSON.stringify({ event: "demo-request", agents: result.values.agents, lang: result.values.lang }));
+    // The site's only analytics: one log line per question
+    console.log(JSON.stringify({ event: "question", agents: result.values.agents, lang: result.values.lang }));
     return answer(200, { ok: true }, "/thanks.html");
 }

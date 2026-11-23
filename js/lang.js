@@ -2,7 +2,8 @@
      data-es                    an element's content, markup allowed
      data-es-alt, -es-content   that attribute
      data-lang="es"             a whole block (the legal texts)
-   Runs before Alpine, so <html lang> is set when the header reads it. */
+   Runs before Alpine, so <html lang> is set when the header reads it; a switch
+   after that is announced as lang-change on window, for what Alpine draws. */
 (() => {
     const SUPPORTED = ["en", "es"];
     const KEY = "sonco-lang";
@@ -43,9 +44,21 @@
             }
         }
         for (const el of document.querySelectorAll("[data-lang]")) el.hidden = el.dataset.lang !== lang;
-        // The demo form's language, for the Worker
+        // The contact form's language, for the Worker
         for (const input of document.querySelectorAll('input[name="lang"]')) input.value = lang;
+        window.dispatchEvent(new CustomEvent("lang-change", { detail: lang }));
     }
+
+    // Signing up, in this language, opened on a plan and period where a pricing card says which
+    window.signupUrl = (lang, plan, interval) => {
+        const url = new URL("https://app.sonco.ai/");
+        if (plan) {
+            url.searchParams.set("plan", plan);
+            url.searchParams.set("interval", interval);
+        }
+        url.searchParams.set("lang", lang);
+        return url.href;
+    };
 
     window.setLang = (lang) => {
         if (!SUPPORTED.includes(lang)) return;

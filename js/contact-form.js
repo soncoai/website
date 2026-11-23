@@ -1,7 +1,7 @@
-/* The demo form. Validates with the browser's rules but not its bubbles
+/* The contact form. Validates with the browser's rules but not its bubbles
    (novalidate) and marks refused fields with aria-invalid, including those the
    Worker refuses: its email check is stricter. Success goes to /thanks.html. */
-window.bookDemoForm = () => ({
+window.contactForm = () => ({
     sending: false,
     failed: false,
 
