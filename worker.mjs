@@ -1,11 +1,15 @@
-/* POST /contact becomes an email; everything else is a static asset. */
+/* POST /contact becomes an email, /signup points at the app's signup;
+   everything else is a static asset. */
 
 import { EmailMessage } from "cloudflare:email";
 import { FROM, buildMessage, validate } from "./contact.mjs";
+import { signupRedirect } from "./signup.mjs";
 
 export default {
     async fetch(request, env) {
         const url = new URL(request.url);
+        const signup = signupRedirect(url);
+        if (signup) return Response.redirect(signup, 302);
         if (url.pathname !== "/contact") return env.ASSETS.fetch(request);
         if (request.method !== "POST") {
             return new Response("Method not allowed", { status: 405, headers: { Allow: "POST" } });
