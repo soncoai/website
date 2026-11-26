@@ -11,7 +11,8 @@ index.html           The landing page (Tailwind utility classes)
 thanks.html          Where a question sent through the contact form ends, with or without a script
 privacy-policy.html  Privacy policy
 terms-of-use.html    Terms of use, the same shape
-worker.mjs           The Worker script: POST /contact → email; everything else → assets
+worker.mjs           The Worker script: POST /contact → email, /signup → app.sonco.ai; everything else → assets
+signup.mjs           Where /signup redirects, pure, covered by test/
 contact.mjs          The form's validation and the email it becomes, pure, covered by test/
 test/                `npm test` — node:test, no dependencies
 js/lang.js           English/Spanish switching for every page (see Languages), and signupUrl()
@@ -39,6 +40,11 @@ key and the period, `?plan=solo&interval=year`, which the signup form opens on.
 The keys are the platform's (`solo`, `small`), so a plan renamed or repriced
 there needs nothing here. Each link carries a plain `href` as well, for a
 visitor with no script.
+
+`sonco.ai/signup` is the address to share: the Worker answers it with a 302
+to `app.sonco.ai`, carrying any query along, so `/signup?plan=solo&interval=year`
+opens on that plan too. The site's own buttons link to `app.sonco.ai`
+directly, and skip the hop.
 
 ## Cache-busting
 
@@ -142,7 +148,8 @@ how the root icons and `site.webmanifest` nearly shipped missing.
 
 The site is a Worker with static assets and a one-route script. Assets are
 matched first, so a page or an image never invokes the script; `worker.mjs`
-runs only for paths no asset answers, handles `POST /contact`, and hands
+runs only for paths no asset answers, handles `POST /contact`, redirects
+`/signup` (see Signing up), and hands
 everything else back to the assets binding so the 404 page still applies.
 That is the whole of what the script does — keep it that way, since anything
 it takes on runs in front of the site.
